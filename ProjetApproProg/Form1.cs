@@ -60,5 +60,15 @@ namespace ProjetApproProg
                 
             }
         }
+
+        private void btnFiltres_Click(object sender, EventArgs e)
+        {
+            FormFiltres frmFiltres = new FormFiltres();
+
+            if (frmFiltres.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

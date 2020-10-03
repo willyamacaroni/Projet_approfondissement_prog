@@ -427,6 +427,7 @@
             this.btnFiltres.TabIndex = 0;
             this.btnFiltres.Text = "AFFICHER LES FILTRES";
             this.btnFiltres.UseVisualStyleBackColor = false;
+            this.btnFiltres.Click += new System.EventHandler(this.btnFiltres_Click);
             // 
             // tableLayoutPanel2
             // 
