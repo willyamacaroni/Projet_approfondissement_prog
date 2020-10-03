@@ -32,36 +32,39 @@
             this.lytOptions = new System.Windows.Forms.TableLayoutPanel();
             this.pnlOptions = new System.Windows.Forms.Panel();
             this.lblOptions = new System.Windows.Forms.Label();
+            this.lytBtn1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnImpListe = new System.Windows.Forms.Button();
+            this.lytBtn2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnImpParam = new System.Windows.Forms.Button();
+            this.lytBtn3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSaveParam = new System.Windows.Forms.Button();
+            this.lytBtn4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnFavoris = new System.Windows.Forms.Button();
             this.btnRecherche = new System.Windows.Forms.Button();
             this.txtRecherche = new System.Windows.Forms.TextBox();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lytPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.pnlTextBox = new System.Windows.Forms.Panel();
-            this.lytBtn1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnImpListe = new System.Windows.Forms.Button();
-            this.lytBtn2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lytBtn3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lytBtn4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnImpParam = new System.Windows.Forms.Button();
-            this.btnSaveParam = new System.Windows.Forms.Button();
-            this.btnFavoris = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lytBtnSites = new System.Windows.Forms.TableLayoutPanel();
             this.btnSites = new System.Windows.Forms.Button();
             this.lytBtnFiltres = new System.Windows.Forms.TableLayoutPanel();
             this.btnFiltres = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTitre = new System.Windows.Forms.Label();
             this.lytPanneauPrincipal.SuspendLayout();
             this.lytOptions.SuspendLayout();
             this.pnlOptions.SuspendLayout();
-            this.lytPrincipal.SuspendLayout();
-            this.pnlTextBox.SuspendLayout();
             this.lytBtn1.SuspendLayout();
             this.lytBtn2.SuspendLayout();
             this.lytBtn3.SuspendLayout();
             this.lytBtn4.SuspendLayout();
+            this.lytPrincipal.SuspendLayout();
+            this.pnlTextBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.lytBtnSites.SuspendLayout();
             this.lytBtnFiltres.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lytPanneauPrincipal
@@ -129,80 +132,6 @@
             this.lblOptions.Text = "OPTIONS";
             this.lblOptions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnRecherche
-            // 
-            this.btnRecherche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRecherche.BackColor = System.Drawing.Color.White;
-            this.btnRecherche.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRecherche.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecherche.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRecherche.Image = global::ProjetApproProg.Resources.iconLoupe;
-            this.btnRecherche.Location = new System.Drawing.Point(689, 301);
-            this.btnRecherche.Name = "btnRecherche";
-            this.btnRecherche.Size = new System.Drawing.Size(54, 54);
-            this.btnRecherche.TabIndex = 1;
-            this.btnRecherche.UseVisualStyleBackColor = false;
-            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
-            // 
-            // txtRecherche
-            // 
-            this.txtRecherche.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRecherche.BackColor = System.Drawing.Color.White;
-            this.txtRecherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRecherche.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRecherche.ForeColor = System.Drawing.Color.LightGray;
-            this.txtRecherche.Location = new System.Drawing.Point(6, 5);
-            this.txtRecherche.Name = "txtRecherche";
-            this.txtRecherche.Size = new System.Drawing.Size(629, 45);
-            this.txtRecherche.TabIndex = 0;
-            this.txtRecherche.Text = "Rechercher...";
-            this.txtRecherche.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.txtRecherche.Leave += new System.EventHandler(this.txtRecherche_Leave);
-            // 
-            // pnlTop
-            // 
-            this.pnlTop.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(275, 0);
-            this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(787, 58);
-            this.pnlTop.TabIndex = 3;
-            // 
-            // lytPrincipal
-            // 
-            this.lytPrincipal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.lytPrincipal.ColumnCount = 4;
-            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.434783F));
-            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.13043F));
-            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.434783F));
-            this.lytPrincipal.Controls.Add(this.btnRecherche, 2, 1);
-            this.lytPrincipal.Controls.Add(this.pnlTextBox, 1, 1);
-            this.lytPrincipal.Controls.Add(this.tableLayoutPanel1, 0, 2);
-            this.lytPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lytPrincipal.Location = new System.Drawing.Point(275, 58);
-            this.lytPrincipal.Name = "lytPrincipal";
-            this.lytPrincipal.RowCount = 3;
-            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.lytPrincipal.Size = new System.Drawing.Size(787, 657);
-            this.lytPrincipal.TabIndex = 4;
-            // 
-            // pnlTextBox
-            // 
-            this.pnlTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlTextBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlTextBox.BackColor = System.Drawing.Color.White;
-            this.pnlTextBox.Controls.Add(this.txtRecherche);
-            this.pnlTextBox.Location = new System.Drawing.Point(42, 301);
-            this.pnlTextBox.Name = "pnlTextBox";
-            this.pnlTextBox.Padding = new System.Windows.Forms.Padding(3);
-            this.pnlTextBox.Size = new System.Drawing.Size(641, 54);
-            this.pnlTextBox.TabIndex = 2;
-            // 
             // lytBtn1
             // 
             this.lytBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -256,6 +185,21 @@
             this.lytBtn2.Size = new System.Drawing.Size(269, 137);
             this.lytBtn2.TabIndex = 2;
             // 
+            // btnImpParam
+            // 
+            this.btnImpParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImpParam.BackColor = System.Drawing.Color.Red;
+            this.btnImpParam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnImpParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpParam.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.btnImpParam.ForeColor = System.Drawing.Color.White;
+            this.btnImpParam.Location = new System.Drawing.Point(8, 5);
+            this.btnImpParam.Name = "btnImpParam";
+            this.btnImpParam.Size = new System.Drawing.Size(252, 125);
+            this.btnImpParam.TabIndex = 0;
+            this.btnImpParam.Text = "IMPORTER PARAMÈTRES";
+            this.btnImpParam.UseVisualStyleBackColor = false;
+            // 
             // lytBtn3
             // 
             this.lytBtn3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -274,6 +218,21 @@
             this.lytBtn3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.lytBtn3.Size = new System.Drawing.Size(269, 137);
             this.lytBtn3.TabIndex = 3;
+            // 
+            // btnSaveParam
+            // 
+            this.btnSaveParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSaveParam.BackColor = System.Drawing.Color.Red;
+            this.btnSaveParam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveParam.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.btnSaveParam.ForeColor = System.Drawing.Color.White;
+            this.btnSaveParam.Location = new System.Drawing.Point(8, 5);
+            this.btnSaveParam.Name = "btnSaveParam";
+            this.btnSaveParam.Size = new System.Drawing.Size(252, 125);
+            this.btnSaveParam.TabIndex = 0;
+            this.btnSaveParam.Text = "ENREGISTRER PARAMÈTRES";
+            this.btnSaveParam.UseVisualStyleBackColor = false;
             // 
             // lytBtn4
             // 
@@ -294,36 +253,6 @@
             this.lytBtn4.Size = new System.Drawing.Size(269, 137);
             this.lytBtn4.TabIndex = 4;
             // 
-            // btnImpParam
-            // 
-            this.btnImpParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnImpParam.BackColor = System.Drawing.Color.Red;
-            this.btnImpParam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnImpParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImpParam.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.btnImpParam.ForeColor = System.Drawing.Color.White;
-            this.btnImpParam.Location = new System.Drawing.Point(8, 5);
-            this.btnImpParam.Name = "btnImpParam";
-            this.btnImpParam.Size = new System.Drawing.Size(252, 125);
-            this.btnImpParam.TabIndex = 0;
-            this.btnImpParam.Text = "IMPORTER PARAMÈTRES";
-            this.btnImpParam.UseVisualStyleBackColor = false;
-            // 
-            // btnSaveParam
-            // 
-            this.btnSaveParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnSaveParam.BackColor = System.Drawing.Color.Red;
-            this.btnSaveParam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveParam.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.btnSaveParam.ForeColor = System.Drawing.Color.White;
-            this.btnSaveParam.Location = new System.Drawing.Point(8, 5);
-            this.btnSaveParam.Name = "btnSaveParam";
-            this.btnSaveParam.Size = new System.Drawing.Size(252, 125);
-            this.btnSaveParam.TabIndex = 0;
-            this.btnSaveParam.Text = "ENREGISTRER PARAMÈTRES";
-            this.btnSaveParam.UseVisualStyleBackColor = false;
-            // 
             // btnFavoris
             // 
             this.btnFavoris.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -338,6 +267,81 @@
             this.btnFavoris.TabIndex = 0;
             this.btnFavoris.Text = "MES FAVORIS";
             this.btnFavoris.UseVisualStyleBackColor = false;
+            // 
+            // btnRecherche
+            // 
+            this.btnRecherche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRecherche.BackColor = System.Drawing.Color.White;
+            this.btnRecherche.BackgroundImage = global::ProjetApproProg.Resources.iconLoupe;
+            this.btnRecherche.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRecherche.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecherche.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRecherche.Location = new System.Drawing.Point(689, 301);
+            this.btnRecherche.Name = "btnRecherche";
+            this.btnRecherche.Size = new System.Drawing.Size(54, 54);
+            this.btnRecherche.TabIndex = 1;
+            this.btnRecherche.UseVisualStyleBackColor = false;
+            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
+            // 
+            // txtRecherche
+            // 
+            this.txtRecherche.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRecherche.BackColor = System.Drawing.Color.White;
+            this.txtRecherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRecherche.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRecherche.ForeColor = System.Drawing.Color.LightGray;
+            this.txtRecherche.Location = new System.Drawing.Point(6, 5);
+            this.txtRecherche.Name = "txtRecherche";
+            this.txtRecherche.Size = new System.Drawing.Size(629, 45);
+            this.txtRecherche.TabIndex = 0;
+            this.txtRecherche.Text = "Rechercher...";
+            this.txtRecherche.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.txtRecherche.Leave += new System.EventHandler(this.txtRecherche_Leave);
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Location = new System.Drawing.Point(275, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(787, 58);
+            this.pnlTop.TabIndex = 3;
+            // 
+            // lytPrincipal
+            // 
+            this.lytPrincipal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.lytPrincipal.ColumnCount = 4;
+            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.434783F));
+            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.13043F));
+            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.lytPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.434783F));
+            this.lytPrincipal.Controls.Add(this.btnRecherche, 2, 1);
+            this.lytPrincipal.Controls.Add(this.pnlTextBox, 1, 1);
+            this.lytPrincipal.Controls.Add(this.tableLayoutPanel1, 0, 2);
+            this.lytPrincipal.Controls.Add(this.tableLayoutPanel2, 1, 0);
+            this.lytPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lytPrincipal.Location = new System.Drawing.Point(275, 58);
+            this.lytPrincipal.Name = "lytPrincipal";
+            this.lytPrincipal.RowCount = 3;
+            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.lytPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.lytPrincipal.Size = new System.Drawing.Size(787, 657);
+            this.lytPrincipal.TabIndex = 4;
+            // 
+            // pnlTextBox
+            // 
+            this.pnlTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlTextBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlTextBox.BackColor = System.Drawing.Color.White;
+            this.pnlTextBox.Controls.Add(this.txtRecherche);
+            this.pnlTextBox.Location = new System.Drawing.Point(42, 301);
+            this.pnlTextBox.Name = "pnlTextBox";
+            this.pnlTextBox.Padding = new System.Windows.Forms.Padding(3);
+            this.pnlTextBox.Size = new System.Drawing.Size(641, 54);
+            this.pnlTextBox.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -389,6 +393,7 @@
             this.btnSites.TabIndex = 0;
             this.btnSites.Text = "AFFICHER LES SITES";
             this.btnSites.UseVisualStyleBackColor = false;
+            this.btnSites.Click += new System.EventHandler(this.btnSites_Click);
             // 
             // lytBtnFiltres
             // 
@@ -423,6 +428,38 @@
             this.btnFiltres.Text = "AFFICHER LES FILTRES";
             this.btnFiltres.UseVisualStyleBackColor = false;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.03708F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.92583F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.03708F));
+            this.tableLayoutPanel2.Controls.Add(this.lblTitre, 1, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(42, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(641, 292);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // lblTitre
+            // 
+            this.lblTitre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitre.AutoSize = true;
+            this.lblTitre.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTitre.Font = new System.Drawing.Font("Century Gothic", 32F, System.Drawing.FontStyle.Bold);
+            this.lblTitre.ForeColor = System.Drawing.Color.White;
+            this.lblTitre.Location = new System.Drawing.Point(225, 113);
+            this.lblTitre.Name = "lblTitre";
+            this.lblTitre.Size = new System.Drawing.Size(189, 64);
+            this.lblTitre.TabIndex = 0;
+            this.lblTitre.Text = "BONG";
+            this.lblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -436,21 +473,23 @@
             this.Name = "frmPrincipal";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " Multi Search";
+            this.Text = "BONG";
             this.lytPanneauPrincipal.ResumeLayout(false);
             this.lytOptions.ResumeLayout(false);
             this.pnlOptions.ResumeLayout(false);
             this.pnlOptions.PerformLayout();
-            this.lytPrincipal.ResumeLayout(false);
-            this.pnlTextBox.ResumeLayout(false);
-            this.pnlTextBox.PerformLayout();
             this.lytBtn1.ResumeLayout(false);
             this.lytBtn2.ResumeLayout(false);
             this.lytBtn3.ResumeLayout(false);
             this.lytBtn4.ResumeLayout(false);
+            this.lytPrincipal.ResumeLayout(false);
+            this.pnlTextBox.ResumeLayout(false);
+            this.pnlTextBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.lytBtnSites.ResumeLayout(false);
             this.lytBtnFiltres.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -479,6 +518,8 @@
         private System.Windows.Forms.Button btnSites;
         private System.Windows.Forms.TableLayoutPanel lytBtnFiltres;
         private System.Windows.Forms.Button btnFiltres;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label lblTitre;
     }
 }
 

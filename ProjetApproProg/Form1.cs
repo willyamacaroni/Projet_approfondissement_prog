@@ -49,5 +49,16 @@ namespace ProjetApproProg
                 this.txtRecherche.ForeColor = Color.LightGray;
             }
         }
+
+        private void btnSites_Click(object sender, EventArgs e)
+        {
+
+            FormSites frmSites = new FormSites();
+
+            if (frmSites.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+        }
     }
 }
