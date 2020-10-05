@@ -15,9 +15,9 @@ namespace ProjetApproProg
         public FormSites()
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(255, 65, 55, 80);
-            this.btnOK.BackColor = Color.FromArgb(255 * 80 / 100, 30, 180, 125);
-            this.btnCancel.BackColor = Color.FromArgb(255 * 80 / 100, 30, 180, 125);
+            this.BackColor = Color.FromArgb(255, 49, 29, 63);
+            this.btnOK.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
+            this.btnCancel.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
         }
     }
 }
