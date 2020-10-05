@@ -23,6 +23,12 @@ namespace ProjetApproProg
             this.btnSaveParam.BackColor = btnCote;
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
+
+            FormFiltres formFiltres = new FormFiltres();
+            Gestionnaire.RetrieveFiltres(formFiltres);
+
+            FormSites formSites = new FormSites();
+            Gestionnaire.RetrieveSites(formSites);
         }
 
         private void textBox1_Enter(object sender, EventArgs e)

@@ -6,6 +6,24 @@ namespace ProjetApproProg
 {
     public partial class FormFiltres : Form
     {
+        public CheckBox ChkCondition
+        {
+            get { return chkCondition; }
+            set { chkCondition = value; }
+        }
+
+        public CheckBox ChkNote
+        {
+            get { return chkNote; }
+            set { chkNote = value; }
+        }
+
+        public CheckBox ChkPrix
+        {
+            get { return chkPrix; }
+            set { chkPrix = value; }
+        }
+
         public FormFiltres()
         {
             InitializeComponent();
