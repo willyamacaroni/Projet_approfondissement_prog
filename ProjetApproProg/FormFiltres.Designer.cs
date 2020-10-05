@@ -237,11 +237,13 @@
             this.txtPrixA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrixA.Font = new System.Drawing.Font("Century Gothic", 16F);
             this.txtPrixA.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtPrixA.Location = new System.Drawing.Point(219, 3);
+            this.txtPrixA.Location = new System.Drawing.Point(219, 9);
             this.txtPrixA.Name = "txtPrixA";
-            this.txtPrixA.Size = new System.Drawing.Size(211, 53);
+            this.txtPrixA.Size = new System.Drawing.Size(211, 33);
             this.txtPrixA.TabIndex = 1;
             this.txtPrixA.Text = "À:";
+            this.txtPrixA.Enter += new System.EventHandler(this.txtPrixA_Enter);
+            this.txtPrixA.Leave += new System.EventHandler(this.txtPrixA_Leave);
             // 
             // txtPrixDe
             // 
@@ -250,11 +252,13 @@
             this.txtPrixDe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrixDe.Font = new System.Drawing.Font("Century Gothic", 16F);
             this.txtPrixDe.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtPrixDe.Location = new System.Drawing.Point(3, 3);
+            this.txtPrixDe.Location = new System.Drawing.Point(3, 9);
             this.txtPrixDe.Name = "txtPrixDe";
-            this.txtPrixDe.Size = new System.Drawing.Size(210, 53);
+            this.txtPrixDe.Size = new System.Drawing.Size(210, 33);
             this.txtPrixDe.TabIndex = 0;
             this.txtPrixDe.Text = "De:";
+            this.txtPrixDe.Enter += new System.EventHandler(this.txtPrixDe_Enter);
+            this.txtPrixDe.Leave += new System.EventHandler(this.txtPrixDe_Leave);
             // 
             // cmbCondition
             // 
@@ -268,15 +272,15 @@
             "Neuf",
             "Remis à neuf",
             "Usagé"});
-            this.cmbCondition.Location = new System.Drawing.Point(441, 351);
+            this.cmbCondition.Location = new System.Drawing.Point(441, 356);
             this.cmbCondition.MaxDropDownItems = 3;
             this.cmbCondition.Name = "cmbCondition";
-            this.cmbCondition.Size = new System.Drawing.Size(286, 60);
+            this.cmbCondition.Size = new System.Drawing.Size(286, 41);
             this.cmbCondition.TabIndex = 8;
             // 
             // FormFiltres
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(882, 523);
