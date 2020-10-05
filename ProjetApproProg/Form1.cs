@@ -15,16 +15,16 @@ namespace ProjetApproProg
         public frmPrincipal()
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(255, 65, 55, 80);
-            this.lytPanneauPrincipal.BackColor = Color.FromArgb(255/2, 0, 0, 0);
-            this.pnlTop.BackColor = Color.FromArgb(255 * 80 / 100, 30, 165, 180);
-            this.pnlOptions.BackColor = Color.FromArgb(255 * 80 / 100, 30, 165, 180);
-            this.btnImpListe.BackColor = Color.FromArgb(255 * 80 / 100, 30, 165, 180);
-            this.btnImpParam.BackColor = Color.FromArgb(255 * 80 / 100, 30, 165, 180);
-            this.btnFavoris.BackColor = Color.FromArgb(255 * 80 / 100, 30, 185, 100);
-            this.btnSaveParam.BackColor = Color.FromArgb(255 * 80 / 100, 30, 165, 180);
-            this.btnFiltres.BackColor = Color.FromArgb(255 * 80 / 100, 30, 180, 125);
-            this.btnSites.BackColor = Color.FromArgb(255 * 80 / 100, 30, 180, 125);
+            this.BackColor = Color.FromArgb(255, 49, 29, 63);
+            this.lytPanneauPrincipal.BackColor = Color.FromArgb(255/2, 82, 37, 70);
+            this.pnlTop.BackColor = Color.FromArgb(255 * 80 / 100, 82, 37, 70);
+            this.pnlOptions.BackColor = Color.FromArgb(255 * 80 / 100, 82, 37, 70);
+            this.btnImpListe.BackColor = Color.FromArgb(255 * 80 / 100, 136, 48, 78);
+            this.btnImpParam.BackColor = Color.FromArgb(255 * 80 / 100, 136, 48, 78);
+            this.btnFavoris.BackColor = Color.FromArgb(255 * 80 / 100, 136, 48, 78);
+            this.btnSaveParam.BackColor = Color.FromArgb(255 * 80 / 100, 136, 48, 78);
+            this.btnFiltres.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
+            this.btnSites.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
