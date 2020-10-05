@@ -46,26 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filtre.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Classes\Filtre.cs" />
+    <Compile Include="Classes\FiltreCondition.cs" />
+    <Compile Include="Classes\FiltreNote.cs" />
+    <Compile Include="Classes\FiltrePrix.cs" />
+    <Compile Include="Classes\SiteAmazon.cs" />
+    <Compile Include="Classes\SiteBestBuy.cs" />
+    <Compile Include="Classes\SiteEbay.cs" />
+    <Compile Include="Classes\SiteMikeComputerShop.cs" />
+    <Compile Include="Classes\SiteNewEgg.cs" />
+    <Compile Include="Classes\SiteWalmart.cs" />
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFiltres.cs">
+    <Compile Include="Forms\FormFiltres.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFiltres.Designer.cs">
+    <Compile Include="Forms\FormFiltres.Designer.cs">
       <DependentUpon>FormFiltres.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSites.cs">
+    <Compile Include="Forms\FormSites.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSites.Designer.cs">
+    <Compile Include="Forms\FormSites.Designer.cs">
       <DependentUpon>FormSites.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gestionnaire.cs" />
+    <Compile Include="Classes\Gestionnaire.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
@@ -73,14 +82,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Site.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="Classes\Site.cs" />
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFiltres.resx">
+    <EmbeddedResource Include="Forms\FormFiltres.resx">
       <DependentUpon>FormFiltres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSites.resx">
+    <EmbeddedResource Include="Forms\FormSites.resx">
       <DependentUpon>FormSites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -127,5 +136,6 @@
   <ItemGroup>
     <None Include="Resources\iconTrier.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

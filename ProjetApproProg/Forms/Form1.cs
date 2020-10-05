@@ -25,6 +25,15 @@ namespace ProjetApproProg
             this.btnSaveParam.BackColor = Color.FromArgb(255 * 80 / 100, 136, 48, 78);
             this.btnFiltres.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
             this.btnSites.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
+
+            FormFiltres formFiltres = new FormFiltres();
+            Gestionnaire.RetrieveFiltres(formFiltres);
+
+            FormSites formSites = new FormSites();
+            Gestionnaire.RetrieveSites(formSites);
+
+
+
         }
 
         private void textBox1_Enter(object sender, EventArgs e)

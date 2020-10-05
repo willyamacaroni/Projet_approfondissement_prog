@@ -10,9 +10,27 @@ using System.Windows.Forms;
 
 namespace ProjetApproProg
 {
-    public partial class FormSites : Form
+    public partial class FormFiltres : Form
     {
-        public FormSites()
+        public CheckBox ChkCondition
+        {
+            get { return chkCondition; }
+            set { chkCondition = value; }
+        }
+
+        public CheckBox ChkNote
+        {
+            get { return chkNote; }
+            set { chkNote = value; }
+        }
+
+        public CheckBox ChkPrix
+        {
+            get { return chkPrix; }
+            set { chkPrix = value; }
+        }
+
+        public FormFiltres()
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(255, 49, 29, 63);

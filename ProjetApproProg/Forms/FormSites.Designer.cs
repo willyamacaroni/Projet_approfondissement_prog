@@ -40,7 +40,7 @@
             this.chkAmazon = new System.Windows.Forms.CheckBox();
             this.chkNewEgg = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.vhkBestBuy = new System.Windows.Forms.CheckBox();
+            this.chkBestBuy = new System.Windows.Forms.CheckBox();
             this.chkEbay = new System.Windows.Forms.CheckBox();
             this.lytBottomLeft = new System.Windows.Forms.TableLayoutPanel();
             this.lytBtnCancel = new System.Windows.Forms.TableLayoutPanel();
@@ -243,7 +243,7 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.vhkBestBuy, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.chkBestBuy, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.chkEbay, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(441, 130);
@@ -254,21 +254,21 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(432, 122);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
-            // vhkBestBuy
+            // chkBestBuy
             // 
-            this.vhkBestBuy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.vhkBestBuy.AutoSize = true;
-            this.vhkBestBuy.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.vhkBestBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.vhkBestBuy.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.vhkBestBuy.ForeColor = System.Drawing.Color.White;
-            this.vhkBestBuy.Location = new System.Drawing.Point(3, 64);
-            this.vhkBestBuy.Name = "vhkBestBuy";
-            this.vhkBestBuy.Size = new System.Drawing.Size(210, 55);
-            this.vhkBestBuy.TabIndex = 3;
-            this.vhkBestBuy.Text = "BestBuy";
-            this.vhkBestBuy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.vhkBestBuy.UseVisualStyleBackColor = true;
+            this.chkBestBuy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkBestBuy.AutoSize = true;
+            this.chkBestBuy.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkBestBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkBestBuy.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkBestBuy.ForeColor = System.Drawing.Color.White;
+            this.chkBestBuy.Location = new System.Drawing.Point(3, 64);
+            this.chkBestBuy.Name = "chkBestBuy";
+            this.chkBestBuy.Size = new System.Drawing.Size(210, 55);
+            this.chkBestBuy.TabIndex = 3;
+            this.chkBestBuy.Text = "BestBuy";
+            this.chkBestBuy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkBestBuy.UseVisualStyleBackColor = true;
             // 
             // chkEbay
             // 
@@ -409,7 +409,7 @@
         private System.Windows.Forms.CheckBox chkAmazon;
         private System.Windows.Forms.CheckBox chkNewEgg;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.CheckBox vhkBestBuy;
+        private System.Windows.Forms.CheckBox chkBestBuy;
         private System.Windows.Forms.CheckBox chkEbay;
         private System.Windows.Forms.TableLayoutPanel lytBottomLeft;
         private System.Windows.Forms.TableLayoutPanel lytBtnCancel;
