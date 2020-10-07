@@ -22,7 +22,11 @@ namespace ProjetApproProg
         public int EtoileCochee
         {
             get { return _iEtoileCochee; }
-            set { _iEtoileCochee = value; }
+            set
+            {
+                _iEtoileCochee = value;
+                UpdateVisuel(value);
+            }
         }
 
         #endregion
@@ -43,46 +47,27 @@ namespace ProjetApproProg
         {
             pct1.MouseClick += (sender, e) =>
             {
-                _iEtoileCochee = 1;
-                Reset();
+                EtoileCochee = 1;
             };
 
             pct2.MouseClick += (sender, e) =>
             {
-                _iEtoileCochee = 2;
-                Reset();
-                pct1.Image = Resources.iconEtoilePleine;
-                pct2.Image = Resources.iconEtoilePleine;
+                EtoileCochee = 2;
             };
 
             pct3.MouseClick += (sender, e) =>
             {
-                _iEtoileCochee = 3;
-                Reset();
-                pct1.Image = Resources.iconEtoilePleine;
-                pct2.Image = Resources.iconEtoilePleine;
-                pct3.Image = Resources.iconEtoilePleine;
+                EtoileCochee = 3;
             };
 
             pct4.MouseClick += (sender, e) =>
             {
-                _iEtoileCochee = 4;
-                Reset();
-                pct1.Image = Resources.iconEtoilePleine;
-                pct2.Image = Resources.iconEtoilePleine;
-                pct3.Image = Resources.iconEtoilePleine;
-                pct4.Image = Resources.iconEtoilePleine;
+                EtoileCochee = 4;
             };
 
             pct5.MouseClick += (sender, e) =>
             {
-                _iEtoileCochee = 5;
-                Reset();
-                pct1.Image = Resources.iconEtoilePleine;
-                pct2.Image = Resources.iconEtoilePleine;
-                pct3.Image = Resources.iconEtoilePleine;
-                pct4.Image = Resources.iconEtoilePleine;
-                pct5.Image = Resources.iconEtoilePleine;
+                EtoileCochee = 5;
             };
 
         }
@@ -93,6 +78,38 @@ namespace ProjetApproProg
             pct3.Image = Resources.iconEtoileVide;
             pct4.Image = Resources.iconEtoileVide;
             pct5.Image = Resources.iconEtoileVide;
+        }
+
+        private void UpdateVisuel(int valeur)
+        {
+            switch (valeur)
+            {
+                case 1:
+                    Reset();
+                    break;
+                case 2:
+                    Reset();
+                    pct2.Image = Resources.iconEtoilePleine;
+                    break;
+                case 3:
+                    Reset();
+                    pct2.Image = Resources.iconEtoilePleine;
+                    pct3.Image = Resources.iconEtoilePleine;
+                    break;
+                case 4:
+                    Reset();
+                    pct2.Image = Resources.iconEtoilePleine;
+                    pct3.Image = Resources.iconEtoilePleine;
+                    pct4.Image = Resources.iconEtoilePleine;
+                    break;
+                case 5:
+                    Reset();
+                    pct2.Image = Resources.iconEtoilePleine;
+                    pct3.Image = Resources.iconEtoilePleine;
+                    pct4.Image = Resources.iconEtoilePleine;
+                    pct5.Image = Resources.iconEtoilePleine;
+                    break;
+            }
         }
 
         #endregion

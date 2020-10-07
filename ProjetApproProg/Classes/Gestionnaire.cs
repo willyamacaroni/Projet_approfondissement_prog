@@ -33,12 +33,19 @@ namespace ProjetApproProg
         {
             List<Filtre> lstFiltres = new List<Filtre>();
 
-            FiltreCondition filtreCondition = new FiltreCondition(pFormFiltres.ChkCondition.EstCoche,
-                pFormFiltres.ChkCondition.TextLabel, (Condition) pFormFiltres.CmbCondition.SelectedIndex);
-            FiltreNote filtreNote = new FiltreNote(pFormFiltres.ChkNote.EstCoche, pFormFiltres.ChkNote.TextLabel,
+            FiltreCondition filtreCondition = new FiltreCondition(
+                pFormFiltres.ChkCondition.EstCoche,
+                pFormFiltres.ChkCondition.TextLabel.Substring(0, pFormFiltres.ChkCondition.TextLabel.Length - 1),
+                (Condition) pFormFiltres.CmbCondition.SelectedIndex);
+            FiltreNote filtreNote = new FiltreNote(
+                pFormFiltres.ChkNote.EstCoche,
+                pFormFiltres.ChkNote.TextLabel.Substring(0, pFormFiltres.ChkNote.TextLabel.Length - 1),
                 pFormFiltres.NoteEtoiles.EtoileCochee);
-            FiltrePrix filtrePrix = new FiltrePrix(pFormFiltres.ChkPrix.EstCoche, pFormFiltres.ChkPrix.TextLabel,
-                pFormFiltres.TxtPrixDe.Text, pFormFiltres.TxtPrixA.Text);
+            FiltrePrix filtrePrix = new FiltrePrix(
+                pFormFiltres.ChkPrix.EstCoche,
+                pFormFiltres.ChkPrix.TextLabel.Substring(0, pFormFiltres.ChkPrix.TextLabel.Length - 1),
+                pFormFiltres.TxtPrixDe.Text,
+                pFormFiltres.TxtPrixA.Text);
 
             lstFiltres.Add(filtreCondition);
             lstFiltres.Add(filtreNote);
@@ -53,27 +60,27 @@ namespace ProjetApproProg
 
             Site amazon = new Site(
                 pFormSites.ChkAmazon.EstCoche,
-                pFormSites.ChkAmazon.TextLabel.Substring(0, pFormSites.ChkAmazon.TextLabel.Length - 1), 
+                pFormSites.ChkAmazon.TextLabel,
                 "");
             Site bestBuy = new Site(
                 pFormSites.ChkBestBuy.EstCoche,
-                pFormSites.ChkBestBuy.TextLabel.Substring(0, pFormSites.ChkBestBuy.TextLabel.Length - 1), 
+                pFormSites.ChkBestBuy.TextLabel,
                 "");
             Site ebay = new Site(
                 pFormSites.ChkEbay.EstCoche, 
-                pFormSites.ChkEbay.TextLabel.Substring(0, pFormSites.ChkEbay.TextLabel.Length - 1), 
+                pFormSites.ChkEbay.TextLabel,
                 "");
             Site mikeComputerShop = new Site(
                 pFormSites.ChkMikeShop.EstCoche,
-                pFormSites.ChkMikeShop.TextLabel.Substring(0, pFormSites.ChkMikeShop.TextLabel.Length - 1), 
+                pFormSites.ChkMikeShop.TextLabel,
                 "");
             Site newEgg = new Site(
                 pFormSites.ChkNewEgg.EstCoche,
-                pFormSites.ChkNewEgg.TextLabel.Substring(0, pFormSites.ChkNewEgg.TextLabel.Length - 1),
+                pFormSites.ChkNewEgg.TextLabel,
                 "");
             Site walmart = new Site(
                 pFormSites.ChkWalmart.EstCoche,
-                pFormSites.ChkWalmart.TextLabel.Substring(0, pFormSites.ChkWalmart.TextLabel.Length - 1),
+                pFormSites.ChkWalmart.TextLabel,
                 "");
 
             lstSites.Add(amazon);
