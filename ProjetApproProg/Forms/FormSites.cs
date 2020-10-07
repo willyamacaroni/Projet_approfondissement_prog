@@ -53,5 +53,19 @@ namespace ProjetApproProg
             this.btnCancel.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
         }
         #endregion
+
+        #region Events
+        private void btnOK_Click(object sender, System.EventArgs e)
+        {
+            Gestionnaire.RetrieveSites(this);
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
     }
 }

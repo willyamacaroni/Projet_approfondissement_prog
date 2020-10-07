@@ -73,7 +73,16 @@ namespace ProjetApproProg
                 this.txtPrixA.ForeColor = Color.LightGray;
             }
         }
-        #endregion
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.RetrieveFiltres(this);
+            this.Close();
+        }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
     }
 }

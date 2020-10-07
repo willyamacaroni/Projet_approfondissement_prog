@@ -199,6 +199,7 @@
             this.btnImpParam.TabIndex = 0;
             this.btnImpParam.Text = "IMPORTER PARAMÈTRES";
             this.btnImpParam.UseVisualStyleBackColor = false;
+            this.btnImpParam.Click += new System.EventHandler(this.btnImpParam_Click);
             // 
             // lytBtn3
             // 
@@ -233,6 +234,7 @@
             this.btnSaveParam.TabIndex = 0;
             this.btnSaveParam.Text = "ENREGISTRER PARAMÈTRES";
             this.btnSaveParam.UseVisualStyleBackColor = false;
+            this.btnSaveParam.Click += new System.EventHandler(this.btnSaveParam_Click);
             // 
             // lytBtn4
             // 

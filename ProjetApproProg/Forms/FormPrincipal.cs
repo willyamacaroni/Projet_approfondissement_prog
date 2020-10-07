@@ -8,6 +8,7 @@ namespace ProjetApproProg
     public partial class frmPrincipal : Form
     {
         #region Constructeur
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -24,15 +25,6 @@ namespace ProjetApproProg
             this.btnSaveParam.BackColor = btnCote;
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
-<<<<<<< HEAD:ProjetApproProg/Forms/FormPrincipal.cs
-
-            //FormFiltres formFiltres = new FormFiltres();
-            //Gestionnaire.RetrieveFiltres(formFiltres);
-
-            //FormSites formSites = new FormSites();
-            //Gestionnaire.RetrieveSites(formSites);
-=======
->>>>>>> cfc77edc3411780fb002b1d4dd63f6df0d13590b:ProjetApproProg/Forms/Form1.cs
         }
         #endregion
 
@@ -76,5 +68,51 @@ namespace ProjetApproProg
             }
         }
         #endregion
+
+        private void btnSaveParam_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog SFD = new SaveFileDialog())
+            {
+                SFD.Title = "Enregistrer un fichier de paramètres";
+                // SFD.Filter = "Fichier JSON (*.JSON)|*.JSON| Fichier CSV (*.CSV)|*.CSV";
+                SFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
+
+                if (SFD.ShowDialog() == DialogResult.OK)
+                {
+
+                    using (StreamWriter writer = new StreamWriter(File.Create(SFD.FileName)))
+                    {
+                        writer.Write(SFD.FileName);
+                        // Écrire dans le bon format
+                    }
+
+                    // Ajouter MsgBox
+
+                }
+            }
+        }
+
+        private void btnImpParam_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog OFD = new OpenFileDialog())
+            {
+                OFD.Title = "Ouvrir un fichier de paramètres";
+                // OFD.Filter = "Fichier JSON (*.JSON)|*.JSON| Fichier CSV (*.CSV)|*.CSV";
+                OFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
+
+                if (OFD.ShowDialog() == DialogResult.OK)
+                {
+
+                    using (StreamReader lecteur = new StreamReader(File.OpenRead(OFD.FileName)))
+                    {
+                        string contenu = lecteur.ReadToEnd();
+                        // Se servir du contenu pour cocher les bonnes choses
+                    }
+
+                    // Ajouter MsgBox
+
+                }
+            }
+        }
     }
 }

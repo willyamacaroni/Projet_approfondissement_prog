@@ -163,6 +163,7 @@
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // lytBtnCancel
             // 
@@ -196,6 +197,7 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblTitre
             // 
@@ -283,6 +285,7 @@
             this.noteEtoiles.BackColor = System.Drawing.Color.Transparent;
             this.lytPrincipale.SetColumnSpan(this.noteEtoiles, 2);
             this.noteEtoiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noteEtoiles.EtoileCochee = 1;
             this.noteEtoiles.Location = new System.Drawing.Point(441, 293);
             this.noteEtoiles.Name = "noteEtoiles";
             this.noteEtoiles.Size = new System.Drawing.Size(286, 52);

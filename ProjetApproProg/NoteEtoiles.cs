@@ -22,6 +22,7 @@ namespace ProjetApproProg
         public int EtoileCochee
         {
             get { return _iEtoileCochee; }
+            set { _iEtoileCochee = value; }
         }
 
         #endregion

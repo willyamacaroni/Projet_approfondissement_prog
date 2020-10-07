@@ -33,20 +33,20 @@
             this.lytBtnOK = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.chkMikeShop = new ProjetApproProg.CheckBoxModifie();
             this.lytTop = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitre = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.chkAmazon = new ProjetApproProg.CheckBoxModifie();
+            this.chkNewEgg = new ProjetApproProg.CheckBoxModifie();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.chkEbay = new ProjetApproProg.CheckBoxModifie();
+            this.chkBestBuy = new ProjetApproProg.CheckBoxModifie();
             this.lytBottomLeft = new System.Windows.Forms.TableLayoutPanel();
             this.lytBtnCancel = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.chkAmazon = new ProjetApproProg.CheckBoxModifie();
-            this.chkNewEgg = new ProjetApproProg.CheckBoxModifie();
-            this.chkEbay = new ProjetApproProg.CheckBoxModifie();
-            this.chkBestBuy = new ProjetApproProg.CheckBoxModifie();
             this.chkWalmart = new ProjetApproProg.CheckBoxModifie();
-            this.chkMikeShop = new ProjetApproProg.CheckBoxModifie();
             this.lytPrincipale.SuspendLayout();
             this.lytBottomRight.SuspendLayout();
             this.lytBtnOK.SuspendLayout();
@@ -124,6 +124,7 @@
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -139,6 +140,28 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(211, 122);
             this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // chkMikeShop
+            // 
+            this.chkMikeShop.BackColor = System.Drawing.Color.Transparent;
+            this.chkMikeShop.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkMikeShop.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkMikeShop.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkMikeShop.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkMikeShop.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkMikeShop.CouleurRectFond = System.Drawing.Color.White;
+            this.chkMikeShop.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkMikeShop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkMikeShop.EstCoche = false;
+            this.chkMikeShop.Location = new System.Drawing.Point(3, 3);
+            this.chkMikeShop.Name = "chkMikeShop";
+            this.chkMikeShop.PoliceText = new System.Drawing.Font("Century Gothic", 16F);
+            this.chkMikeShop.Size = new System.Drawing.Size(205, 55);
+            this.chkMikeShop.TabIndex = 0;
+            this.chkMikeShop.TailleBordureRect = 1;
+            this.chkMikeShop.TailleRectangle = 15;
+            this.chkMikeShop.Text = "checkBoxModifie1";
+            this.chkMikeShop.TextLabel = "Mike\'s Shop";
             // 
             // lytTop
             // 
@@ -190,6 +213,50 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(432, 122);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // chkAmazon
+            // 
+            this.chkAmazon.BackColor = System.Drawing.Color.Transparent;
+            this.chkAmazon.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkAmazon.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkAmazon.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkAmazon.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkAmazon.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkAmazon.CouleurRectFond = System.Drawing.Color.White;
+            this.chkAmazon.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkAmazon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkAmazon.EstCoche = false;
+            this.chkAmazon.Location = new System.Drawing.Point(219, 3);
+            this.chkAmazon.Name = "chkAmazon";
+            this.chkAmazon.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkAmazon.Size = new System.Drawing.Size(210, 55);
+            this.chkAmazon.TabIndex = 3;
+            this.chkAmazon.TailleBordureRect = 1;
+            this.chkAmazon.TailleRectangle = 15;
+            this.chkAmazon.Text = "checkBoxModifie2";
+            this.chkAmazon.TextLabel = "Amazon";
+            // 
+            // chkNewEgg
+            // 
+            this.chkNewEgg.BackColor = System.Drawing.Color.Transparent;
+            this.chkNewEgg.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkNewEgg.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkNewEgg.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkNewEgg.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkNewEgg.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkNewEgg.CouleurRectFond = System.Drawing.Color.White;
+            this.chkNewEgg.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkNewEgg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkNewEgg.EstCoche = false;
+            this.chkNewEgg.Location = new System.Drawing.Point(219, 64);
+            this.chkNewEgg.Name = "chkNewEgg";
+            this.chkNewEgg.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkNewEgg.Size = new System.Drawing.Size(210, 55);
+            this.chkNewEgg.TabIndex = 4;
+            this.chkNewEgg.TailleBordureRect = 1;
+            this.chkNewEgg.TailleRectangle = 15;
+            this.chkNewEgg.Text = "checkBoxModifie1";
+            this.chkNewEgg.TextLabel = "NewEgg";
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -205,6 +272,50 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(432, 122);
             this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // chkEbay
+            // 
+            this.chkEbay.BackColor = System.Drawing.Color.Transparent;
+            this.chkEbay.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkEbay.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkEbay.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkEbay.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkEbay.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkEbay.CouleurRectFond = System.Drawing.Color.White;
+            this.chkEbay.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkEbay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkEbay.EstCoche = false;
+            this.chkEbay.Location = new System.Drawing.Point(3, 3);
+            this.chkEbay.Name = "chkEbay";
+            this.chkEbay.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkEbay.Size = new System.Drawing.Size(210, 55);
+            this.chkEbay.TabIndex = 4;
+            this.chkEbay.TailleBordureRect = 1;
+            this.chkEbay.TailleRectangle = 15;
+            this.chkEbay.Text = "checkBoxModifie1";
+            this.chkEbay.TextLabel = "Ebay";
+            // 
+            // chkBestBuy
+            // 
+            this.chkBestBuy.BackColor = System.Drawing.Color.Transparent;
+            this.chkBestBuy.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkBestBuy.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkBestBuy.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkBestBuy.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkBestBuy.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkBestBuy.CouleurRectFond = System.Drawing.Color.White;
+            this.chkBestBuy.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkBestBuy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkBestBuy.EstCoche = false;
+            this.chkBestBuy.Location = new System.Drawing.Point(3, 64);
+            this.chkBestBuy.Name = "chkBestBuy";
+            this.chkBestBuy.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkBestBuy.Size = new System.Drawing.Size(210, 55);
+            this.chkBestBuy.TabIndex = 5;
+            this.chkBestBuy.TailleBordureRect = 1;
+            this.chkBestBuy.TailleRectangle = 15;
+            this.chkBestBuy.Text = "checkBoxModifie1";
+            this.chkBestBuy.TextLabel = "Best Buy";
             // 
             // lytBottomLeft
             // 
@@ -254,6 +365,7 @@
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -269,94 +381,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(212, 122);
             this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // chkAmazon
-            // 
-            this.chkAmazon.BackColor = System.Drawing.Color.Transparent;
-            this.chkAmazon.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkAmazon.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkAmazon.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkAmazon.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkAmazon.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkAmazon.CouleurRectFond = System.Drawing.Color.White;
-            this.chkAmazon.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkAmazon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkAmazon.EstCoche = false;
-            this.chkAmazon.Location = new System.Drawing.Point(219, 3);
-            this.chkAmazon.Name = "chkAmazon";
-            this.chkAmazon.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkAmazon.Size = new System.Drawing.Size(210, 55);
-            this.chkAmazon.TabIndex = 3;
-            this.chkAmazon.TailleBordureRect = 1;
-            this.chkAmazon.TailleRectangle = 15;
-            this.chkAmazon.Text = "checkBoxModifie2";
-            this.chkAmazon.TextLabel = "Amazon";
-            // 
-            // chkNewEgg
-            // 
-            this.chkNewEgg.BackColor = System.Drawing.Color.Transparent;
-            this.chkNewEgg.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkNewEgg.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkNewEgg.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkNewEgg.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkNewEgg.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkNewEgg.CouleurRectFond = System.Drawing.Color.White;
-            this.chkNewEgg.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkNewEgg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkNewEgg.EstCoche = false;
-            this.chkNewEgg.Location = new System.Drawing.Point(219, 64);
-            this.chkNewEgg.Name = "chkNewEgg";
-            this.chkNewEgg.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkNewEgg.Size = new System.Drawing.Size(210, 55);
-            this.chkNewEgg.TabIndex = 4;
-            this.chkNewEgg.TailleBordureRect = 1;
-            this.chkNewEgg.TailleRectangle = 15;
-            this.chkNewEgg.Text = "checkBoxModifie1";
-            this.chkNewEgg.TextLabel = "NewEgg";
-            // 
-            // chkEbay
-            // 
-            this.chkEbay.BackColor = System.Drawing.Color.Transparent;
-            this.chkEbay.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkEbay.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkEbay.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkEbay.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkEbay.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkEbay.CouleurRectFond = System.Drawing.Color.White;
-            this.chkEbay.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkEbay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkEbay.EstCoche = false;
-            this.chkEbay.Location = new System.Drawing.Point(3, 3);
-            this.chkEbay.Name = "chkEbay";
-            this.chkEbay.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkEbay.Size = new System.Drawing.Size(210, 55);
-            this.chkEbay.TabIndex = 4;
-            this.chkEbay.TailleBordureRect = 1;
-            this.chkEbay.TailleRectangle = 15;
-            this.chkEbay.Text = "checkBoxModifie1";
-            this.chkEbay.TextLabel = "Ebay";
-            // 
-            // chkBestBuy
-            // 
-            this.chkBestBuy.BackColor = System.Drawing.Color.Transparent;
-            this.chkBestBuy.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkBestBuy.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkBestBuy.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkBestBuy.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkBestBuy.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkBestBuy.CouleurRectFond = System.Drawing.Color.White;
-            this.chkBestBuy.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkBestBuy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkBestBuy.EstCoche = false;
-            this.chkBestBuy.Location = new System.Drawing.Point(3, 64);
-            this.chkBestBuy.Name = "chkBestBuy";
-            this.chkBestBuy.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkBestBuy.Size = new System.Drawing.Size(210, 55);
-            this.chkBestBuy.TabIndex = 5;
-            this.chkBestBuy.TailleBordureRect = 1;
-            this.chkBestBuy.TailleRectangle = 15;
-            this.chkBestBuy.Text = "checkBoxModifie1";
-            this.chkBestBuy.TextLabel = "Best Buy";
             // 
             // chkWalmart
             // 
@@ -379,28 +403,6 @@
             this.chkWalmart.TailleRectangle = 15;
             this.chkWalmart.Text = "checkBoxModifie1";
             this.chkWalmart.TextLabel = "Walmart";
-            // 
-            // chkMikeShop
-            // 
-            this.chkMikeShop.BackColor = System.Drawing.Color.Transparent;
-            this.chkMikeShop.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkMikeShop.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkMikeShop.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkMikeShop.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkMikeShop.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkMikeShop.CouleurRectFond = System.Drawing.Color.White;
-            this.chkMikeShop.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkMikeShop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkMikeShop.EstCoche = false;
-            this.chkMikeShop.Location = new System.Drawing.Point(3, 3);
-            this.chkMikeShop.Name = "chkMikeShop";
-            this.chkMikeShop.PoliceText = new System.Drawing.Font("Century Gothic", 16F);
-            this.chkMikeShop.Size = new System.Drawing.Size(205, 55);
-            this.chkMikeShop.TabIndex = 0;
-            this.chkMikeShop.TailleBordureRect = 1;
-            this.chkMikeShop.TailleRectangle = 15;
-            this.chkMikeShop.Text = "checkBoxModifie1";
-            this.chkMikeShop.TextLabel = "Mike\'s Shop";
             // 
             // FormSites
             // 
