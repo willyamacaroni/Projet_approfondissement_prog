@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetApproProg
 {
-    abstract class Site
+    public class Site
     {
 
         private bool _isChecked;
@@ -31,7 +31,7 @@ namespace ProjetApproProg
             set { _url = value; }
         }
 
-        protected Site(bool pIsChecked, string pNom, string pUrl)
+        public Site(bool pIsChecked, string pNom, string pUrl)
         {
             IsChecked = pIsChecked;
             Nom = pNom;

@@ -3,13 +3,27 @@ using System.Collections.Generic;
 
 namespace ProjetApproProg
 {
-    static class Gestionnaire
+    public static class Gestionnaire
     {
-        public static List<Filtre> RetrieveFiltres(FormFiltres pFormFiltres)
+        static List<Filtre> _lstFiltres;
+        static List<Site> _lstSites;
+
+        public static List<Filtre> LstFiltres
+        {
+            get { return _lstFiltres; }
+            set { _lstFiltres = value; }
+        }
+
+        public static List<Site> LstSites
+        {
+            get { return _lstSites; }
+            set { _lstSites = value; }
+        }
+
+        public static void RecupererFiltres(FormFiltres pFormFiltres)
         {
             List<Filtre> lstFiltres = new List<Filtre>();
 
-            pFormFiltres.ShowDialog();
             FiltreCondition filtreCondition = new FiltreCondition(pFormFiltres.ChkCondition.EstCoche, pFormFiltres.ChkCondition.TextLabel);
             FiltreNote filtreNote = new FiltreNote(pFormFiltres.ChkNote.EstCoche, pFormFiltres.ChkNote.TextLabel);
             FiltrePrix filtrePrix = new FiltrePrix(pFormFiltres.ChkPrix.EstCoche, pFormFiltres.ChkPrix.TextLabel);
@@ -18,22 +32,19 @@ namespace ProjetApproProg
             lstFiltres.Add(filtreNote);
             lstFiltres.Add(filtrePrix);
 
-
-            return lstFiltres;
+            LstFiltres = lstFiltres;
         }
 
-        public static List<Site> RetrieveSites(FormSites pFormSites)
+        public static void RecupererSites(FormSites pFormSites)
         {
             List<Site> lstSites = new List<Site>();
 
-            pFormSites.ShowDialog();
-
-            SiteAmazon amazon = new SiteAmazon(pFormSites.ChkAmazon.EstCoche, pFormSites.ChkAmazon.TextLabel, "");
-            SiteBestBuy bestBuy = new SiteBestBuy(pFormSites.ChkBestBuy.EstCoche, pFormSites.ChkBestBuy.TextLabel, "");
-            SiteEbay ebay = new SiteEbay(pFormSites.ChkEbay.EstCoche, pFormSites.ChkEbay.TextLabel, "");
-            SiteMikeComputerShop mikeComputerShop = new SiteMikeComputerShop(pFormSites.ChkMikeShop.EstCoche, pFormSites.ChkMikeShop.TextLabel, "");
-            SiteNewEgg newEgg = new SiteNewEgg(pFormSites.ChkNewEgg.EstCoche, pFormSites.ChkNewEgg.TextLabel, "");
-            SiteWalmart walmart = new SiteWalmart(pFormSites.ChkWalmart.EstCoche, pFormSites.ChkWalmart.TextLabel, "");
+            Site amazon = new Site(pFormSites.ChkAmazon.EstCoche, pFormSites.ChkAmazon.TextLabel, "");
+            Site bestBuy = new Site(pFormSites.ChkBestBuy.EstCoche, pFormSites.ChkBestBuy.TextLabel, "");
+            Site ebay = new Site(pFormSites.ChkEbay.EstCoche, pFormSites.ChkEbay.TextLabel, "");
+            Site mikeComputerShop = new Site(pFormSites.ChkMikeShop.EstCoche, pFormSites.ChkMikeShop.TextLabel, "");
+            Site newEgg = new Site(pFormSites.ChkNewEgg.EstCoche, pFormSites.ChkNewEgg.TextLabel, "");
+            Site walmart = new Site(pFormSites.ChkWalmart.EstCoche, pFormSites.ChkWalmart.TextLabel, "");
 
             lstSites.Add(amazon);
             lstSites.Add(bestBuy);
@@ -42,8 +53,7 @@ namespace ProjetApproProg
             lstSites.Add(newEgg);
             lstSites.Add(walmart);
 
-            return lstSites;
-
+            LstSites = lstSites;
         }
     }
 }

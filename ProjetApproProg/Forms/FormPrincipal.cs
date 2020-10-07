@@ -24,15 +24,6 @@ namespace ProjetApproProg
             this.btnSaveParam.BackColor = btnCote;
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
-<<<<<<< HEAD:ProjetApproProg/Forms/FormPrincipal.cs
-
-            //FormFiltres formFiltres = new FormFiltres();
-            //Gestionnaire.RetrieveFiltres(formFiltres);
-
-            //FormSites formSites = new FormSites();
-            //Gestionnaire.RetrieveSites(formSites);
-=======
->>>>>>> cfc77edc3411780fb002b1d4dd63f6df0d13590b:ProjetApproProg/Forms/Form1.cs
         }
         #endregion
 
