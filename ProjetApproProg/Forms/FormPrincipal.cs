@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using ProjetApproProg.Classes;
 
 namespace ProjetApproProg
 {
@@ -67,7 +70,6 @@ namespace ProjetApproProg
 
             }
         }
-        #endregion
 
         private void btnSaveParam_Click(object sender, EventArgs e)
         {
@@ -82,14 +84,25 @@ namespace ProjetApproProg
 
                     using (StreamWriter writer = new StreamWriter(File.Create(SFD.FileName)))
                     {
-                        writer.Write(SFD.FileName);
-                        // Écrire dans le bon format
-                    }
+                        FiltreCondition filtreCond = (FiltreCondition)Gestionnaire.LstFiltres[0];
+                        FiltreNote filtreNote = (FiltreNote)Gestionnaire.LstFiltres[1];
+                        FiltrePrix filtrePrix = (FiltrePrix) Gestionnaire.LstFiltres[2];
 
-                    // Ajouter MsgBox
+                        writer.WriteLine(JsonConvert.SerializeObject(filtreCond));
+                        writer.WriteLine("@");
+                        writer.WriteLine(JsonConvert.SerializeObject(filtreNote));
+                        writer.WriteLine("@");
+                        writer.WriteLine(JsonConvert.SerializeObject(filtrePrix));
+                        writer.WriteLine("@");
+                        writer.WriteLine(JsonConvert.SerializeObject(Gestionnaire.LstSites));
+                    }
 
                 }
             }
+
+            MessageBox.Show("Vos paramètres ont été enregistrés avec succès!",
+                "Succès!", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
         private void btnImpParam_Click(object sender, EventArgs e)
@@ -105,14 +118,27 @@ namespace ProjetApproProg
 
                     using (StreamReader lecteur = new StreamReader(File.OpenRead(OFD.FileName)))
                     {
-                        string contenu = lecteur.ReadToEnd();
-                        // Se servir du contenu pour cocher les bonnes choses
+                        string rawJson = lecteur.ReadToEnd();
+                        string[] filtresEtSites = rawJson.Split('@');
+
+                        FiltreCondition filtreCond = JsonConvert.DeserializeObject<FiltreCondition>(filtresEtSites[0].Trim());
+                        FiltreNote filtreNote = JsonConvert.DeserializeObject<FiltreNote>(filtresEtSites[1].Trim());
+                        FiltrePrix filtrePrix = JsonConvert.DeserializeObject<FiltrePrix>(filtresEtSites[2].Trim());
+                        
+                        List<Site> lstSites = JsonConvert.DeserializeObject<List<Site>>(filtresEtSites[3].Trim());
+                        
+                        List<Filtre> lstFiltres = new List<Filtre>();
+                        lstFiltres.Add(filtreCond);
+                        lstFiltres.Add(filtreNote);
+                        lstFiltres.Add(filtrePrix);
+                        
+                        Gestionnaire.LstFiltres = lstFiltres;
+                        Gestionnaire.LstSites = lstSites;
                     }
-
-                    // Ajouter MsgBox
-
                 }
             }
         }
+
+        #endregion
     }
 }

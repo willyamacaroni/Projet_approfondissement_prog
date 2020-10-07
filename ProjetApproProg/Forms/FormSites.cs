@@ -57,7 +57,7 @@ namespace ProjetApproProg
         #region Events
         private void btnOK_Click(object sender, System.EventArgs e)
         {
-            Gestionnaire.RetrieveSites(this);
+            Gestionnaire.RecupererSites(this);
             this.Close();
         }
 

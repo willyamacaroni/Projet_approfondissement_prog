@@ -75,7 +75,7 @@ namespace ProjetApproProg
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Gestionnaire.RetrieveFiltres(this);
+            Gestionnaire.RecupererFiltres(this);
             this.Close();
         }
 
