@@ -1,9 +1,5 @@
-﻿using System;
+﻿using ProjetApproProg.Classes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjetApproProg.Classes;
 
 namespace ProjetApproProg
 {
@@ -14,9 +10,9 @@ namespace ProjetApproProg
             List<Filtre> lstFiltres = new List<Filtre>();
 
             pFormFiltres.ShowDialog();
-            FiltreCondition filtreCondition = new FiltreCondition(pFormFiltres.ChkCondition.Checked, pFormFiltres.ChkCondition.Text);
-            FiltreNote filtreNote = new FiltreNote(pFormFiltres.ChkNote.Checked, pFormFiltres.ChkNote.Text);
-            FiltrePrix filtrePrix = new FiltrePrix(pFormFiltres.ChkPrix.Checked, pFormFiltres.ChkPrix.Text);
+            FiltreCondition filtreCondition = new FiltreCondition(pFormFiltres.ChkCondition.EstCoche, pFormFiltres.ChkCondition.TextLabel);
+            FiltreNote filtreNote = new FiltreNote(pFormFiltres.ChkNote.EstCoche, pFormFiltres.ChkNote.TextLabel);
+            FiltrePrix filtrePrix = new FiltrePrix(pFormFiltres.ChkPrix.EstCoche, pFormFiltres.ChkPrix.TextLabel);
 
             lstFiltres.Add(filtreCondition);
             lstFiltres.Add(filtreNote);
@@ -32,12 +28,12 @@ namespace ProjetApproProg
 
             pFormSites.ShowDialog();
 
-            SiteAmazon amazon = new SiteAmazon(pFormSites.ChkAmazon.Checked, pFormSites.ChkAmazon.Text, "");
-            SiteBestBuy bestBuy = new SiteBestBuy(pFormSites.ChkBestBuy.Checked, pFormSites.ChkBestBuy.Text, "");
-            SiteEbay ebay = new SiteEbay(pFormSites.ChkEbay.Checked, pFormSites.ChkEbay.Text, "");
-            SiteMikeComputerShop mikeComputerShop = new SiteMikeComputerShop(pFormSites.ChkMikeShop.Checked, pFormSites.ChkMikeShop.Text, "");
-            SiteNewEgg newEgg = new SiteNewEgg(pFormSites.ChkNewEgg.Checked, pFormSites.ChkNewEgg.Text, "");
-            SiteWalmart walmart = new SiteWalmart(pFormSites.ChkWalmart.Checked, pFormSites.ChkWalmart.Text, "");
+            SiteAmazon amazon = new SiteAmazon(pFormSites.ChkAmazon.EstCoche, pFormSites.ChkAmazon.TextLabel, "");
+            SiteBestBuy bestBuy = new SiteBestBuy(pFormSites.ChkBestBuy.EstCoche, pFormSites.ChkBestBuy.TextLabel, "");
+            SiteEbay ebay = new SiteEbay(pFormSites.ChkEbay.EstCoche, pFormSites.ChkEbay.TextLabel, "");
+            SiteMikeComputerShop mikeComputerShop = new SiteMikeComputerShop(pFormSites.ChkMikeShop.EstCoche, pFormSites.ChkMikeShop.TextLabel, "");
+            SiteNewEgg newEgg = new SiteNewEgg(pFormSites.ChkNewEgg.EstCoche, pFormSites.ChkNewEgg.TextLabel, "");
+            SiteWalmart walmart = new SiteWalmart(pFormSites.ChkWalmart.EstCoche, pFormSites.ChkWalmart.TextLabel, "");
 
             lstSites.Add(amazon);
             lstSites.Add(bestBuy);

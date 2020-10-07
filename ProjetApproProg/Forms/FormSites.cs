@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProjetApproProg
@@ -13,42 +6,45 @@ namespace ProjetApproProg
 
     public partial class FormSites : Form
     {
-        public CheckBox ChkMikeShop
+        #region CheckBoxes
+        public CheckBoxModifie ChkMikeShop
         {
             get { return chkMikeShop; }
             set { chkMikeShop = value; }
         }
 
-        public CheckBox ChkAmazon
+        public CheckBoxModifie ChkAmazon
         {
             get { return chkAmazon; }
             set { chkAmazon = value; }
         }
 
-        public CheckBox ChkNewEgg
+        public CheckBoxModifie ChkNewEgg
         {
             get { return chkNewEgg; }
             set { chkNewEgg = value; }
         }
 
-        public CheckBox ChkBestBuy
+        public CheckBoxModifie ChkBestBuy
         {
             get { return chkBestBuy; }
             set { chkBestBuy = value; }
         }
 
-        public CheckBox ChkEbay
+        public CheckBoxModifie ChkEbay
         {
             get { return chkEbay; }
             set { chkEbay = value; }
         }
 
-        public CheckBox ChkWalmart
+        public CheckBoxModifie ChkWalmart
         {
             get { return chkWalmart; }
             set { chkWalmart = value; }
         }
+        #endregion
 
+        #region Constructeur
         public FormSites()
         {
             InitializeComponent();
@@ -56,5 +52,6 @@ namespace ProjetApproProg
             this.btnOK.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
             this.btnCancel.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
         }
+        #endregion
     }
 }

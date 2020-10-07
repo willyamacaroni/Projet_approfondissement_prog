@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.lytPrincipale = new System.Windows.Forms.TableLayoutPanel();
+            this.chkCond = new ProjetApproProg.CheckBoxModifie();
+            this.chkNote = new ProjetApproProg.CheckBoxModifie();
             this.lytBtnOK = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.lytBtnCancel = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.chkCondition = new System.Windows.Forms.CheckBox();
-            this.chkNote = new System.Windows.Forms.CheckBox();
             this.lblTitre = new System.Windows.Forms.Label();
-            this.chkPrix = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtPrixA = new System.Windows.Forms.TextBox();
             this.txtPrixDe = new System.Windows.Forms.TextBox();
             this.cmbCondition = new System.Windows.Forms.ComboBox();
+            this.noteEtoiles = new ProjetApproProg.NoteEtoiles();
+            this.chkPrix = new ProjetApproProg.CheckBoxModifie();
             this.lytPrincipale.SuspendLayout();
             this.lytBtnOK.SuspendLayout();
             this.lytBtnCancel.SuspendLayout();
@@ -58,14 +59,15 @@
             this.lytPrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.lytPrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.lytPrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.lytPrincipale.Controls.Add(this.chkCond, 1, 6);
+            this.lytPrincipale.Controls.Add(this.chkNote, 1, 5);
             this.lytPrincipale.Controls.Add(this.lytBtnOK, 4, 7);
             this.lytPrincipale.Controls.Add(this.lytBtnCancel, 0, 7);
-            this.lytPrincipale.Controls.Add(this.chkCondition, 1, 6);
-            this.lytPrincipale.Controls.Add(this.chkNote, 1, 5);
             this.lytPrincipale.Controls.Add(this.lblTitre, 2, 1);
-            this.lytPrincipale.Controls.Add(this.chkPrix, 1, 4);
             this.lytPrincipale.Controls.Add(this.tableLayoutPanel1, 3, 4);
             this.lytPrincipale.Controls.Add(this.cmbCondition, 3, 6);
+            this.lytPrincipale.Controls.Add(this.noteEtoiles, 3, 5);
+            this.lytPrincipale.Controls.Add(this.chkPrix, 1, 4);
             this.lytPrincipale.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytPrincipale.ForeColor = System.Drawing.Color.Transparent;
             this.lytPrincipale.Location = new System.Drawing.Point(0, 0);
@@ -82,6 +84,52 @@
             this.lytPrincipale.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.lytPrincipale.Size = new System.Drawing.Size(882, 523);
             this.lytPrincipale.TabIndex = 0;
+            // 
+            // chkCond
+            // 
+            this.chkCond.BackColor = System.Drawing.Color.Transparent;
+            this.lytPrincipale.SetColumnSpan(this.chkCond, 2);
+            this.chkCond.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkCond.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkCond.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkCond.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkCond.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkCond.CouleurRectFond = System.Drawing.Color.White;
+            this.chkCond.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkCond.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkCond.EstCoche = false;
+            this.chkCond.Location = new System.Drawing.Point(149, 351);
+            this.chkCond.Name = "chkCond";
+            this.chkCond.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkCond.Size = new System.Drawing.Size(286, 52);
+            this.chkCond.TabIndex = 12;
+            this.chkCond.TailleBordureRect = 1;
+            this.chkCond.TailleRectangle = 15;
+            this.chkCond.Text = "checkBoxModifie1";
+            this.chkCond.TextLabel = "Condition:";
+            // 
+            // chkNote
+            // 
+            this.chkNote.BackColor = System.Drawing.Color.Transparent;
+            this.lytPrincipale.SetColumnSpan(this.chkNote, 2);
+            this.chkNote.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkNote.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkNote.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkNote.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkNote.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkNote.CouleurRectFond = System.Drawing.Color.White;
+            this.chkNote.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkNote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkNote.EstCoche = false;
+            this.chkNote.Location = new System.Drawing.Point(149, 293);
+            this.chkNote.Name = "chkNote";
+            this.chkNote.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkNote.Size = new System.Drawing.Size(286, 52);
+            this.chkNote.TabIndex = 11;
+            this.chkNote.TailleBordureRect = 1;
+            this.chkNote.TailleRectangle = 15;
+            this.chkNote.Text = "checkBoxModifie1";
+            this.chkNote.TextLabel = "Note:";
             // 
             // lytBtnOK
             // 
@@ -149,38 +197,6 @@
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
-            // chkCondition
-            // 
-            this.chkCondition.AutoSize = true;
-            this.lytPrincipale.SetColumnSpan(this.chkCondition, 2);
-            this.chkCondition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkCondition.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkCondition.ForeColor = System.Drawing.Color.White;
-            this.chkCondition.Location = new System.Drawing.Point(149, 351);
-            this.chkCondition.Name = "chkCondition";
-            this.chkCondition.Size = new System.Drawing.Size(286, 52);
-            this.chkCondition.TabIndex = 3;
-            this.chkCondition.Text = "Condition:";
-            this.chkCondition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkCondition.UseVisualStyleBackColor = true;
-            // 
-            // chkNote
-            // 
-            this.chkNote.AutoSize = true;
-            this.lytPrincipale.SetColumnSpan(this.chkNote, 2);
-            this.chkNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkNote.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkNote.ForeColor = System.Drawing.Color.White;
-            this.chkNote.Location = new System.Drawing.Point(149, 293);
-            this.chkNote.Name = "chkNote";
-            this.chkNote.Size = new System.Drawing.Size(286, 52);
-            this.chkNote.TabIndex = 2;
-            this.chkNote.Text = "Note:";
-            this.chkNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkNote.UseVisualStyleBackColor = true;
-            // 
             // lblTitre
             // 
             this.lblTitre.AutoSize = true;
@@ -195,22 +211,6 @@
             this.lblTitre.TabIndex = 0;
             this.lblTitre.Text = "FILTRES";
             this.lblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chkPrix
-            // 
-            this.chkPrix.AutoSize = true;
-            this.lytPrincipale.SetColumnSpan(this.chkPrix, 2);
-            this.chkPrix.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkPrix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkPrix.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkPrix.ForeColor = System.Drawing.Color.White;
-            this.chkPrix.Location = new System.Drawing.Point(149, 235);
-            this.chkPrix.Name = "chkPrix";
-            this.chkPrix.Size = new System.Drawing.Size(286, 52);
-            this.chkPrix.TabIndex = 1;
-            this.chkPrix.Text = "Prix:";
-            this.chkPrix.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkPrix.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -278,6 +278,40 @@
             this.cmbCondition.Size = new System.Drawing.Size(286, 41);
             this.cmbCondition.TabIndex = 8;
             // 
+            // noteEtoiles
+            // 
+            this.noteEtoiles.BackColor = System.Drawing.Color.Transparent;
+            this.lytPrincipale.SetColumnSpan(this.noteEtoiles, 2);
+            this.noteEtoiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.noteEtoiles.Location = new System.Drawing.Point(441, 293);
+            this.noteEtoiles.Name = "noteEtoiles";
+            this.noteEtoiles.Size = new System.Drawing.Size(286, 52);
+            this.noteEtoiles.TabIndex = 9;
+            this.noteEtoiles.Text = "noteEtoiles";
+            // 
+            // chkPrix
+            // 
+            this.chkPrix.BackColor = System.Drawing.Color.Transparent;
+            this.lytPrincipale.SetColumnSpan(this.chkPrix, 2);
+            this.chkPrix.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkPrix.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkPrix.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkPrix.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkPrix.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkPrix.CouleurRectFond = System.Drawing.Color.White;
+            this.chkPrix.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkPrix.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkPrix.EstCoche = false;
+            this.chkPrix.Location = new System.Drawing.Point(149, 235);
+            this.chkPrix.Name = "chkPrix";
+            this.chkPrix.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkPrix.Size = new System.Drawing.Size(286, 52);
+            this.chkPrix.TabIndex = 10;
+            this.chkPrix.TailleBordureRect = 1;
+            this.chkPrix.TailleRectangle = 15;
+            this.chkPrix.Text = "checkBoxModifie1";
+            this.chkPrix.TextLabel = "Prix:";
+            // 
             // FormFiltres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -288,6 +322,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormFiltres";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FILTRES";
             this.lytPrincipale.ResumeLayout(false);
             this.lytPrincipale.PerformLayout();
@@ -304,15 +339,16 @@
         private System.Windows.Forms.TableLayoutPanel lytPrincipale;
         private System.Windows.Forms.TableLayoutPanel lytBtnOK;
         private System.Windows.Forms.TableLayoutPanel lytBtnCancel;
-        private System.Windows.Forms.CheckBox chkCondition;
-        private System.Windows.Forms.CheckBox chkNote;
         private System.Windows.Forms.Label lblTitre;
-        private System.Windows.Forms.CheckBox chkPrix;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TextBox txtPrixA;
         private System.Windows.Forms.TextBox txtPrixDe;
         private System.Windows.Forms.ComboBox cmbCondition;
+        private NoteEtoiles noteEtoiles;
+        private CheckBoxModifie chkPrix;
+        private CheckBoxModifie chkCond;
+        private CheckBoxModifie chkNote;
     }
 }

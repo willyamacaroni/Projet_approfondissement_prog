@@ -6,24 +6,28 @@ namespace ProjetApproProg
 {
     public partial class FormFiltres : Form
     {
-        public CheckBox ChkCondition
+        #region CheckBoxes
+        public CheckBoxModifie ChkCondition
         {
-            get { return chkCondition; }
-            set { chkCondition = value; }
+            get { return chkCond; }
+            set { chkCond = value; }
         }
 
-        public CheckBox ChkNote
+        public CheckBoxModifie ChkNote
         {
             get { return chkNote; }
             set { chkNote = value; }
         }
 
-        public CheckBox ChkPrix
+        public CheckBoxModifie ChkPrix
         {
             get { return chkPrix; }
             set { chkPrix = value; }
         }
 
+        #endregion
+
+        #region Constructeur
         public FormFiltres()
         {
             InitializeComponent();
@@ -31,7 +35,9 @@ namespace ProjetApproProg
             this.btnOK.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
             this.btnCancel.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
         }
+        #endregion
 
+        #region Events
         private void txtPrixDe_Enter(object sender, EventArgs e)
         {
             if (this.txtPrixDe.Text.Equals("De:"))
@@ -67,5 +73,7 @@ namespace ProjetApproProg
                 this.txtPrixA.ForeColor = Color.LightGray;
             }
         }
+        #endregion
+
     }
 }

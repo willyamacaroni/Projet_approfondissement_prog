@@ -7,6 +7,7 @@ namespace ProjetApproProg
 {
     public partial class frmPrincipal : Form
     {
+        #region Constructeur
         public frmPrincipal()
         {
             InitializeComponent();
@@ -24,13 +25,15 @@ namespace ProjetApproProg
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
 
-            FormFiltres formFiltres = new FormFiltres();
-            Gestionnaire.RetrieveFiltres(formFiltres);
+            //FormFiltres formFiltres = new FormFiltres();
+            //Gestionnaire.RetrieveFiltres(formFiltres);
 
-            FormSites formSites = new FormSites();
-            Gestionnaire.RetrieveSites(formSites);
+            //FormSites formSites = new FormSites();
+            //Gestionnaire.RetrieveSites(formSites);
         }
+        #endregion
 
+        #region Events
         private void textBox1_Enter(object sender, EventArgs e)
         {
             if (this.txtRecherche.Text.Equals("Rechercher..."))
@@ -56,7 +59,7 @@ namespace ProjetApproProg
 
             if (frmSites.ShowDialog() == DialogResult.OK)
             {
-                
+
             }
         }
 
@@ -69,5 +72,6 @@ namespace ProjetApproProg
 
             }
         }
+        #endregion
     }
 }
