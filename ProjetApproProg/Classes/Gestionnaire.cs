@@ -1,4 +1,5 @@
-﻿using ProjetApproProg.Classes;
+﻿using System;
+using ProjetApproProg.Classes;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -50,12 +51,30 @@ namespace ProjetApproProg
         {
             List<Site> lstSites = new List<Site>();
 
-            Site amazon = new Site(pFormSites.ChkAmazon.EstCoche, pFormSites.ChkAmazon.TextLabel, "");
-            Site bestBuy = new Site(pFormSites.ChkBestBuy.EstCoche, pFormSites.ChkBestBuy.TextLabel, "");
-            Site ebay = new Site(pFormSites.ChkEbay.EstCoche, pFormSites.ChkEbay.TextLabel, "");
-            Site mikeComputerShop = new Site(pFormSites.ChkMikeShop.EstCoche, pFormSites.ChkMikeShop.TextLabel, "");
-            Site newEgg = new Site(pFormSites.ChkNewEgg.EstCoche, pFormSites.ChkNewEgg.TextLabel, "");
-            Site walmart = new Site(pFormSites.ChkWalmart.EstCoche, pFormSites.ChkWalmart.TextLabel, "");
+            Site amazon = new Site(
+                pFormSites.ChkAmazon.EstCoche,
+                pFormSites.ChkAmazon.TextLabel.Substring(0, pFormSites.ChkAmazon.TextLabel.Length - 1), 
+                "");
+            Site bestBuy = new Site(
+                pFormSites.ChkBestBuy.EstCoche,
+                pFormSites.ChkBestBuy.TextLabel.Substring(0, pFormSites.ChkBestBuy.TextLabel.Length - 1), 
+                "");
+            Site ebay = new Site(
+                pFormSites.ChkEbay.EstCoche, 
+                pFormSites.ChkEbay.TextLabel.Substring(0, pFormSites.ChkEbay.TextLabel.Length - 1), 
+                "");
+            Site mikeComputerShop = new Site(
+                pFormSites.ChkMikeShop.EstCoche,
+                pFormSites.ChkMikeShop.TextLabel.Substring(0, pFormSites.ChkMikeShop.TextLabel.Length - 1), 
+                "");
+            Site newEgg = new Site(
+                pFormSites.ChkNewEgg.EstCoche,
+                pFormSites.ChkNewEgg.TextLabel.Substring(0, pFormSites.ChkNewEgg.TextLabel.Length - 1),
+                "");
+            Site walmart = new Site(
+                pFormSites.ChkWalmart.EstCoche,
+                pFormSites.ChkWalmart.TextLabel.Substring(0, pFormSites.ChkWalmart.TextLabel.Length - 1),
+                "");
 
             lstSites.Add(amazon);
             lstSites.Add(bestBuy);
@@ -67,64 +86,70 @@ namespace ProjetApproProg
             LstSites = lstSites;
         }
 
-        private static void CocherSite(FormSites pFormSites)
+        public static void CocherSites(FormSites pFormSites)
         {
-            foreach (Site site in LstSites)
+            if (LstSites != null)
             {
-                if (site.EstCoche)
+                foreach (Site site in LstSites)
                 {
-                    switch (site.Nom)
+                    if (site.EstCoche)
                     {
-                        case "Amazon":
-                            pFormSites.ChkAmazon.EstCoche = true;
-                            break;
-                        case "BestBuy":
-                            pFormSites.ChkBestBuy.EstCoche = true;
-                            break;
-                        case "Ebay":
-                            pFormSites.ChkEbay.EstCoche = true;
-                            break;
-                        case "MikeComputerShop":
-                            pFormSites.ChkMikeShop.EstCoche = true;
-                            break;
-                        case "NewEgg":
-                            pFormSites.ChkNewEgg.EstCoche = true;
-                            break;
-                        case "Walmart":
-                            pFormSites.ChkWalmart.EstCoche = true;
-                            break;
+                        switch (site.Nom)
+                        {
+                            case "Amazon":
+                                pFormSites.ChkAmazon.EstCoche = true;
+                                break;
+                            case "Best Buy":
+                                pFormSites.ChkBestBuy.EstCoche = true;
+                                break;
+                            case "Ebay":
+                                pFormSites.ChkEbay.EstCoche = true;
+                                break;
+                            case "Mike's Shop":
+                                pFormSites.ChkMikeShop.EstCoche = true;
+                                break;
+                            case "NewEgg":
+                                pFormSites.ChkNewEgg.EstCoche = true;
+                                break;
+                            case "Walmart":
+                                pFormSites.ChkWalmart.EstCoche = true;
+                                break;
+                        }
                     }
                 }
             }
         }
 
-        private static void CocherFiltres(FormFiltres pFormFiltres)
+        public static void CocherFiltres(FormFiltres pFormFiltres)
         {
-            foreach (Filtre filtre in LstFiltres)
+            if (LstFiltres != null)
             {
-                if (filtre.EstCoche)
+                foreach (Filtre filtre in LstFiltres)
                 {
-                    switch (filtre.Nom)
+                    if (filtre.EstCoche)
                     {
-                        case "Condition":
-                            FiltreCondition filtreCondition = (FiltreCondition) filtre;
-                            pFormFiltres.ChkCondition.EstCoche = true;
-                            pFormFiltres.CmbCondition.SelectedIndex = (int)filtreCondition.Condition;
-                            break;
-                        case "Note":
-                            FiltreNote filtreNote = (FiltreNote)filtre;
-                            pFormFiltres.ChkNote.EstCoche = true;
-                            pFormFiltres.NoteEtoiles.EtoileCochee = filtreNote.Note;
-                            break;
-                        case "Prix":
-                            FiltrePrix filtrePrix = (FiltrePrix) filtre;
-                            pFormFiltres.ChkPrix.EstCoche = true;
-                            pFormFiltres.TxtPrixDe.Text = filtrePrix.PrixDebut;
-                            pFormFiltres.TxtPrixA.Text = filtrePrix.PrixFin;
-                            break;
+                        switch (filtre.Nom)
+                        {
+                            case "Condition":
+                                FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                                pFormFiltres.ChkCondition.EstCoche = true;
+                                pFormFiltres.CmbCondition.SelectedIndex = (int)filtreCondition.Condition;
+                                break;
+                            case "Note":
+                                FiltreNote filtreNote = (FiltreNote)filtre;
+                                pFormFiltres.ChkNote.EstCoche = true;
+                                pFormFiltres.NoteEtoiles.EtoileCochee = filtreNote.Note;
+                                break;
+                            case "Prix":
+                                FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                                pFormFiltres.ChkPrix.EstCoche = true;
+                                pFormFiltres.TxtPrixDe.Text = filtrePrix.PrixDebut;
+                                pFormFiltres.TxtPrixA.Text = filtrePrix.PrixFin;
+                                break;
+                        }
                     }
                 }
             }
         }
-}
+    }
 }

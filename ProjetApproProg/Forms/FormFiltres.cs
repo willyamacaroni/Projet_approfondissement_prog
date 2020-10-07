@@ -63,6 +63,9 @@ namespace ProjetApproProg
             this.btnOK.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
             this.btnCancel.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
             this.cmbCondition.SelectedIndex = 0;
+
+            Gestionnaire.RecupererFiltres(this);
+
         }
         #endregion
 
@@ -112,6 +115,12 @@ namespace ProjetApproProg
         {
             this.Close();
         }
+
+        private void FormFiltres_Load(object sender, EventArgs e)
+        {
+            Gestionnaire.CocherFiltres(this);
+        }
+
         #endregion
     }
 }

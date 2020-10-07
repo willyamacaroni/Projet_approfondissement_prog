@@ -416,6 +416,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SITES";
+            this.Load += new System.EventHandler(this.FormSites_Load);
             this.lytPrincipale.ResumeLayout(false);
             this.lytBottomRight.ResumeLayout(false);
             this.lytBtnOK.ResumeLayout(false);
