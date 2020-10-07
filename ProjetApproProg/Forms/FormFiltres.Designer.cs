@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.lytPrincipale = new System.Windows.Forms.TableLayoutPanel();
-            this.chkCond = new ProjetApproProg.CheckBoxModifie();
-            this.chkNote = new ProjetApproProg.CheckBoxModifie();
             this.lytBtnOK = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
             this.lytBtnCancel = new System.Windows.Forms.TableLayoutPanel();
@@ -40,6 +38,8 @@
             this.txtPrixA = new System.Windows.Forms.TextBox();
             this.txtPrixDe = new System.Windows.Forms.TextBox();
             this.cmbCondition = new System.Windows.Forms.ComboBox();
+            this.chkCond = new ProjetApproProg.CheckBoxModifie();
+            this.chkNote = new ProjetApproProg.CheckBoxModifie();
             this.noteEtoiles = new ProjetApproProg.NoteEtoiles();
             this.chkPrix = new ProjetApproProg.CheckBoxModifie();
             this.lytPrincipale.SuspendLayout();
@@ -84,52 +84,6 @@
             this.lytPrincipale.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.lytPrincipale.Size = new System.Drawing.Size(882, 523);
             this.lytPrincipale.TabIndex = 0;
-            // 
-            // chkCond
-            // 
-            this.chkCond.BackColor = System.Drawing.Color.Transparent;
-            this.lytPrincipale.SetColumnSpan(this.chkCond, 2);
-            this.chkCond.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkCond.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkCond.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkCond.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkCond.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkCond.CouleurRectFond = System.Drawing.Color.White;
-            this.chkCond.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkCond.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkCond.EstCoche = false;
-            this.chkCond.Location = new System.Drawing.Point(149, 351);
-            this.chkCond.Name = "chkCond";
-            this.chkCond.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkCond.Size = new System.Drawing.Size(286, 52);
-            this.chkCond.TabIndex = 12;
-            this.chkCond.TailleBordureRect = 1;
-            this.chkCond.TailleRectangle = 15;
-            this.chkCond.Text = "checkBoxModifie1";
-            this.chkCond.TextLabel = "Condition:";
-            // 
-            // chkNote
-            // 
-            this.chkNote.BackColor = System.Drawing.Color.Transparent;
-            this.lytPrincipale.SetColumnSpan(this.chkNote, 2);
-            this.chkNote.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkNote.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkNote.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkNote.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkNote.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkNote.CouleurRectFond = System.Drawing.Color.White;
-            this.chkNote.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkNote.EstCoche = false;
-            this.chkNote.Location = new System.Drawing.Point(149, 293);
-            this.chkNote.Name = "chkNote";
-            this.chkNote.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkNote.Size = new System.Drawing.Size(286, 52);
-            this.chkNote.TabIndex = 11;
-            this.chkNote.TailleBordureRect = 1;
-            this.chkNote.TailleRectangle = 15;
-            this.chkNote.Text = "checkBoxModifie1";
-            this.chkNote.TextLabel = "Note:";
             // 
             // lytBtnOK
             // 
@@ -239,9 +193,9 @@
             this.txtPrixA.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrixA.Font = new System.Drawing.Font("Century Gothic", 16F);
             this.txtPrixA.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtPrixA.Location = new System.Drawing.Point(219, 9);
+            this.txtPrixA.Location = new System.Drawing.Point(219, 3);
             this.txtPrixA.Name = "txtPrixA";
-            this.txtPrixA.Size = new System.Drawing.Size(211, 33);
+            this.txtPrixA.Size = new System.Drawing.Size(211, 53);
             this.txtPrixA.TabIndex = 1;
             this.txtPrixA.Text = "À:";
             this.txtPrixA.Enter += new System.EventHandler(this.txtPrixA_Enter);
@@ -254,9 +208,9 @@
             this.txtPrixDe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrixDe.Font = new System.Drawing.Font("Century Gothic", 16F);
             this.txtPrixDe.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtPrixDe.Location = new System.Drawing.Point(3, 9);
+            this.txtPrixDe.Location = new System.Drawing.Point(3, 3);
             this.txtPrixDe.Name = "txtPrixDe";
-            this.txtPrixDe.Size = new System.Drawing.Size(210, 33);
+            this.txtPrixDe.Size = new System.Drawing.Size(210, 53);
             this.txtPrixDe.TabIndex = 0;
             this.txtPrixDe.Text = "De:";
             this.txtPrixDe.Enter += new System.EventHandler(this.txtPrixDe_Enter);
@@ -274,11 +228,57 @@
             "Neuf",
             "Remis à neuf",
             "Usagé"});
-            this.cmbCondition.Location = new System.Drawing.Point(441, 356);
+            this.cmbCondition.Location = new System.Drawing.Point(441, 351);
             this.cmbCondition.MaxDropDownItems = 3;
             this.cmbCondition.Name = "cmbCondition";
-            this.cmbCondition.Size = new System.Drawing.Size(286, 41);
+            this.cmbCondition.Size = new System.Drawing.Size(286, 60);
             this.cmbCondition.TabIndex = 8;
+            // 
+            // chkCond
+            // 
+            this.chkCond.BackColor = System.Drawing.Color.Transparent;
+            this.lytPrincipale.SetColumnSpan(this.chkCond, 2);
+            this.chkCond.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkCond.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkCond.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkCond.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkCond.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkCond.CouleurRectFond = System.Drawing.Color.White;
+            this.chkCond.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkCond.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkCond.EstCoche = false;
+            this.chkCond.Location = new System.Drawing.Point(149, 351);
+            this.chkCond.Name = "chkCond";
+            this.chkCond.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkCond.Size = new System.Drawing.Size(286, 52);
+            this.chkCond.TabIndex = 12;
+            this.chkCond.TailleBordureRect = 1;
+            this.chkCond.TailleRectangle = 15;
+            this.chkCond.Text = "checkBoxModifie1";
+            this.chkCond.TextLabel = "Condition:";
+            // 
+            // chkNote
+            // 
+            this.chkNote.BackColor = System.Drawing.Color.Transparent;
+            this.lytPrincipale.SetColumnSpan(this.chkNote, 2);
+            this.chkNote.CouleurCrochet = System.Drawing.Color.Black;
+            this.chkNote.CouleurFondText = System.Drawing.Color.Transparent;
+            this.chkNote.CouleurPoliceText = System.Drawing.Color.White;
+            this.chkNote.CouleurRectBordure = System.Drawing.Color.Black;
+            this.chkNote.CouleurRectBordureHighlight = System.Drawing.Color.White;
+            this.chkNote.CouleurRectFond = System.Drawing.Color.White;
+            this.chkNote.CouleurRectFondHighlight = System.Drawing.Color.White;
+            this.chkNote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkNote.EstCoche = false;
+            this.chkNote.Location = new System.Drawing.Point(149, 293);
+            this.chkNote.Name = "chkNote";
+            this.chkNote.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
+            this.chkNote.Size = new System.Drawing.Size(286, 52);
+            this.chkNote.TabIndex = 11;
+            this.chkNote.TailleBordureRect = 1;
+            this.chkNote.TailleRectangle = 15;
+            this.chkNote.Text = "checkBoxModifie1";
+            this.chkNote.TextLabel = "Note:";
             // 
             // noteEtoiles
             // 
@@ -317,7 +317,7 @@
             // 
             // FormFiltres
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(882, 523);

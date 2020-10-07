@@ -2,13 +2,13 @@
 { 
     public abstract class Filtre
     {
-        private bool _isChecked;
+        private bool _estCoche;
         private string _nom;
 
-        public bool IsChecked
+        public bool EstCoche
         {
-            get { return _isChecked; }
-            set { _isChecked = value; }
+            get { return _estCoche; }
+            set { _estCoche = value; }
         }
 
         public string Nom
@@ -19,7 +19,7 @@
 
         protected Filtre(bool pIsChecked, string pNom)
         {
-            IsChecked = pIsChecked;
+            EstCoche = pIsChecked;
             Nom = pNom;
         }
     }

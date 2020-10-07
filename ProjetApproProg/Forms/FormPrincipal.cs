@@ -28,6 +28,7 @@ namespace ProjetApproProg
             this.btnSaveParam.BackColor = btnCote;
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
+
         }
         #endregion
 

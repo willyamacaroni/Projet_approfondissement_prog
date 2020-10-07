@@ -27,6 +27,34 @@ namespace ProjetApproProg
 
         #endregion
 
+        #region ValeursChamps
+
+        public TextBox TxtPrixA
+        {
+            get { return txtPrixA; }
+            set { txtPrixA = value; }
+        }
+
+        public TextBox TxtPrixDe
+        {
+            get { return txtPrixDe; }
+            set { txtPrixDe = value; }
+        }
+
+        public ComboBox CmbCondition
+        {
+            get { return cmbCondition; }
+            set { cmbCondition = value; }
+        }
+
+        public NoteEtoiles NoteEtoiles
+        {
+            get { return noteEtoiles; }
+            set { noteEtoiles = value; }
+        }
+
+        #endregion
+
         #region Constructeur
         public FormFiltres()
         {
@@ -34,6 +62,7 @@ namespace ProjetApproProg
             this.BackColor = Color.FromArgb(255, 49, 29, 63);
             this.btnOK.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
             this.btnCancel.BackColor = Color.FromArgb(255 * 80 / 100, 226, 62, 87);
+            this.cmbCondition.SelectedIndex = 0;
         }
         #endregion
 

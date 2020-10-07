@@ -3,14 +3,14 @@
     public class Site
     {
 
-        private bool _isChecked;
+        private bool _estCoche;
         private string _nom;
         private string _url;
 
-        public bool IsChecked
+        public bool EstCoche
         {
-            get { return _isChecked; }
-            set { _isChecked = value; }
+            get { return _estCoche; }
+            set { _estCoche = value; }
         }
 
         public string Nom
@@ -25,9 +25,9 @@
             set { _url = value; }
         }
 
-        public Site(bool pIsChecked, string pNom, string pUrl)
+        public Site(bool pEstCoche, string pNom, string pUrl)
         {
-            IsChecked = pIsChecked;
+            EstCoche = pEstCoche;
             Nom = pNom;
             Url = pUrl;
         }
