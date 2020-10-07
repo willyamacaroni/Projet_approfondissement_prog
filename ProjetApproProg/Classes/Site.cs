@@ -1,6 +1,6 @@
 ﻿namespace ProjetApproProg
 {
-    abstract class Site
+    public class Site
     {
 
         private bool _isChecked;
@@ -25,7 +25,7 @@
             set { _url = value; }
         }
 
-        protected Site(bool pIsChecked, string pNom, string pUrl)
+        public Site(bool pIsChecked, string pNom, string pUrl)
         {
             IsChecked = pIsChecked;
             Nom = pNom;

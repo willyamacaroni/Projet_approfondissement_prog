@@ -1,6 +1,6 @@
 ﻿namespace ProjetApproProg
 { 
-    abstract class Filtre
+    public abstract class Filtre
     {
         private bool _isChecked;
         private string _nom;

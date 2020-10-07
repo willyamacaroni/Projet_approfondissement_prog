@@ -56,12 +56,6 @@
     <Compile Include="Classes\FiltreCondition.cs" />
     <Compile Include="Classes\FiltreNote.cs" />
     <Compile Include="Classes\FiltrePrix.cs" />
-    <Compile Include="Classes\SiteAmazon.cs" />
-    <Compile Include="Classes\SiteBestBuy.cs" />
-    <Compile Include="Classes\SiteEbay.cs" />
-    <Compile Include="Classes\SiteMikeComputerShop.cs" />
-    <Compile Include="Classes\SiteNewEgg.cs" />
-    <Compile Include="Classes\SiteWalmart.cs" />
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
