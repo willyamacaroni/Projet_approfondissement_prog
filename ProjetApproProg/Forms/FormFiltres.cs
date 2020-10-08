@@ -6,7 +6,7 @@ namespace ProjetApproProg
 {
     public partial class FormFiltres : Form
     {
-        #region CheckBoxes
+        #region GetSetCheckBoxes
         public CheckBoxModifie ChkCondition
         {
             get { return chkCond; }
@@ -69,6 +69,8 @@ namespace ProjetApproProg
         #region Events
         private void txtPrixDe_Enter(object sender, EventArgs e)
         {
+            // Le "De:" sert de placeholder,
+            // on veut l'effacer quand on entre dans le champ
             if (this.txtPrixDe.Text.Equals("De:"))
             {
                 this.txtPrixDe.Text = String.Empty;

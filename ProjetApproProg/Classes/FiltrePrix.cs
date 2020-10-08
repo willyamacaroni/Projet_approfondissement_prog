@@ -1,23 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProjetApproProg.Classes
+﻿namespace ProjetApproProg.Classes
 {
+
+    /// <summary>
+    /// La classe FiltrePrix à pour valeur un étandu prix.
+    /// L'étandu inscrit par l'utilisateur.
+    /// </summary>
     class FiltrePrix : Filtre
     {
+        #region Attributs
+
         private string _prixDebut;
         private string _prixFin;
 
+        #endregion
+
+        #region GetSet
         public string PrixDebut
         {
             get { return _prixDebut; }
             set
             {
-                /*
+                /* # Validation avant assingation #
                 if (value == "" || value == "De:")
                     _prixDebut = "0";
 
@@ -57,11 +60,16 @@ namespace ProjetApproProg.Classes
             }
         }
 
-        public FiltrePrix(bool pIsChecked, string pNom, string pPrixDebut, string pPrixFin) : base(pIsChecked, pNom)
+        #endregion
+
+        #region Constructeur
+        public FiltrePrix(bool pEstCoche, string pNom, string pPrixDebut, string pPrixFin) : base(pEstCoche, pNom)
         {
 
             PrixDebut = pPrixDebut;
             PrixFin = pPrixFin;
         }
+
+        #endregion
     }
 }

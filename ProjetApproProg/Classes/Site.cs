@@ -1,12 +1,20 @@
 ﻿namespace ProjetApproProg
 {
+    /// <summary>
+    /// La classe site est désignée à décrire un site à chercher.
+    /// Elle est décrite par un nom, une URL et si le site est coché.
+    /// </summary>
     public class Site
     {
+        #region Attributs
 
         private bool _estCoche;
         private string _nom;
         private string _url;
 
+        #endregion
+
+        #region GetSet
         public bool EstCoche
         {
             get { return _estCoche; }
@@ -25,11 +33,16 @@
             set { _url = value; }
         }
 
+        #endregion
+
+        #region Constructeur
         public Site(bool pEstCoche, string pNom, string pUrl)
         {
             EstCoche = pEstCoche;
             Nom = pNom;
             Url = pUrl;
         }
+
+        #endregion
     }
 }

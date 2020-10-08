@@ -1,15 +1,24 @@
-﻿using System;
-using ProjetApproProg.Classes;
+﻿using ProjetApproProg.Classes;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace ProjetApproProg
 {
+    /// <summary>
+    /// La classe Gestionnaire est une classe statique qui sert à la gestion de l'application.
+    /// Elle détient une liste des filtres et une liste des sites.
+    /// Ces listes servent principalement à la sauvegarde de données.
+    /// La classe Gestion regroupe les méthodes nécessaires à la récupération de données et à leur gestion.
+    /// </summary>
     public static class Gestionnaire
     {
+        #region Attributs
+
         static List<Filtre> _lstFiltres;
         static List<Site> _lstSites;
 
+        #endregion
+
+        #region GetSet
         public static List<Filtre> LstFiltres
         {
             get { return _lstFiltres; }
@@ -29,6 +38,15 @@ namespace ProjetApproProg
             }
         }
 
+        #endregion
+
+        #region Méthodes
+
+        /// <summary>
+        /// La méthode RecupererFiltres permet de récupérer les données de chaque filtre.
+        /// Elle est utile à la sauvegarde de données et à la gestion des filtres.
+        /// </summary>
+        /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
         public static void RecupererFiltres(FormFiltres pFormFiltres)
         {
             List<Filtre> lstFiltres = new List<Filtre>();
@@ -36,7 +54,7 @@ namespace ProjetApproProg
             FiltreCondition filtreCondition = new FiltreCondition(
                 pFormFiltres.ChkCondition.EstCoche,
                 pFormFiltres.ChkCondition.TextLabel.Substring(0, pFormFiltres.ChkCondition.TextLabel.Length - 1),
-                (Condition) pFormFiltres.CmbCondition.SelectedIndex);
+                (Condition)pFormFiltres.CmbCondition.SelectedIndex);
             FiltreNote filtreNote = new FiltreNote(
                 pFormFiltres.ChkNote.EstCoche,
                 pFormFiltres.ChkNote.TextLabel.Substring(0, pFormFiltres.ChkNote.TextLabel.Length - 1),
@@ -54,6 +72,11 @@ namespace ProjetApproProg
             LstFiltres = lstFiltres;
         }
 
+        /// <summary>
+        /// La méthode RecupererSites permet de récupérer les données de chaque site.
+        /// Elle est utile à la sauvegarde de données et à la gestion des sites.
+        /// </summary>
+        /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
         public static void RecupererSites(FormSites pFormSites)
         {
             List<Site> lstSites = new List<Site>();
@@ -67,7 +90,7 @@ namespace ProjetApproProg
                 pFormSites.ChkBestBuy.TextLabel,
                 "");
             Site ebay = new Site(
-                pFormSites.ChkEbay.EstCoche, 
+                pFormSites.ChkEbay.EstCoche,
                 pFormSites.ChkEbay.TextLabel,
                 "");
             Site mikeComputerShop = new Site(
@@ -93,6 +116,11 @@ namespace ProjetApproProg
             LstSites = lstSites;
         }
 
+        /// <summary>
+        /// La méthode CocherSites permet la persistence des données et la mise à jour de celles-ci.
+        /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
+        /// </summary>
+        /// <param name="pFormSites">Le formSites qui contient les sites à chocher.</param>
         public static void CocherSites(FormSites pFormSites)
         {
             if (LstSites != null)
@@ -127,6 +155,12 @@ namespace ProjetApproProg
             }
         }
 
+        /// <summary>
+        /// La méthode CocherFiltres permet la persistence des données et la mise à jour de celles-ci.
+        /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
+        /// Elle permet aussi de remettre les valeurs précédemment entrées par l'utilisateur.
+        /// </summary>
+        /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à chocher et les champs à remplir.</param>
         public static void CocherFiltres(FormFiltres pFormFiltres)
         {
             if (LstFiltres != null)
@@ -158,5 +192,7 @@ namespace ProjetApproProg
                 }
             }
         }
+
+        #endregion
     }
 }
