@@ -1,5 +1,8 @@
-﻿using ProjetApproProg.Classes;
+﻿using System;
+using ProjetApproProg.Classes;
 using System.Collections.Generic;
+using System.Linq;
+using HtmlAgilityPack;
 
 namespace ProjetApproProg
 {
@@ -41,6 +44,8 @@ namespace ProjetApproProg
         #endregion
 
         #region Méthodes
+
+        #region Recuperer
 
         /// <summary>
         /// La méthode RecupererFiltres permet de récupérer les données de chaque filtre.
@@ -116,6 +121,10 @@ namespace ProjetApproProg
             LstSites = lstSites;
         }
 
+        #endregion
+
+        #region Cocher
+
         /// <summary>
         /// La méthode CocherSites permet la persistence des données et la mise à jour de celles-ci.
         /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
@@ -163,13 +172,12 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à chocher et les champs à remplir.</param>
         public static void CocherFiltres(FormFiltres pFormFiltres)
         {
-            if (LstFiltres != null)
+            List<Filtre> lstFiltesCochees = ObtenirFiltresCocheeSeulement();
+            if (lstFiltesCochees.Count > 0)
             {
-                foreach (Filtre filtre in LstFiltres)
+                foreach (Filtre filtre in lstFiltesCochees)
                 {
-                    if (filtre.EstCoche)
-                    {
-                        switch (filtre.Nom)
+                    switch (filtre.Nom)
                         {
                             case "Condition":
                                 FiltreCondition filtreCondition = (FiltreCondition)filtre;
@@ -188,9 +196,303 @@ namespace ProjetApproProg
                                 pFormFiltres.TxtPrixA.Text = filtrePrix.PrixFin;
                                 break;
                         }
+                }
+            }
+        }
+
+        #endregion
+
+        static List<Filtre> ObtenirFiltresCocheeSeulement()
+        {
+            List<Filtre> lstFiltesCoches = new List<Filtre>();
+            if (LstFiltres != null)
+            {
+                foreach (Filtre filtre in LstFiltres)
+                {
+                    if (filtre.EstCoche)
+                    {
+                        lstFiltesCoches.Add(filtre);
                     }
                 }
             }
+
+            return lstFiltesCoches;
+
+        }
+
+        public static string ObtenirUrlEbay(string recherche)
+        {
+            List<Filtre> lstFiltresCochee = ObtenirFiltresCocheeSeulement();
+            string URLEbayDeBase = "https://www.ebay.com/sch/i.html?_nkw=";
+            string filtres = "";
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            filtres += "&LH_ItemCondition=";
+                            FiltreCondition filtreCondition = (FiltreCondition) filtre;
+                            switch (filtreCondition.Condition)
+                            {
+                                case Condition.Neuf:
+                                    filtres += "3";
+                                    break;
+                                case Condition.RemisANeuf:
+                                    filtres += "2500";
+                                    break;
+                                case Condition.Usagee:
+                                    filtres += "4";
+                                    break;
+                            }
+                            break;
+                        case "Note":
+                            // Pas une option sur ebay... À faire plus tard
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            filtres += String.Format("&_udlo={0}&_udhi={1}",filtrePrix.PrixDebut,filtrePrix.PrixFin);
+                            break;
+                    }
+                }
+            }
+
+            string URLEbayFinal = URLEbayDeBase + recherche + filtres;
+            return URLEbayFinal;
+        }
+
+        public static string ObtenirUrlAmazon(string recherche)
+        {
+            List<Filtre> lstFiltresCochee = ObtenirFiltresCocheeSeulement();
+            string URLAmazonDeBase = "https://www.amazon.ca/s?k=";
+            string filtres = "";
+            bool peutAvoirFiltreNote = true;
+            bool peutAvoirFiltrePrix = true;
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            switch (filtreCondition.Condition)
+                            {
+                                case Condition.Neuf:
+                                    //Cette option est celle "de base" sur amazon
+                                    break;
+                                case Condition.RemisANeuf:
+                                    filtres += "&i=specialty-aps&srs=17351028011";
+                                    peutAvoirFiltrePrix = false;
+                                    break;
+                                case Condition.Usagee:
+                                    filtres += "&i=warehouse-deals";
+                                    peutAvoirFiltreNote = false;
+                                    break;
+                            }
+                            break;
+                        case "Note":
+                            if (peutAvoirFiltreNote)
+                            {
+                                FiltreNote filtreNote = (FiltreNote) filtre;
+                                switch (filtreNote.Note)
+                                {
+                                    case 1:
+                                        filtres += "&rh=p_72%3A11192167011";
+                                        break;
+                                    case 2:
+                                        filtres += "&rh=p_72%3A11192168011";
+                                        break;
+                                    case 3:
+                                        filtres += "&rh=p_72%3A11192169011";
+                                        break;
+                                    case 4:
+                                        filtres += "&rh=p_72%3A11192170011";
+                                        break;
+                                    case 5:
+                                        filtres += "&rh=p_72%3A11192170011";
+
+                                        break;
+                                }
+                            }
+                            break;
+                        case "Prix":
+                            if (peutAvoirFiltrePrix)
+                            {
+                                FiltrePrix filtrePrix = (FiltrePrix) filtre;
+                                double prixDebut = Convert.ToDouble(filtrePrix.PrixDebut);
+                                double prixFin = Convert.ToDouble(filtrePrix.PrixFin);
+                                prixDebut = Math.Round(prixDebut);
+                                prixFin = Math.Round(prixFin);
+                                filtres += String.Format("&rh=p_36%3A{0}-{1}", prixDebut * 100, prixFin * 100);
+                            }
+                            break;
+                            
+                    }
+                }
+            }
+            
+            string URLAmazonFinal = URLAmazonDeBase + recherche + filtres;
+            return URLAmazonFinal;
+        }
+
+        public static string ObtenirUrlNewEgg(string recherche)
+        {
+            List<Filtre> lstFiltresCochee = ObtenirFiltresCocheeSeulement();
+            string URLNewEggDeBase = "https://www.newegg.com/p/pl?d=";
+            string filtres = "";
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            filtres += "&N=";
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            switch (filtreCondition.Condition)
+                            {
+                                case Condition.Neuf:
+                                    filtres += "4814";
+                                    break;
+                                case Condition.RemisANeuf:
+                                    filtres += "4016";
+                                    break;
+                                case Condition.Usagee:
+                                    filtres += "4823";
+                                    break;
+                            }
+                            break;
+                        case "Note":
+                            if (filtres.Contains("&N="))
+                                filtres += "%20";
+                            else
+                                filtres += "&N=";
+                            FiltreNote filtreNote = (FiltreNote) filtre;
+                            switch (filtreNote.Note)
+                            {
+                                case 1:
+                                    filtres += "4111";
+                                    break;
+                                case 2:
+                                    filtres += "4112";
+                                    break;
+                                case 3:
+                                    filtres += "4113";
+                                    break;
+                                case 4:
+                                    filtres += "4114";
+                                    break;
+                                case 5:
+                                    filtres += "4115";
+                                    break;
+                            }
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            filtres += String.Format("&LeftPriceRange={0}+{1}", filtrePrix.PrixDebut, filtrePrix.PrixFin);
+                            break;
+                    }
+                }
+            }
+
+            string URLNewEgg = URLNewEggDeBase + recherche + filtres;
+            return URLNewEgg;
+        }
+
+        public static string ObtenirUrlMikeComputerShop(string recherche)
+        {
+            List<Filtre> lstFiltresCochee = ObtenirFiltresCocheeSeulement();
+            string URLNewEggDeBase = "https://mikescomputershop.com/catalog/?q=";
+            string filtres = "";
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        //Mike Computer Shop n'offre pas les filtres "Condition" et "Note"
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            filtres += String.Format("&p={0}-{1}", filtrePrix.PrixDebut, filtrePrix.PrixFin);
+                            break;
+                    }
+                }
+            }
+
+            string URLMikeComputerShop = URLNewEggDeBase + recherche + filtres;
+            return URLMikeComputerShop;
+        }
+
+        public static string ObtenirUrlWalmart(string recherche)
+        {
+            List<Filtre> lstFiltresCochee = ObtenirFiltresCocheeSeulement();
+            string URLWalmartDeBase = "https://www.walmart.com/search/?query=";
+            string filtres = "";
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            filtres += "";
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            switch (filtreCondition.Condition)
+                            {
+                                case Condition.Neuf:
+                                    filtres += "&facet=condition%3ANew";
+                                    break;
+                                case Condition.RemisANeuf:
+                                    filtres += "&facet=condition%3ARefurbished";
+                                    break;
+                                case Condition.Usagee:
+                                    filtres += "&facet=condition%3AUsed";
+                                    break;
+                            }
+                            break;
+                        case "Note":
+                            filtres += "&sfacet=customer_rating%";
+                            FiltreNote filtreNote = (FiltreNote)filtre;
+                            switch (filtreNote.Note)
+                            {
+                                case 1:
+                                    filtres += "3A1+-+1.9+Stars";
+                                    break;
+                                case 2:
+                                    filtres += "3A2+-+2.9+Stars";
+                                    break;
+                                case 3:
+                                    filtres += "3A3+-+3.9+Stars";
+                                    break;
+                                case 4:
+                                    filtres += "3A4+-+4.9+Stars";
+                                    break;
+                                case 5:
+                                    filtres += "3A4+-+5+Stars";
+                                    break;
+                            }
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            filtres += String.Format("&max_price={1}&min_price={0}", filtrePrix.PrixDebut, filtrePrix.PrixFin);
+                            break;
+                    }
+                }
+            }
+
+            string URLWalmartFinal = URLWalmartDeBase + recherche + filtres;
+            return URLWalmartFinal;
+        }
+
+
+
+        public static void ObtenirPageAPartirDeURL(string URL)
+        {
+            HtmlWeb web = new HtmlWeb();
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc = web.Load(URL);
         }
 
         #endregion
