@@ -1,5 +1,6 @@
 ﻿using System;
 using HtmlAgilityPack;
+using System.Linq;
 using ProjetApproProg.Classes;
 using System.Collections.Generic;
 
@@ -15,12 +16,22 @@ namespace ProjetApproProg
     {
         #region Attributs
 
-        static List<Filtre> _lstFiltres;
-        static List<Site> _lstSites;
+        private static List<Filtre> _lstFiltres;
+        private static List<Site> _lstSites;
+        private static List<Produit> _lstProduits;
+
 
         #endregion
 
         #region GetSet
+
+        public static List<Produit> LstProduits
+        {
+            get { return _lstProduits; }
+            set { _lstProduits = value; }
+        }
+
+
         public static List<Filtre> LstFiltres
         {
             get { return _lstFiltres; }
@@ -51,29 +62,34 @@ namespace ProjetApproProg
         /// Elle est utile à la sauvegarde de données et à la gestion des filtres.
         /// </summary>
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
-        public static void RecupererFiltres(FormFiltres pFormFiltres)
+        public static void RecupererFiltresCoches(FormFiltres pFormFiltres)
         {
-            List<Filtre> lstFiltres = new List<Filtre>();
+            LstFiltres.Clear();
 
-            FiltreCondition filtreCondition = new FiltreCondition(
-                pFormFiltres.ChkCondition.EstCoche,
-                pFormFiltres.ChkCondition.TextLabel.Substring(0, pFormFiltres.ChkCondition.TextLabel.Length - 1),
-                (Condition)pFormFiltres.CmbCondition.SelectedIndex);
-            FiltreNote filtreNote = new FiltreNote(
-                pFormFiltres.ChkNote.EstCoche,
-                pFormFiltres.ChkNote.TextLabel.Substring(0, pFormFiltres.ChkNote.TextLabel.Length - 1),
-                pFormFiltres.NoteEtoiles.EtoileCochee);
-            FiltrePrix filtrePrix = new FiltrePrix(
-                pFormFiltres.ChkPrix.EstCoche,
-                pFormFiltres.ChkPrix.TextLabel.Substring(0, pFormFiltres.ChkPrix.TextLabel.Length - 1),
-                pFormFiltres.TxtPrixDe.Text,
-                pFormFiltres.TxtPrixA.Text);
+            if (pFormFiltres.ChkCondition.EstCoche)
+            {
+                LstFiltres.Add(new FiltreCondition(
+                    pFormFiltres.ChkCondition.EstCoche,
+                    pFormFiltres.ChkCondition.TextLabel.Substring(0, pFormFiltres.ChkCondition.TextLabel.Length - 1),
+                    (Condition)pFormFiltres.CmbCondition.SelectedIndex));
+            }
 
-            lstFiltres.Add(filtreCondition);
-            lstFiltres.Add(filtreNote);
-            lstFiltres.Add(filtrePrix);
+            if (pFormFiltres.ChkNote.EstCoche)
+            {
+                LstFiltres.Add(new FiltreNote(
+                    pFormFiltres.ChkNote.EstCoche,
+                    pFormFiltres.ChkNote.TextLabel.Substring(0, pFormFiltres.ChkNote.TextLabel.Length - 1),
+                    pFormFiltres.NoteEtoiles.EtoileCochee));
+            }
 
-            LstFiltres = lstFiltres;
+            if (pFormFiltres.ChkPrix.EstCoche)
+            {
+                LstFiltres.Add(new FiltrePrix(
+                    pFormFiltres.ChkPrix.EstCoche,
+                    pFormFiltres.ChkPrix.TextLabel.Substring(0, pFormFiltres.ChkPrix.TextLabel.Length - 1),
+                    pFormFiltres.TxtPrixDe.Text,
+                    pFormFiltres.TxtPrixA.Text));
+            }
         }
 
         /// <summary>
@@ -81,43 +97,45 @@ namespace ProjetApproProg
         /// Elle est utile à la sauvegarde de données et à la gestion des sites.
         /// </summary>
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
-        public static void RecupererSites(FormSites pFormSites)
+        public static void RecupererSitesCoches(FormSites pFormSites)
         {
-            List<Site> lstSites = new List<Site>();
+            LstSites.Clear();
 
-            Site amazon = new SiteAmazon(
-                pFormSites.ChkAmazon.EstCoche,
-                pFormSites.ChkAmazon.TextLabel,
-                "");
-            Site bestBuy = new SiteBestBuy(
-                pFormSites.ChkBestBuy.EstCoche,
-                pFormSites.ChkBestBuy.TextLabel,
-                "");
-            Site ebay = new SiteEbay(
-                pFormSites.ChkEbay.EstCoche,
-                pFormSites.ChkEbay.TextLabel,
-                "");
-            Site mikeComputerShop = new SiteMike(
-                pFormSites.ChkMikeShop.EstCoche,
-                pFormSites.ChkMikeShop.TextLabel,
-                "");
-            Site newEgg = new SiteNewEgg(
-                pFormSites.ChkNewEgg.EstCoche,
-                pFormSites.ChkNewEgg.TextLabel,
-                "");
-            Site walmart = new SiteWalmart(
-                pFormSites.ChkWalmart.EstCoche,
-                pFormSites.ChkWalmart.TextLabel,
-                "");
+            if (pFormSites.ChkAmazon.EstCoche)
+            {
+                LstSites.Add(new SiteAmazon(
+                    pFormSites.ChkAmazon.EstCoche));
+            }
+            
+            if (pFormSites.ChkBestBuy.EstCoche)
+            {
+                LstSites.Add(new SiteBestBuy(
+                    pFormSites.ChkBestBuy.EstCoche));
+            }
 
-            lstSites.Add(amazon);
-            lstSites.Add(bestBuy);
-            lstSites.Add(ebay);
-            lstSites.Add(mikeComputerShop);
-            lstSites.Add(newEgg);
-            lstSites.Add(walmart);
+            if (pFormSites.ChkEbay.EstCoche)
+            {
+                LstSites.Add(new SiteEbay(
+                    pFormSites.ChkEbay.EstCoche));
+            }
 
-            LstSites = lstSites;
+            if (pFormSites.ChkMikeShop.EstCoche)
+            {
+                LstSites.Add(new SiteMike(
+                    pFormSites.ChkMikeShop.EstCoche));
+            }
+
+            if (pFormSites.ChkNewEgg.EstCoche)
+            {
+                LstSites.Add(new SiteNewEgg(
+                    pFormSites.ChkNewEgg.EstCoche));
+            }
+
+            if (pFormSites.ChkWalmart.EstCoche)
+            {
+                LstSites.Add(new SiteWalmart(
+                    pFormSites.ChkWalmart.EstCoche));
+            }
         }
 
         #endregion
@@ -135,29 +153,26 @@ namespace ProjetApproProg
             {
                 foreach (Site site in LstSites)
                 {
-                    if (site.EstCoche)
+                    switch (site.Nom)
                     {
-                        switch (site.Nom)
-                        {
-                            case "Amazon":
-                                pFormSites.ChkAmazon.EstCoche = true;
-                                break;
-                            case "Best Buy":
-                                pFormSites.ChkBestBuy.EstCoche = true;
-                                break;
-                            case "Ebay":
-                                pFormSites.ChkEbay.EstCoche = true;
-                                break;
-                            case "Mike's Shop":
-                                pFormSites.ChkMikeShop.EstCoche = true;
-                                break;
-                            case "NewEgg":
-                                pFormSites.ChkNewEgg.EstCoche = true;
-                                break;
-                            case "Walmart":
-                                pFormSites.ChkWalmart.EstCoche = true;
-                                break;
-                        }
+                        case "Amazon":
+                            pFormSites.ChkAmazon.EstCoche = true;
+                            break;
+                        case "Best Buy":
+                            pFormSites.ChkBestBuy.EstCoche = true;
+                            break;
+                        case "Ebay":
+                            pFormSites.ChkEbay.EstCoche = true;
+                            break;
+                        case "Mike's Shop":
+                            pFormSites.ChkMikeShop.EstCoche = true;
+                            break;
+                        case "NewEgg":
+                            pFormSites.ChkNewEgg.EstCoche = true;
+                            break;
+                        case "Walmart":
+                            pFormSites.ChkWalmart.EstCoche = true;
+                            break;
                     }
                 }
             }
@@ -171,30 +186,29 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à chocher et les champs à remplir.</param>
         public static void CocherFiltres(FormFiltres pFormFiltres)
         {
-            List<Filtre> lstFiltesCochees = ObtenirFiltresCocheeSeulement();
-            if (lstFiltesCochees.Count > 0)
+            if (LstFiltres.Count > 0)
             {
-                foreach (Filtre filtre in lstFiltesCochees)
+                foreach (Filtre filtre in LstFiltres)
                 {
                     switch (filtre.Nom)
-                        {
-                            case "Condition":
-                                FiltreCondition filtreCondition = (FiltreCondition)filtre;
-                                pFormFiltres.ChkCondition.EstCoche = true;
-                                pFormFiltres.CmbCondition.SelectedIndex = (int)filtreCondition.Condition;
-                                break;
-                            case "Note":
-                                FiltreNote filtreNote = (FiltreNote)filtre;
-                                pFormFiltres.ChkNote.EstCoche = true;
-                                pFormFiltres.NoteEtoiles.EtoileCochee = filtreNote.Note;
-                                break;
-                            case "Prix":
-                                FiltrePrix filtrePrix = (FiltrePrix)filtre;
-                                pFormFiltres.ChkPrix.EstCoche = true;
-                                pFormFiltres.TxtPrixDe.Text = filtrePrix.PrixDebut;
-                                pFormFiltres.TxtPrixA.Text = filtrePrix.PrixFin;
-                                break;
-                        }
+                    {
+                        case "Condition":
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            pFormFiltres.ChkCondition.EstCoche = true;
+                            pFormFiltres.CmbCondition.SelectedIndex = (int)filtreCondition.Condition;
+                            break;
+                        case "Note":
+                            FiltreNote filtreNote = (FiltreNote)filtre;
+                            pFormFiltres.ChkNote.EstCoche = true;
+                            pFormFiltres.NoteEtoiles.EtoileCochee = filtreNote.Note;
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            pFormFiltres.ChkPrix.EstCoche = true;
+                            pFormFiltres.TxtPrixDe.Text = filtrePrix.PrixDebut;
+                            pFormFiltres.TxtPrixA.Text = filtrePrix.PrixFin;
+                            break;
+                    }
                 }
             }
         }
@@ -203,26 +217,13 @@ namespace ProjetApproProg
 
         public static void Rechercher(string pRecherche)
         {
-            List<(string pSite, HtmlNode pPage)> lstSites = new List<(string pSite, HtmlNode pPage)>();
-            
-        }
-
-        private static List<Filtre> ObtenirFiltresCocheeSeulement()
-        {
-            List<Filtre> lstFiltesCoches = new List<Filtre>();
-            if (LstFiltres != null)
+            LstProduits = new List<Produit>();
+            foreach (Site siteCoche in LstSites)
             {
-                foreach (Filtre filtre in LstFiltres)
-                {
-                    if (filtre.EstCoche)
-                    {
-                        lstFiltesCoches.Add(filtre);
-                    }
-                }
+                siteCoche.ConstruireURL(pRecherche);
+                LstSites = LstSites.Concat(siteCoche.Scrap());
             }
-
-            return lstFiltesCoches;
-
+            
         }
 
         #endregion

@@ -11,8 +11,10 @@ namespace ProjetApproProg
     /// </summary>
     public class SiteAmazon : Site
     {
-        private const string urlDeBase = "https://www.amazon.ca/s?k=";
-        private const string nom = "Amazon";
+        private const string _urlDeBase = "https://www.amazon.ca/s?k=";
+        private const string _nom = "Amazon";
+
+
 
         #region Constructeur
         public SiteAmazon(bool pEstCoche) : base(pEstCoche)
@@ -24,7 +26,7 @@ namespace ProjetApproProg
 
         public override void ConstruireURL(string pRecherche)
         {
-            List<Filtre> lstFiltres = Gestionnaire.LstFiltresCoches;
+            List<Filtre> lstFiltres = Gestionnaire.LstFiltres;
             string filtres = "";
             bool peutAvoirFiltreNote = true;
             bool peutAvoirFiltrePrix = true;

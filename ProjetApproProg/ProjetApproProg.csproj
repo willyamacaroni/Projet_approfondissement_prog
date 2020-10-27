@@ -65,12 +65,11 @@
     <Compile Include="CheckBoxModifie.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\Filtre.cs" />
-    <Compile Include="Classes\FiltreCondition.cs" />
-    <Compile Include="Classes\FiltreNote.cs" />
-    <Compile Include="Classes\FiltrePrix.cs" />
+    <Compile Include="Classes\Filtres\Filtre.cs" />
+    <Compile Include="Classes\Filtres\FiltreCondition.cs" />
+    <Compile Include="Classes\Filtres\FiltreNote.cs" />
+    <Compile Include="Classes\Filtres\FiltrePrix.cs" />
     <Compile Include="Classes\Produit.cs" />
-    <Compile Include="Classes\Scrapper.cs" />
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,13 +99,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Sites\SiteBestBuy.cs" />
-    <Compile Include="Sites\SiteNewEgg.cs" />
-    <Compile Include="Sites\SiteMike.cs" />
-    <Compile Include="Sites\SiteAmazon.cs" />
-    <Compile Include="Sites\SiteWalmart.cs" />
-    <Compile Include="Sites\SiteEbay.cs" />
-    <Compile Include="Sites\Site.cs" />
+    <Compile Include="Classes\Sites\SiteBestBuy.cs" />
+    <Compile Include="Classes\Sites\SiteNewEgg.cs" />
+    <Compile Include="Classes\Sites\SiteMike.cs" />
+    <Compile Include="Classes\Sites\SiteAmazon.cs" />
+    <Compile Include="Classes\Sites\SiteWalmart.cs" />
+    <Compile Include="Classes\Sites\SiteEbay.cs" />
+    <Compile Include="Classes\Sites\Site.cs" />
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>

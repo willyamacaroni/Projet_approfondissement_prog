@@ -12,6 +12,8 @@ namespace ProjetApproProg
 
         private bool _estCoche;
         private string _urlRecherche;
+        public string _nom;
+
 
         #endregion
         
@@ -24,6 +26,12 @@ namespace ProjetApproProg
         #endregion
 
         #region GetSet
+        public string Nom
+        {
+            get { return _nom; }
+            set { _nom = value; }
+        }
+
         public bool EstCoche
         {
             get { return _estCoche; }
@@ -40,7 +48,7 @@ namespace ProjetApproProg
 
         #region Méthodes
 
-        public HtmlNode ObtenirPage()
+        protected HtmlNode ObtenirPage()
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(UrlRecherche, "GET");
