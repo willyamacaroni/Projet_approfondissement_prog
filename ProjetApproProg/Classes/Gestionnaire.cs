@@ -1,6 +1,4 @@
-﻿using System;
-using HtmlAgilityPack;
-using System.Linq;
+﻿using System.Linq;
 using ProjetApproProg.Classes;
 using System.Collections.Generic;
 
@@ -17,13 +15,26 @@ namespace ProjetApproProg
         #region Attributs
 
         private static List<Filtre> _lstFiltres;
+        private static List<Filtre> _lstFiltresCoches;
         private static List<Site> _lstSites;
+        private static List<Site> _lstSitesCoches;
         private static List<Produit> _lstProduits;
 
 
         #endregion
 
         #region GetSet
+        public static List<Filtre> LstFiltresCoches
+        {
+            get { return _lstFiltresCoches; }
+            set { _lstFiltresCoches = value; }
+        }
+
+        public static List<Site> LstSitesCoches
+        {
+            get { return _lstSitesCoches; }
+            set { _lstSitesCoches = value; }
+        }
 
         public static List<Produit> LstProduits
         {
@@ -57,38 +68,82 @@ namespace ProjetApproProg
 
         #region Recuperer
 
+
         /// <summary>
         /// La méthode RecupererFiltres permet de récupérer les données de chaque filtre.
         /// Elle est utile à la sauvegarde de données et à la gestion des filtres.
         /// </summary>
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
-        public static void RecupererFiltresCoches(FormFiltres pFormFiltres)
+        public static void RecupererFiltres(FormFiltres pFormFiltres)
         {
             LstFiltres.Clear();
 
-            if (pFormFiltres.ChkCondition.EstCoche)
-            {
-                LstFiltres.Add(new FiltreCondition(
-                    pFormFiltres.ChkCondition.EstCoche,
-                    pFormFiltres.ChkCondition.TextLabel.Substring(0, pFormFiltres.ChkCondition.TextLabel.Length - 1),
-                    (Condition)pFormFiltres.CmbCondition.SelectedIndex));
-            }
+            FiltreCondition filtreCondition = new FiltreCondition(
+                pFormFiltres.ChkCondition.EstCoche,
+                pFormFiltres.ChkCondition.TextLabel.Substring(0, pFormFiltres.ChkCondition.TextLabel.Length - 1),
+                (Condition)pFormFiltres.CmbCondition.SelectedIndex);
+            FiltreNote filtreNote = new FiltreNote(
+                pFormFiltres.ChkNote.EstCoche,
+                pFormFiltres.ChkNote.TextLabel.Substring(0, pFormFiltres.ChkNote.TextLabel.Length - 1),
+                pFormFiltres.NoteEtoiles.EtoileCochee);
+            FiltrePrix filtrePrix = new FiltrePrix(
+                pFormFiltres.ChkPrix.EstCoche,
+                pFormFiltres.ChkPrix.TextLabel.Substring(0, pFormFiltres.ChkPrix.TextLabel.Length - 1),
+                pFormFiltres.TxtPrixDe.Text,
+                pFormFiltres.TxtPrixA.Text);
 
-            if (pFormFiltres.ChkNote.EstCoche)
-            {
-                LstFiltres.Add(new FiltreNote(
-                    pFormFiltres.ChkNote.EstCoche,
-                    pFormFiltres.ChkNote.TextLabel.Substring(0, pFormFiltres.ChkNote.TextLabel.Length - 1),
-                    pFormFiltres.NoteEtoiles.EtoileCochee));
-            }
+            LstFiltres.Add(filtreCondition);
+            LstFiltres.Add(filtreNote);
+            LstFiltres.Add(filtrePrix);
+        }
 
-            if (pFormFiltres.ChkPrix.EstCoche)
+        /// <summary>
+        /// La méthode RecupererSites permet de récupérer les données de chaque site.
+        /// Elle est utile à la sauvegarde de données et à la gestion des sites.
+        /// </summary>
+        /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
+        public static void RecupererSites(FormSites pFormSites)
+        {
+            LstSites.Clear();
+
+            Site amazon = new SiteAmazon(
+                pFormSites.ChkAmazon.EstCoche);
+            Site bestBuy = new SiteBestBuy(
+                pFormSites.ChkBestBuy.EstCoche);
+            Site ebay = new SiteEbay(
+                pFormSites.ChkEbay.EstCoche);
+            Site mikeComputerShop = new SiteMike(
+                pFormSites.ChkMikeShop.EstCoche);
+            Site newEgg = new SiteNewEgg(
+                pFormSites.ChkNewEgg.EstCoche);
+            Site walmart = new SiteWalmart(
+                pFormSites.ChkWalmart.EstCoche);
+
+            LstSites.Add(amazon);
+            LstSites.Add(bestBuy);
+            LstSites.Add(ebay);
+            LstSites.Add(mikeComputerShop);
+            LstSites.Add(newEgg);
+            LstSites.Add(walmart);
+        }
+
+
+
+        /// <summary>
+        /// La méthode RecupererFiltres permet de récupérer les données de chaque filtre.
+        /// Elle est utile à la sauvegarde de données et à la gestion des filtres.
+        /// </summary>
+        /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
+        public static void RecupererFiltresCoches()
+        {
+            LstFiltresCoches.Clear();
+
+            foreach (Filtre filtre in LstFiltres)
             {
-                LstFiltres.Add(new FiltrePrix(
-                    pFormFiltres.ChkPrix.EstCoche,
-                    pFormFiltres.ChkPrix.TextLabel.Substring(0, pFormFiltres.ChkPrix.TextLabel.Length - 1),
-                    pFormFiltres.TxtPrixDe.Text,
-                    pFormFiltres.TxtPrixA.Text));
+                if (filtre.EstCoche)
+                {
+                    LstFiltresCoches.Add(filtre);
+                }
             }
         }
 
@@ -97,44 +152,16 @@ namespace ProjetApproProg
         /// Elle est utile à la sauvegarde de données et à la gestion des sites.
         /// </summary>
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
-        public static void RecupererSitesCoches(FormSites pFormSites)
+        public static void RecupererSitesCoches()
         {
-            LstSites.Clear();
+            LstSitesCoches.Clear();
 
-            if (pFormSites.ChkAmazon.EstCoche)
+            foreach (Site site in LstSites)
             {
-                LstSites.Add(new SiteAmazon(
-                    pFormSites.ChkAmazon.EstCoche));
-            }
-            
-            if (pFormSites.ChkBestBuy.EstCoche)
-            {
-                LstSites.Add(new SiteBestBuy(
-                    pFormSites.ChkBestBuy.EstCoche));
-            }
-
-            if (pFormSites.ChkEbay.EstCoche)
-            {
-                LstSites.Add(new SiteEbay(
-                    pFormSites.ChkEbay.EstCoche));
-            }
-
-            if (pFormSites.ChkMikeShop.EstCoche)
-            {
-                LstSites.Add(new SiteMike(
-                    pFormSites.ChkMikeShop.EstCoche));
-            }
-
-            if (pFormSites.ChkNewEgg.EstCoche)
-            {
-                LstSites.Add(new SiteNewEgg(
-                    pFormSites.ChkNewEgg.EstCoche));
-            }
-
-            if (pFormSites.ChkWalmart.EstCoche)
-            {
-                LstSites.Add(new SiteWalmart(
-                    pFormSites.ChkWalmart.EstCoche));
+                if (site.EstCoche)
+                {
+                    LstSitesCoches.Add(site);
+                }
             }
         }
 
@@ -149,9 +176,9 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à chocher.</param>
         public static void CocherSites(FormSites pFormSites)
         {
-            if (LstSites != null)
+            if (LstSitesCoches != null)
             {
-                foreach (Site site in LstSites)
+                foreach (Site site in LstSitesCoches)
                 {
                     switch (site.Nom)
                     {
@@ -186,9 +213,9 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à chocher et les champs à remplir.</param>
         public static void CocherFiltres(FormFiltres pFormFiltres)
         {
-            if (LstFiltres.Count > 0)
+            if (LstFiltresCoches != null)
             {
-                foreach (Filtre filtre in LstFiltres)
+                foreach (Filtre filtre in LstFiltresCoches)
                 {
                     switch (filtre.Nom)
                     {
@@ -221,9 +248,8 @@ namespace ProjetApproProg
             foreach (Site siteCoche in LstSites)
             {
                 siteCoche.ConstruireURL(pRecherche);
-                LstSites = LstSites.Concat(siteCoche.Scrap());
+                LstProduits = LstProduits.Concat(siteCoche.Scrap()).ToList();
             }
-            
         }
 
         #endregion

@@ -69,6 +69,7 @@ namespace ProjetApproProg
         private void FormSites_Load(object sender, System.EventArgs e)
         {
             Gestionnaire.CocherSites(this);
+            Gestionnaire.RecupererSites(this);
         }
         #endregion
     }
