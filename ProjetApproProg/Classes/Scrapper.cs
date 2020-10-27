@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using HtmlAgilityPack;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using Fizzler.Systems.HtmlAgilityPack;
 
 namespace ProjetApproProg.Classes

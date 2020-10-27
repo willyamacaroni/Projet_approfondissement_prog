@@ -1,8 +1,7 @@
 ﻿using System;
+using HtmlAgilityPack;
 using ProjetApproProg.Classes;
 using System.Collections.Generic;
-using System.Linq;
-using HtmlAgilityPack;
 
 namespace ProjetApproProg
 {
@@ -312,7 +311,6 @@ namespace ProjetApproProg
                                         break;
                                     case 5:
                                         filtres += "&rh=p_72%3A11192170011";
-
                                         break;
                                 }
                             }
