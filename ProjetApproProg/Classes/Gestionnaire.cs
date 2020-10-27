@@ -95,6 +95,8 @@ namespace ProjetApproProg
             LstFiltres.Add(filtreCondition);
             LstFiltres.Add(filtreNote);
             LstFiltres.Add(filtrePrix);
+
+            RecupererFiltresCoches();
         }
 
         /// <summary>
@@ -125,6 +127,8 @@ namespace ProjetApproProg
             LstSites.Add(mikeComputerShop);
             LstSites.Add(newEgg);
             LstSites.Add(walmart);
+
+            RecupererSitesCoches();
         }
 
 
@@ -134,7 +138,7 @@ namespace ProjetApproProg
         /// Elle est utile à la sauvegarde de données et à la gestion des filtres.
         /// </summary>
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
-        public static void RecupererFiltresCoches()
+        private static void RecupererFiltresCoches()
         {
             LstFiltresCoches.Clear();
 
@@ -152,7 +156,7 @@ namespace ProjetApproProg
         /// Elle est utile à la sauvegarde de données et à la gestion des sites.
         /// </summary>
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
-        public static void RecupererSitesCoches()
+        private static void RecupererSitesCoches()
         {
             LstSitesCoches.Clear();
 

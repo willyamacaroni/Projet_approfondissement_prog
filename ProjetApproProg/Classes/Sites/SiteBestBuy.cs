@@ -27,7 +27,7 @@ namespace ProjetApproProg
             throw new System.NotImplementedException();
         }
 
-        protected override List<Produit> Scrap()
+        public override List<Produit> Scrap()
         {
             throw new System.NotImplementedException();
         }

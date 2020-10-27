@@ -28,7 +28,7 @@ namespace ProjetApproProg
 
         public override void ConstruireURL(string pRecherche)
         {
-           List<Filtre> lstFiltresCochee = Gestionnaire.LstFiltresCoches();
+           List<Filtre> lstFiltresCochee = Gestionnaire.LstFiltresCoches;
             string filtres = "";
             if (lstFiltresCochee.Count != 0)
             {
@@ -50,7 +50,7 @@ namespace ProjetApproProg
 
         }
 
-        protected override List<Produit> Scrap()
+        public override List<Produit> Scrap()
         {
             List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelectorAll("div[class*='row catalog-product']").ToList();
 
