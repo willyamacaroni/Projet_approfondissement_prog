@@ -1,4 +1,7 @@
-﻿using HtmlAgilityPack;
+﻿using System;
+using System.Collections.Generic;
+using HtmlAgilityPack;
+using ProjetApproProg.Classes;
 
 namespace ProjetApproProg
 {
@@ -8,9 +11,11 @@ namespace ProjetApproProg
     /// </summary>
     public class SiteWalmart : Site
     {
-      
+        private const string urlDeBase = "https://www.walmart.com/search/?query=";
+        private const string nom = "Walmart";
+
         #region Constructeur
-        public SiteWalmart(bool pEstCoche, string pNom, string pUrl) : base (pEstCoche, pNom, pUrl)
+        public SiteWalmart(bool pEstCoche) : base (pEstCoche)
         {
             
         }
@@ -19,11 +24,67 @@ namespace ProjetApproProg
 
         #region Méthodes
 
-
-        public override (string, HtmlNode) ObtenirPage(string pRecherche)
+        public override void ConstruireURL(string pRecherche)
         {
-            throw new System.NotImplementedException();
+            List<Filtre> lstFiltresCochee = Gestionnaire.LstFiltresCoches;
+            string filtres = "";
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            filtres += "";
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            switch (filtreCondition.Condition)
+                            {
+                                case Condition.Neuf:
+                                    filtres += "&facet=condition%3ANew";
+                                    break;
+                                case Condition.RemisANeuf:
+                                    filtres += "&facet=condition%3ARefurbished";
+                                    break;
+                                case Condition.Usagee:
+                                    filtres += "&facet=condition%3AUsed";
+                                    break;
+                            }
+                            break;
+                        case "Note":
+                            filtres += "&sfacet=customer_rating%";
+                            FiltreNote filtreNote = (FiltreNote)filtre;
+                            switch (filtreNote.Note)
+                            {
+                                case 1:
+                                    filtres += "3A1+-+1.9+Stars";
+                                    break;
+                                case 2:
+                                    filtres += "3A2+-+2.9+Stars";
+                                    break;
+                                case 3:
+                                    filtres += "3A3+-+3.9+Stars";
+                                    break;
+                                case 4:
+                                    filtres += "3A4+-+4.9+Stars";
+                                    break;
+                                case 5:
+                                    filtres += "3A4+-+5+Stars";
+                                    break;
+                            }
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            filtres += String.Format("&max_price={1}&min_price={0}", filtrePrix.PrixDebut, filtrePrix.PrixFin);
+                            break;
+                    }
+                }
+            }
+
+            string URL = urlDeBase + pRecherche + filtres;
+            UrlRecherche = URL;
+
         }
+
 
         #endregion
     }

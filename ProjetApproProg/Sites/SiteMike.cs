@@ -1,4 +1,7 @@
-﻿using HtmlAgilityPack;
+﻿using System;
+using System.Collections.Generic;
+using HtmlAgilityPack;
+using ProjetApproProg.Classes;
 
 namespace ProjetApproProg
 {
@@ -7,11 +10,13 @@ namespace ProjetApproProg
     /// Elle est décrite par un nom, une URL et si le site est coché.
     /// </summary>
     public class SiteMike : Site
-
     {
+        private const string urlDeBase = "https://mikescomputershop.com/catalog/?q=";
+        private const string nom = "Mikeshop";
+
         #region Constructeur
 
-        public SiteMike(bool pEstCoche, string pNom, string pUrl) : base(pEstCoche, pNom, pUrl)
+        public SiteMike(bool pEstCoche) : base(pEstCoche)
         {
 
         }
@@ -20,9 +25,28 @@ namespace ProjetApproProg
 
         #region Méthodes
 
-        public override (string, HtmlNode) ObtenirPage(string pRecherche)
+        public override void ConstruireURL(string pRecherche)
         {
-            throw new System.NotImplementedException();
+           List<Filtre> lstFiltresCochee = Gestionnaire.LstFiltresCoches();
+            string filtres = "";
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        //Mike Computer Shop n'offre pas les filtres "Condition" et "Note"
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            filtres += String.Format("&p={0}-{1}", filtrePrix.PrixDebut, filtrePrix.PrixFin);
+                            break;
+                    }
+                }
+            }
+
+            string URL = urlDeBase + pRecherche + filtres;
+            UrlRecherche = URL;
+
         }
 
         #endregion

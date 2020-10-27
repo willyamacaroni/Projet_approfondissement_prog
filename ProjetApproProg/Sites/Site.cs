@@ -11,17 +11,14 @@ namespace ProjetApproProg
         #region Attributs
 
         private bool _estCoche;
-        private string _nom;
-        private string _url;
+        private string _urlRecherche;
 
         #endregion
         
         #region Constructeur
-        public Site(bool pEstCoche, string pNom, string pUrl)
+        public Site(bool pEstCoche)
         {
             EstCoche = pEstCoche;
-            Nom = pNom;
-            Url = pUrl;
         }
 
         #endregion
@@ -33,23 +30,25 @@ namespace ProjetApproProg
             set { _estCoche = value; }
         }
 
-        public string Nom
+        public string UrlRecherche
         {
-            get { return _nom; }
-            set { _nom = value; }
-        }
-
-        public string Url
-        {
-            get { return _url; }
-            set { _url = value; }
+            get { return _urlRecherche; }
+            set { _urlRecherche = value; }
         }
 
         #endregion
 
         #region Méthodes
 
-        public abstract (string, HtmlNode) ObtenirPage(string pRecherche);
+        public HtmlNode ObtenirPage()
+        {
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument doc = web.Load(UrlRecherche, "GET");
+            HtmlNode page = doc.DocumentNode.SelectSingleNode("//body");
+            return page;
+        }
+        public abstract void ConstruireURL(string pRecherche);
+
 
         #endregion
     }

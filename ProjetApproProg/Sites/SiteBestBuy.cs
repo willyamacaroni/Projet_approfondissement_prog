@@ -8,8 +8,11 @@ namespace ProjetApproProg
     /// </summary>
     public class SiteBestBuy : Site
     {
+        private const string nom = "";
+        private const string urlDeBase = "";
+
         #region Constructeur
-        public SiteBestBuy(bool pEstCoche, string pNom, string pUrl) : base(pEstCoche, pNom, pUrl)
+        public SiteBestBuy(bool pEstCoche) : base(pEstCoche)
         {
            
         }
@@ -18,7 +21,7 @@ namespace ProjetApproProg
 
         #region Méthodes
 
-        public override (string, HtmlNode) ObtenirPage(string pRecherche)
+        public override void ConstruireURL(string pRecherche)
         {
             throw new System.NotImplementedException();
         }

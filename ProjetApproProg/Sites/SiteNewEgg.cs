@@ -1,4 +1,7 @@
-﻿using HtmlAgilityPack;
+﻿using System;
+using System.Collections.Generic;
+using HtmlAgilityPack;
+using ProjetApproProg.Classes;
 
 namespace ProjetApproProg
 {
@@ -8,9 +11,11 @@ namespace ProjetApproProg
     /// </summary>
     public class SiteNewEgg : Site
     {
+        private const string urlDeBase = "https://www.newegg.com/p/pl?d=";
+        private const string nom = "Newegg";
 
         #region Constructeur
-        public SiteNewEgg(bool pEstCoche, string pNom, string pUrl) : base(pEstCoche, pNom, pUrl)
+        public SiteNewEgg(bool pEstCoche) : base(pEstCoche)
         {
         }
 
@@ -18,9 +23,67 @@ namespace ProjetApproProg
 
         #region Méthodes
 
-        public override (string, HtmlNode) ObtenirPage(string pRecherche)
+        public override void ConstruireURL(string pRecherche)
         {
-            throw new System.NotImplementedException();
+            List<Filtre> lstFiltresCochee = Gestionnaire.LstFiltresCoches;
+            string filtres = "";
+            if (lstFiltresCochee.Count != 0)
+            {
+                foreach (Filtre filtre in lstFiltresCochee)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            filtres += "&N=";
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            switch (filtreCondition.Condition)
+                            {
+                                case Condition.Neuf:
+                                    filtres += "4814";
+                                    break;
+                                case Condition.RemisANeuf:
+                                    filtres += "4016";
+                                    break;
+                                case Condition.Usagee:
+                                    filtres += "4823";
+                                    break;
+                            }
+                            break;
+                        case "Note":
+                            if (filtres.Contains("&N="))
+                                filtres += "%20";
+                            else
+                                filtres += "&N=";
+                            FiltreNote filtreNote = (FiltreNote) filtre;
+                            switch (filtreNote.Note)
+                            {
+                                case 1:
+                                    filtres += "4111";
+                                    break;
+                                case 2:
+                                    filtres += "4112";
+                                    break;
+                                case 3:
+                                    filtres += "4113";
+                                    break;
+                                case 4:
+                                    filtres += "4114";
+                                    break;
+                                case 5:
+                                    filtres += "4115";
+                                    break;
+                            }
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            filtres += String.Format("&LeftPriceRange={0}+{1}", filtrePrix.PrixDebut, filtrePrix.PrixFin);
+                            break;
+                    }
+                }
+            }
+
+            string URL = urlDeBase + pRecherche + filtres;
+            UrlRecherche = URL;
         }
 
         #endregion
