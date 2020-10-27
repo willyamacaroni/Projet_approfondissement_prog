@@ -59,7 +59,7 @@ namespace ProjetApproProg
         }
         public abstract void ConstruireURL(string pRecherche);
 
-        protected abstract List<Produit> Scrap();
+        public abstract List<Produit> Scrap();
 
         #endregion
     }

@@ -96,7 +96,7 @@ namespace ProjetApproProg
             UrlRecherche = URL;
         }
 
-        protected override List<Produit> Scrap()
+        public override List<Produit> Scrap()
         {
 
             //List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[data-component-type='s-search-result']").ToList();
