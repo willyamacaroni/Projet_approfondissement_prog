@@ -85,27 +85,27 @@ namespace ProjetApproProg
         {
             List<Site> lstSites = new List<Site>();
 
-            Site amazon = new Site(
+            Site amazon = new SiteAmazon(
                 pFormSites.ChkAmazon.EstCoche,
                 pFormSites.ChkAmazon.TextLabel,
                 "");
-            Site bestBuy = new Site(
+            Site bestBuy = new SiteBestBuy(
                 pFormSites.ChkBestBuy.EstCoche,
                 pFormSites.ChkBestBuy.TextLabel,
                 "");
-            Site ebay = new Site(
+            Site ebay = new SiteEbay(
                 pFormSites.ChkEbay.EstCoche,
                 pFormSites.ChkEbay.TextLabel,
                 "");
-            Site mikeComputerShop = new Site(
+            Site mikeComputerShop = new SiteMike(
                 pFormSites.ChkMikeShop.EstCoche,
                 pFormSites.ChkMikeShop.TextLabel,
                 "");
-            Site newEgg = new Site(
+            Site newEgg = new SiteNewEgg(
                 pFormSites.ChkNewEgg.EstCoche,
                 pFormSites.ChkNewEgg.TextLabel,
                 "");
-            Site walmart = new Site(
+            Site walmart = new SiteWalmart(
                 pFormSites.ChkWalmart.EstCoche,
                 pFormSites.ChkWalmart.TextLabel,
                 "");
@@ -201,7 +201,13 @@ namespace ProjetApproProg
 
         #endregion
 
-        static List<Filtre> ObtenirFiltresCocheeSeulement()
+        public static void Rechercher(string pRecherche)
+        {
+            List<(string pSite, HtmlNode pPage)> lstSites = new List<(string pSite, HtmlNode pPage)>();
+            
+        }
+
+        private static List<Filtre> ObtenirFiltresCocheeSeulement()
         {
             List<Filtre> lstFiltesCoches = new List<Filtre>();
             if (LstFiltres != null)
@@ -219,7 +225,7 @@ namespace ProjetApproProg
 
         }
 
-        public static string ObtenirUrlEbay(string recherche)
+        public static (string, HtmlNode) ObtenirUrlEbay(string recherche)
         {
             List<Filtre> lstFiltresCochee = ObtenirFiltresCocheeSeulement();
             string URLEbayDeBase = "https://www.ebay.com/sch/i.html?_nkw=";
@@ -258,7 +264,7 @@ namespace ProjetApproProg
             }
 
             string URLEbayFinal = URLEbayDeBase + recherche + filtres;
-            return URLEbayFinal;
+            return  ("Ebay", ObtenirPageAPartirDeURL(URLEbayFinal));
         }
 
         public static string ObtenirUrlAmazon(string recherche)
@@ -486,11 +492,12 @@ namespace ProjetApproProg
 
 
 
-        public static void ObtenirPageAPartirDeURL(string URL)
+        private static HtmlNode ObtenirPageAPartirDeURL(string pURL)
         {
             HtmlWeb web = new HtmlWeb();
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc = web.Load(URL);
+            HtmlDocument doc = web.Load(pURL, "GET");
+            HtmlNode page = doc.DocumentNode.SelectSingleNode("//body");
+            return page;
         }
 
         #endregion

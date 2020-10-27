@@ -284,6 +284,7 @@
             this.btnRecherche.Size = new System.Drawing.Size(54, 54);
             this.btnRecherche.TabIndex = 1;
             this.btnRecherche.UseVisualStyleBackColor = false;
+            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
             // 
             // txtRecherche
             // 

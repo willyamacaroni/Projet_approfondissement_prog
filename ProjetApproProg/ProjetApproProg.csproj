@@ -100,7 +100,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Site.cs" />
+    <Compile Include="Sites\SiteBestBuy.cs" />
+    <Compile Include="Sites\SiteNewEgg.cs" />
+    <Compile Include="Sites\SiteMike.cs" />
+    <Compile Include="Sites\SiteAmazon.cs" />
+    <Compile Include="Sites\SiteWalmart.cs" />
+    <Compile Include="Sites\SiteEbay.cs" />
+    <Compile Include="Sites\Site.cs" />
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>

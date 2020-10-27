@@ -141,6 +141,11 @@ namespace ProjetApproProg
             }
         }
 
+        private void btnRecherche_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.Rechercher(this.txtRecherche.Text);
+        }
         #endregion
+
     }
 }
