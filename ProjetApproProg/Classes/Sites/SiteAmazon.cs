@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
 
@@ -12,7 +14,6 @@ namespace ProjetApproProg
     public class SiteAmazon : Site
     {
         private const string urlDeBase = "https://www.amazon.ca/s?k=";
-        private const string nom = "Amazon";
 
         #region Constructeur
         public SiteAmazon(bool pEstCoche) : base(pEstCoche)
@@ -93,6 +94,33 @@ namespace ProjetApproProg
 
             string URL = urlDeBase + pRecherche + filtres;
             UrlRecherche = URL;
+        }
+
+        protected override List<Produit> Scrap()
+        {
+
+            //List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[data-component-type='s-search-result']").ToList();
+            List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelectorAll("div[class*='sg-col-4-of-24']").ToList();
+
+            List<Produit> lstProduits = new List<Produit>();
+
+            foreach (HtmlNode produit in lstLiProduits)
+            {
+                try
+                {
+                    string urlImage = produit.QuerySelector("img[class='s-image']").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("span[class*='a-']").InnerText.Trim();
+                    string prix = produit.QuerySelector("div[span*='a-offscreen']").InnerText.Trim();
+                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            return lstProduits;
+
         }
 
         #endregion

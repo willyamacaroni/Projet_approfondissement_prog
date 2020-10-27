@@ -1,4 +1,6 @@
-﻿using HtmlAgilityPack;
+﻿using System.Collections.Generic;
+using HtmlAgilityPack;
+using ProjetApproProg.Classes;
 
 namespace ProjetApproProg
 {
@@ -49,6 +51,7 @@ namespace ProjetApproProg
         }
         public abstract void ConstruireURL(string pRecherche);
 
+        protected abstract List<Produit> Scrap();
 
         #endregion
     }

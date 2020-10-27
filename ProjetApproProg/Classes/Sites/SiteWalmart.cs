@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
 
@@ -12,7 +14,6 @@ namespace ProjetApproProg
     public class SiteWalmart : Site
     {
         private const string urlDeBase = "https://www.walmart.com/search/?query=";
-        private const string nom = "Walmart";
 
         #region Constructeur
         public SiteWalmart(bool pEstCoche) : base (pEstCoche)
@@ -84,7 +85,30 @@ namespace ProjetApproProg
             UrlRecherche = URL;
 
         }
+        protected override List<Produit> Scrap()
+        {
+            List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelectorAll("div[data-product-id]").ToList();
 
+            List<Produit> lstProduits = new List<Produit>();
+
+            foreach (HtmlNode produit in lstLiProduits)
+            {
+                try
+                {
+                    string urlImage = produit.QuerySelector("img[data-automation]").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("p[data-automation*='name']").InnerText.Trim();
+                    string prix = produit.QuerySelector("span[data-automation*='current-price']").InnerText.Trim();
+                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            return lstProduits;
+
+        }
 
         #endregion
     }

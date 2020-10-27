@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
 
@@ -12,7 +14,6 @@ namespace ProjetApproProg
     public class SiteEbay : Site
     {
         private const string urlDeBase = "https://www.ebay.com/sch/i.html?_nkw=";
-        private const string nom = "Ebay";
 
         #region Constructeur
         public SiteEbay(bool pEstCoche) : base(pEstCoche)
@@ -62,6 +63,31 @@ namespace ProjetApproProg
             }
             string URL = urlDeBase + pRecherche + filtres;
             UrlRecherche = URL;
+        }
+
+        protected override List<Produit> Scrap()
+        {
+            
+            List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelector("ul[class='srp-results srp-list clearfix']").QuerySelectorAll("li[class*='s-item']").ToList();
+
+            List<Produit> lstProduits = new List<Produit>();
+
+            foreach (HtmlNode produit in lstLiProduits)
+            {
+                try
+                {
+                    string urlImage = produit.QuerySelector("img[class*='s-item__image-img']").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("h3[class*='s-item__title']").InnerText.Trim();
+                    string prix = produit.QuerySelector("div[class*='item__detail--primary']").QuerySelector("span").InnerText.Trim();
+                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            return lstProduits;
         }
 
         #endregion

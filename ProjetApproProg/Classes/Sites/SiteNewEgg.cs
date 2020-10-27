@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
 
@@ -12,7 +14,6 @@ namespace ProjetApproProg
     public class SiteNewEgg : Site
     {
         private const string urlDeBase = "https://www.newegg.com/p/pl?d=";
-        private const string nom = "Newegg";
 
         #region Constructeur
         public SiteNewEgg(bool pEstCoche) : base(pEstCoche)
@@ -84,6 +85,32 @@ namespace ProjetApproProg
 
             string URL = urlDeBase + pRecherche + filtres;
             UrlRecherche = URL;
+        }
+
+        protected override List<Produit> Scrap()
+        {
+
+            List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelectorAll("div[class='item-container']").ToList();
+
+            List<Produit> lstProduits = new List<Produit>();
+
+            foreach (HtmlNode produit in lstLiProduits)
+            {
+                try
+                {
+                    string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("a[class*='item-title']").InnerText.Trim();
+                    string prix = produit.QuerySelector("li[class*='price-current']").InnerText.Trim();
+                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            return lstProduits;
+
         }
 
         #endregion

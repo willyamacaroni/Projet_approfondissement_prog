@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
 
@@ -12,7 +14,6 @@ namespace ProjetApproProg
     public class SiteMike : Site
     {
         private const string urlDeBase = "https://mikescomputershop.com/catalog/?q=";
-        private const string nom = "Mikeshop";
 
         #region Constructeur
 
@@ -46,6 +47,31 @@ namespace ProjetApproProg
 
             string URL = urlDeBase + pRecherche + filtres;
             UrlRecherche = URL;
+
+        }
+
+        protected override List<Produit> Scrap()
+        {
+            List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelectorAll("div[class*='row catalog-product']").ToList();
+
+            List<Produit> lstProduits = new List<Produit>();
+
+            foreach (HtmlNode produit in lstLiProduits)
+            {
+                try
+                {
+                    string urlImage = produit.QuerySelector("img[class*='product-img']").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("span[itemprop*='name']").InnerText.Trim();
+                    string prix = produit.QuerySelector("span[class*='product-price']").InnerText.Trim();
+                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            return lstProduits;
 
         }
 
