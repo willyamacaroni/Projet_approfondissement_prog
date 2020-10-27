@@ -15,7 +15,7 @@ namespace ProjetApproProg
         #region Constructeur
         public SiteBestBuy(bool pEstCoche) : base(pEstCoche)
         {
-           
+            Nom = "BestBuy";
         }
 
         #endregion

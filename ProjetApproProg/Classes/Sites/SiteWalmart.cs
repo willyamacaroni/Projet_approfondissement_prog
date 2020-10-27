@@ -18,7 +18,7 @@ namespace ProjetApproProg
         #region Constructeur
         public SiteWalmart(bool pEstCoche) : base (pEstCoche)
         {
-            
+            Nom = "Walmart";
         }
 
         #endregion

@@ -106,19 +106,20 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
         public static void RecupererSites(FormSites pFormSites)
         {
-            LstSites.Clear();
+            if (LstSites != null)
+                LstSites.Clear();
 
-            Site amazon = new SiteAmazon(
+            SiteAmazon amazon = new SiteAmazon(
                 pFormSites.ChkAmazon.EstCoche);
-            Site bestBuy = new SiteBestBuy(
+            SiteBestBuy bestBuy = new SiteBestBuy(
                 pFormSites.ChkBestBuy.EstCoche);
-            Site ebay = new SiteEbay(
+            SiteEbay ebay = new SiteEbay(
                 pFormSites.ChkEbay.EstCoche);
-            Site mikeComputerShop = new SiteMike(
+            SiteMike mikeComputerShop = new SiteMike(
                 pFormSites.ChkMikeShop.EstCoche);
-            Site newEgg = new SiteNewEgg(
+            SiteNewEgg newEgg = new SiteNewEgg(
                 pFormSites.ChkNewEgg.EstCoche);
-            Site walmart = new SiteWalmart(
+            SiteWalmart walmart = new SiteWalmart(
                 pFormSites.ChkWalmart.EstCoche);
 
             LstSites.Add(amazon);
@@ -189,13 +190,13 @@ namespace ProjetApproProg
                         case "Amazon":
                             pFormSites.ChkAmazon.EstCoche = true;
                             break;
-                        case "Best Buy":
+                        case "BestBuy":
                             pFormSites.ChkBestBuy.EstCoche = true;
                             break;
                         case "Ebay":
                             pFormSites.ChkEbay.EstCoche = true;
                             break;
-                        case "Mike's Shop":
+                        case "MikeShop":
                             pFormSites.ChkMikeShop.EstCoche = true;
                             break;
                         case "NewEgg":

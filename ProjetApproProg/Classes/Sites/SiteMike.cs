@@ -19,7 +19,7 @@ namespace ProjetApproProg
 
         public SiteMike(bool pEstCoche) : base(pEstCoche)
         {
-
+            Nom = "MikeShop";
         }
 
         #endregion

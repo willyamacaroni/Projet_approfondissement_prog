@@ -28,6 +28,11 @@ namespace ProjetApproProg
             this.btnSaveParam.BackColor = btnCote;
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
+            Gestionnaire.LstSites = new List<Site>();
+            Gestionnaire.LstFiltres = new List<Filtre>();
+            Gestionnaire.LstFiltresCoches = new List<Filtre>();
+            Gestionnaire.LstSitesCoches = new List<Site>();
+            Gestionnaire.LstProduits = new List<Produit>();
 
         }
         #endregion
