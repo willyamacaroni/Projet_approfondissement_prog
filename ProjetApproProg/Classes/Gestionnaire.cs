@@ -108,17 +108,17 @@ namespace ProjetApproProg
         {
             LstSites.Clear();
 
-            Site amazon = new SiteAmazon(
+            SiteAmazon amazon = new SiteAmazon(
                 pFormSites.ChkAmazon.EstCoche);
-            Site bestBuy = new SiteBestBuy(
+            SiteBestBuy bestBuy = new SiteBestBuy(
                 pFormSites.ChkBestBuy.EstCoche);
-            Site ebay = new SiteEbay(
+            SiteEbay ebay = new SiteEbay(
                 pFormSites.ChkEbay.EstCoche);
-            Site mikeComputerShop = new SiteMike(
+            SiteMike mikeComputerShop = new SiteMike(
                 pFormSites.ChkMikeShop.EstCoche);
-            Site newEgg = new SiteNewEgg(
+            SiteNewEgg newEgg = new SiteNewEgg(
                 pFormSites.ChkNewEgg.EstCoche);
-            Site walmart = new SiteWalmart(
+            SiteWalmart walmart = new SiteWalmart(
                 pFormSites.ChkWalmart.EstCoche);
 
             LstSites.Add(amazon);
@@ -180,7 +180,7 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à chocher.</param>
         public static void CocherSites(FormSites pFormSites)
         {
-            if (LstSitesCoches != null)
+            if (LstSitesCoches.Count > 0)
             {
                 foreach (Site site in LstSitesCoches)
                 {
@@ -189,13 +189,13 @@ namespace ProjetApproProg
                         case "Amazon":
                             pFormSites.ChkAmazon.EstCoche = true;
                             break;
-                        case "Best Buy":
+                        case "BestBuy":
                             pFormSites.ChkBestBuy.EstCoche = true;
                             break;
                         case "Ebay":
                             pFormSites.ChkEbay.EstCoche = true;
                             break;
-                        case "Mike's Shop":
+                        case "MikeShop":
                             pFormSites.ChkMikeShop.EstCoche = true;
                             break;
                         case "NewEgg":
@@ -217,7 +217,7 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à chocher et les champs à remplir.</param>
         public static void CocherFiltres(FormFiltres pFormFiltres)
         {
-            if (LstFiltresCoches != null)
+            if (LstFiltresCoches.Count > 0)
             {
                 foreach (Filtre filtre in LstFiltresCoches)
                 {

@@ -29,6 +29,12 @@ namespace ProjetApproProg
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
 
+            Gestionnaire.LstSites = new List<Site>();
+            Gestionnaire.LstFiltres = new List<Filtre>();
+            Gestionnaire.LstSitesCoches = new List<Site>();
+            Gestionnaire.LstFiltresCoches = new List<Filtre>();
+            Gestionnaire.LstProduits = new List<Produit>();
+
         }
         #endregion
 
@@ -86,15 +92,7 @@ namespace ProjetApproProg
 
                     using (StreamWriter writer = new StreamWriter(File.Create(SFD.FileName)))
                     {
-                        FiltreCondition filtreCond = (FiltreCondition)Gestionnaire.LstFiltres[0];
-                        FiltreNote filtreNote = (FiltreNote)Gestionnaire.LstFiltres[1];
-                        FiltrePrix filtrePrix = (FiltrePrix) Gestionnaire.LstFiltres[2];
-
-                        writer.WriteLine(JsonConvert.SerializeObject(filtreCond));
-                        writer.WriteLine("@");
-                        writer.WriteLine(JsonConvert.SerializeObject(filtreNote));
-                        writer.WriteLine("@");
-                        writer.WriteLine(JsonConvert.SerializeObject(filtrePrix));
+                        writer.WriteLine(JsonConvert.SerializeObject(Gestionnaire.LstFiltres));
                         writer.WriteLine("@");
                         writer.WriteLine(JsonConvert.SerializeObject(Gestionnaire.LstSites));
                     }
@@ -122,20 +120,9 @@ namespace ProjetApproProg
                     {
                         string rawJson = lecteur.ReadToEnd();
                         string[] filtresEtSites = rawJson.Split('@');
-
-                        FiltreCondition filtreCond = JsonConvert.DeserializeObject<FiltreCondition>(filtresEtSites[0].Trim());
-                        FiltreNote filtreNote = JsonConvert.DeserializeObject<FiltreNote>(filtresEtSites[1].Trim());
-                        FiltrePrix filtrePrix = JsonConvert.DeserializeObject<FiltrePrix>(filtresEtSites[2].Trim());
                         
-                        List<Site> lstSites = JsonConvert.DeserializeObject<List<Site>>(filtresEtSites[3].Trim());
-                        
-                        List<Filtre> lstFiltres = new List<Filtre>();
-                        lstFiltres.Add(filtreCond);
-                        lstFiltres.Add(filtreNote);
-                        lstFiltres.Add(filtrePrix);
-                        
-                        Gestionnaire.LstFiltres = lstFiltres;
-                        Gestionnaire.LstSites = lstSites;
+                        Gestionnaire.LstFiltres = JsonConvert.DeserializeObject<List<Filtre>>(filtresEtSites[0].Trim());
+                        Gestionnaire.LstSites = JsonConvert.DeserializeObject<List<Site>>(filtresEtSites[1].Trim());
                     }
                 }
             }
