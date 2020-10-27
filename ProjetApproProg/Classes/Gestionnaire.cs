@@ -106,7 +106,8 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
         public static void RecupererSites(FormSites pFormSites)
         {
-            LstSites.Clear();
+            if (LstSites != null)
+                LstSites.Clear();
 
             SiteAmazon amazon = new SiteAmazon(
                 pFormSites.ChkAmazon.EstCoche);

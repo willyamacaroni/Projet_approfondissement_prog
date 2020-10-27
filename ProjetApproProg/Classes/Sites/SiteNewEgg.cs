@@ -18,6 +18,7 @@ namespace ProjetApproProg
         #region Constructeur
         public SiteNewEgg(bool pEstCoche) : base(pEstCoche)
         {
+            Nom = "NewEgg";
         }
 
         #endregion

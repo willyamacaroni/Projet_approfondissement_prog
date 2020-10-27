@@ -18,6 +18,7 @@ namespace ProjetApproProg
         #region Constructeur
         public SiteEbay(bool pEstCoche) : base(pEstCoche)
         {
+            Nom = "Ebay";
         }
 
         #endregion
