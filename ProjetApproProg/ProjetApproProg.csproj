@@ -70,7 +70,6 @@
     <Compile Include="Classes\Filtres\FiltreNote.cs" />
     <Compile Include="Classes\Filtres\FiltrePrix.cs" />
     <Compile Include="Classes\Produit.cs" />
-    <Compile Include="Classes\Scrapper.cs" />
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
