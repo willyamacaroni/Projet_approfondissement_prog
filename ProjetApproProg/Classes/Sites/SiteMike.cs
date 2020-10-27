@@ -50,6 +50,7 @@ namespace ProjetApproProg
 
         }
 
+
         public override List<Produit> Scrap()
         {
             List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelectorAll("div[class*='row catalog-product']").ToList();
