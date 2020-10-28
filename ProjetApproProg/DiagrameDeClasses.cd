@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjetApproProg.Filtre" Collapsed="true">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABCAAAgAQAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Filtres\Filtre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.Classes.FiltreCondition" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Filtres\FiltreCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.Classes.FiltreNote" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Classes\Filtres\FiltreNote.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.Classes.FiltrePrix" Collapsed="true">
+    <Position X="7.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAIAAAAgAAE=</HashCode>
+      <FileName>Classes\Filtres\FiltrePrix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.Site" Collapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAABAABCAAAgAQQAACACAAAAA=</HashCode>
+      <FileName>Classes\Sites\Site.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.SiteAmazon" Collapsed="true">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Classes\Sites\SiteAmazon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.SiteBestBuy" Collapsed="true">
+    <Position X="11.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Classes\Sites\SiteBestBuy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.SiteEbay" Collapsed="true">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Classes\Sites\SiteEbay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.SiteMike" Collapsed="true">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Classes\Sites\SiteMike.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.SiteNewEgg" Collapsed="true">
+    <Position X="13.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Classes\Sites\SiteNewEgg.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.SiteWalmart" Collapsed="true">
+    <Position X="4.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAAAA=</HashCode>
+      <FileName>Classes\Sites\SiteWalmart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.Classes.Produit" Collapsed="true">
+    <Position X="6.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAIAAAAAAAAAAAAABAAAQAAAAAAAAAQAAAAAACAA=</HashCode>
+      <FileName>Classes\Produit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetApproProg.Gestionnaire" Collapsed="true">
+    <Position X="10" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYgiAIgggAAIAAAgIAABACAAAQAAAAAAAgACAAAAAA=</HashCode>
+      <FileName>Classes\Gestionnaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ProjetApproProg.Classes.Condition">
+    <Position X="13" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Filtres\FiltreCondition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
