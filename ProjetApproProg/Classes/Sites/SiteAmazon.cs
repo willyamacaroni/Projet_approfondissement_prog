@@ -119,7 +119,7 @@ namespace ProjetApproProg
                 {
                     string urlImage = produit.QuerySelector("img[class='s-image']").GetAttributeValue("src", "").Trim();
                     string titre = produit.QuerySelector("span[class*='a-']").InnerText.Trim();
-                    string prix = produit.QuerySelector("div[span*='a-offscreen']").InnerText.Trim();
+                    string prix = produit.QuerySelector("span[class*='a-offscreen']").InnerText.Trim();
                     lstProduits.Add(new Produit(urlImage, titre, prix));
                 }
                 catch (Exception)
