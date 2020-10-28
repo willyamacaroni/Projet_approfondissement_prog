@@ -247,6 +247,12 @@ namespace ProjetApproProg
 
         #endregion
 
+        #region Rechercher
+        /// <summary>
+        /// La méthode rechercher permet de retourner une liste de produits à
+        /// partir de la recherche entrée par l'utilisateur.
+        /// </summary>
+        /// <param name="pRecherche">Les termes de recherche entrés par l'utilisateur.</param>
         public static void Rechercher(string pRecherche)
         {
             LstProduits = new List<Produit>();
@@ -256,7 +262,7 @@ namespace ProjetApproProg
                 LstProduits = LstProduits.Concat(siteCoche.Scrap()).ToList();
             }
         }
-
+        #endregion
         #endregion
     }
 }

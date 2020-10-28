@@ -1,5 +1,7 @@
 ﻿namespace ProjetApproProg.Classes
 {
+    #region Enum
+
     /// <summary>
     /// Les trois conditions proposés en filtration.
     /// </summary>
@@ -9,6 +11,9 @@
         RemisANeuf,
         Usagee
     }
+    #endregion
+
+    #region Classe
 
     /// <summary>
     /// La classe FiltreCondition est un filtre qui détient comme valeur une condition.
@@ -40,4 +45,5 @@
         #endregion
 
     }
+    #endregion
 }
