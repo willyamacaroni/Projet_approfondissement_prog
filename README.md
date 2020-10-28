@@ -9,6 +9,8 @@ Pour tester l'application:
     2. Vous pouvez tester la persistence des données.
     3. Vous pouvez tester la robusté de nos nouveaux contrôles. (checkbox et étoiles)
     4. Vous pouvez tester l'exportation et l'importation des paramètres, mais comme dit dans la vidéo, il n'y à aucune sécurité.
+    5. Vous pouvez effectuer une recherche avec des sites de cochés (un ou plusieurs) et des filtres d'appliqué.
+    5.2 Certains sites comme Best Buy et Mike's computer shop ne fonctionnent pas (voire la vidéo).
 
 Petit oublie dans la vidéo, les checkboxes et la notation étoilée ont des propriétés propres à eux-même dans la catégorie "Divers".
 Exemple: pour changer le text tu checkbox, ce n'est pas la propriété "Text" qu'il faudra changer, mais "TextLabel".
