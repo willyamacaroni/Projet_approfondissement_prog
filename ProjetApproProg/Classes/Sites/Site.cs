@@ -52,6 +52,12 @@ namespace ProjetApproProg
 
         #region Méthodes
 
+
+        /// <summary>
+        /// Permet d'obtenir une page html sous forme de HtmlNode à
+        /// partir de l'URL appartenant à l'objet site qui appelle la méthode.
+        /// </summary>
+        /// <returns>Retourne le HtmlNode (page web)</returns>
         protected HtmlNode ObtenirPage()
         {
 
@@ -80,8 +86,19 @@ namespace ProjetApproProg
 
             return page;
         }
+
+        /// <summary>
+        /// Permet de construire l'URL selon les paramètres de recherche (Filtres + Recherche).
+        /// Celle-ci est gardé en mémoire dans l'attribut _urlRecherche
+        /// </summary>
+        /// <param name="pRecherche">Recherche que l'utilisateur a entré dans la barre de recherche</param>
         public abstract void ConstruireURL(string pRecherche);
 
+        /// <summary>
+        /// Sera implanté dans les classes enfants.
+        /// Permet d'obtenir les produits de la page html retourné par la méthode ObtenirPage().
+        /// </summary>
+        /// <returns>Retourne une liste d'objets produit</returns>
         public abstract List<Produit> Scrap();
 
         #endregion

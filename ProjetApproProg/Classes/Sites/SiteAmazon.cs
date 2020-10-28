@@ -122,7 +122,7 @@ namespace ProjetApproProg
                     string prix = produit.QuerySelector("span[class*='a-offscreen']").InnerText.Trim();
                     lstProduits.Add(new Produit(urlImage, titre, prix));
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     continue;
                 }
