@@ -250,7 +250,7 @@ namespace ProjetApproProg
         public static void Rechercher(string pRecherche)
         {
             LstProduits = new List<Produit>();
-            foreach (Site siteCoche in LstSites)
+            foreach (Site siteCoche in LstSitesCoches)
             {
                 siteCoche.ConstruireURL(pRecherche);
                 LstProduits = LstProduits.Concat(siteCoche.Scrap()).ToList();

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
-using HtmlAgilityPack;
+﻿using HtmlAgilityPack;
 using ProjetApproProg.Classes;
+using System.Collections.Generic;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 
 namespace ProjetApproProg
 {
@@ -52,9 +54,30 @@ namespace ProjetApproProg
 
         protected HtmlNode ObtenirPage()
         {
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument doc = web.Load(UrlRecherche, "GET");
-            HtmlNode page = doc.DocumentNode.SelectSingleNode("//body");
+
+            HtmlNode page = null;
+
+            FirefoxOptions options = new FirefoxOptions();
+            options.AddArgument("--headless");
+
+            FirefoxDriverService services = FirefoxDriverService.CreateDefaultService();
+            services.HideCommandPromptWindow = true;
+
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.EnableNativeEvents = true;
+            profile.SetPreference("network.cookie.cookieBehavior", 0);
+
+            using (IWebDriver driver = new FirefoxDriver(services, options))
+            {
+                driver.Navigate().GoToUrl(UrlRecherche);
+
+                HtmlDocument doc = new HtmlDocument();
+
+                doc.LoadHtml(driver.PageSource);
+
+                page = doc.DocumentNode.SelectSingleNode("//body");
+            }
+
             return page;
         }
         public abstract void ConstruireURL(string pRecherche);

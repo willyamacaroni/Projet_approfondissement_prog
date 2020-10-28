@@ -87,7 +87,17 @@ namespace ProjetApproProg
         }
         public override List<Produit> Scrap()
         {
-            List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelectorAll("div[data-product-id]").ToList();
+            HtmlNode page = null;
+            try
+            {
+                page = ObtenirPage();
+            }
+            catch (NullReferenceException)
+            {
+                return null;
+            }
+
+            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[data-product-id]").ToList();
 
             List<Produit> lstProduits = new List<Produit>();
 
@@ -100,7 +110,7 @@ namespace ProjetApproProg
                     string prix = produit.QuerySelector("span[data-automation*='current-price']").InnerText.Trim();
                     lstProduits.Add(new Produit(urlImage, titre, prix));
                 }
-                catch
+                catch (Exception)
                 {
                     continue;
                 }

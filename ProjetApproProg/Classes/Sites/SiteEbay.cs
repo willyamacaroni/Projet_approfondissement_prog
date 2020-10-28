@@ -68,8 +68,18 @@ namespace ProjetApproProg
 
         public override List<Produit> Scrap()
         {
-            
-            List<HtmlNode> lstLiProduits = ObtenirPage().QuerySelector("ul[class='srp-results srp-list clearfix']").QuerySelectorAll("li[class*='s-item']").ToList();
+
+            HtmlNode page = null;
+            try
+            {
+                page = ObtenirPage();
+            }
+            catch (NullReferenceException)
+            {
+                return null;
+            }
+
+            List<HtmlNode> lstLiProduits = page.QuerySelector("ul[class='srp-results srp-list clearfix']").QuerySelectorAll("li[class*='s-item']").ToList();
 
             List<Produit> lstProduits = new List<Produit>();
 
@@ -82,7 +92,7 @@ namespace ProjetApproProg
                     string prix = produit.QuerySelector("div[class*='item__detail--primary']").QuerySelector("span").InnerText.Trim();
                     lstProduits.Add(new Produit(urlImage, titre, prix));
                 }
-                catch
+                catch (Exception)
                 {
                     continue;
                 }
