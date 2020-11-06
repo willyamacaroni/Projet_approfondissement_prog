@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
+using Newtonsoft.Json;
+using System.Windows.Forms;
 using ProjetApproProg.Classes;
 using System.Collections.Generic;
 
@@ -36,7 +40,7 @@ namespace ProjetApproProg
             set { _lstSitesCoches = value; }
         }
 
-        public static List<Produit> LstProduits
+        private static List<Produit> LstProduits
         {
             get { return _lstProduits; }
             set { _lstProduits = value; }
@@ -77,7 +81,7 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
         public static void RecupererFiltres(FormFiltres pFormFiltres)
         {
-            LstFiltres.Clear();
+            LstFiltres = new List<Filtre>();
 
             FiltreCondition filtreCondition = new FiltreCondition(
                 pFormFiltres.ChkCondition.EstCoche,
@@ -107,8 +111,7 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
         public static void RecupererSites(FormSites pFormSites)
         {
-            if (LstSites != null)
-                LstSites.Clear();
+            LstSites = new List<Site>();
 
             SiteAmazon amazon = new SiteAmazon(
                 pFormSites.ChkAmazon.EstCoche);
@@ -140,16 +143,13 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
         private static void RecupererFiltresCoches()
         {
-            if (LstFiltresCoches != null)
-            {
-                LstFiltresCoches.Clear();
+            LstFiltresCoches = new List<Filtre>();
 
-                foreach (Filtre filtre in LstFiltres)
+            foreach (Filtre filtre in LstFiltres)
+            {
+                if (filtre.EstCoche)
                 {
-                    if (filtre.EstCoche)
-                    {
-                        LstFiltresCoches.Add(filtre);
-                    }
+                    LstFiltresCoches.Add(filtre);
                 }
             }
         }
@@ -161,16 +161,13 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
         private static void RecupererSitesCoches()
         {
-            if (LstSitesCoches != null)
-            {
-                LstSitesCoches.Clear();
+            LstSitesCoches = new List<Site>();
 
-                foreach (Site site in LstSites)
+            foreach (Site site in LstSites)
+            {
+                if (site.EstCoche)
                 {
-                    if (site.EstCoche)
-                    {
-                        LstSitesCoches.Add(site);
-                    }
+                    LstSitesCoches.Add(site);
                 }
             }
         }
@@ -193,6 +190,202 @@ namespace ProjetApproProg
             }
         }
         #endregion
+
+        #region Sauvegarde
+
+        #region Paramètres
+
+        public static void ExporterParamteres()
+        {
+            using (SaveFileDialog SFD = new SaveFileDialog())
+            {
+                SFD.Title = "Enregistrer un fichier de paramètres";
+                SFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
+
+                if (SFD.ShowDialog() == DialogResult.OK)
+                {
+
+                    using (StreamWriter writer = new StreamWriter(File.Create(SFD.FileName)))
+                    {
+                        writer.WriteLine(JsonConvert.SerializeObject(LstFiltres));
+                        writer.WriteLine(JsonConvert.SerializeObject(LstSites));
+                    }
+
+                }
+            }
+
+            MessageBox.Show("Vos paramètres ont été enregistrés avec succès!",
+                "Succès!", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        public static void ImporterParametres()
+        {
+            using (OpenFileDialog OFD = new OpenFileDialog())
+            {
+                OFD.Title = "Ouvrir un fichier de paramètres";
+                OFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
+
+                if (OFD.ShowDialog() == DialogResult.OK)
+                {
+
+                    using (StreamReader lecteur = new StreamReader(File.OpenRead(OFD.FileName)))
+                    {
+                        string rawJson = lecteur.ReadToEnd();
+                        string[] filtresEtSites = rawJson.Split('\n');
+
+                        JsonConverter[] filtreConverters = { new FiltreConverter() };
+                        JsonConverter[] siteConverters = { new SiteConverter() };
+
+                        try
+                        {
+                            LstFiltres = JsonConvert.DeserializeObject<List<Filtre>>(filtresEtSites[0].Trim(), new JsonSerializerSettings() { Converters = filtreConverters });
+                            LstSites = JsonConvert.DeserializeObject<List<Site>>(filtresEtSites[1].Trim(), new JsonSerializerSettings() { Converters = siteConverters });
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Fichier de paramètres non valide.",
+                                "Erreur!", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+
+        #endregion
+
+        #region Produits
+
+        public static void ImporterProduits()
+        {
+            using (OpenFileDialog OFD = new OpenFileDialog())
+            {
+                OFD.Title = "Ouvrir une liste de produits";
+                OFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
+
+                if (OFD.ShowDialog() == DialogResult.OK)
+                {
+
+                    using (StreamReader lecteur = new StreamReader(File.OpenRead(OFD.FileName)))
+                    {
+                        string rawJson = lecteur.ReadToEnd();
+
+                        try
+                        {
+                            LstProduits = JsonConvert.DeserializeObject<List<Produit>>(rawJson.Trim());
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Fichier de produits non valide.",
+                                "Erreur!", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void ExporterProduits()
+        {
+            using (SaveFileDialog SFD = new SaveFileDialog())
+            {
+                SFD.Title = "Enregistrer une liste de produits";
+                SFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
+
+                if (SFD.ShowDialog() == DialogResult.OK)
+                {
+
+                    using (StreamWriter writer = new StreamWriter(File.Create(SFD.FileName)))
+                    {
+                        writer.WriteLine(JsonConvert.SerializeObject(LstProduits));
+                    }
+
+                }
+            }
+
+            MessageBox.Show("Vos produits ont été enregistrés avec succès!",
+                "Succès!", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+
+        #endregion
+
+        #endregion
+
+        #region Cocher
+
+        public static void CocherFiltres(FormFiltres pFormFiltres)
+        {
+            if (LstFiltresCoches.Count > 0)
+            {
+                foreach (Filtre filtre in LstFiltresCoches)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            pFormFiltres.ChkCondition.EstCoche = true;
+                            pFormFiltres.CmbCondition.SelectedIndex = (int)filtreCondition.Condition;
+                            break;
+                        case "Note":
+                            FiltreNote filtreNote = (FiltreNote)filtre;
+                            pFormFiltres.ChkNote.EstCoche = true;
+                            pFormFiltres.NoteEtoiles.EtoileCochee = filtreNote.Note;
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            pFormFiltres.ChkPrix.EstCoche = true;
+                            pFormFiltres.TxtPrixDe.Text = filtrePrix.PrixDebut;
+                            pFormFiltres.TxtPrixA.Text = filtrePrix.PrixFin;
+                            break;
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// La méthode CocherSites permet la persistence des données et la mise à jour de celles-ci.
+        /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
+        /// </summary>
+        /// <param name="pFormSites">Le formSites qui contient les sites à chocher.</param>
+        public static void CocherSites(FormSites pFormSites)
+        {
+            if (LstSitesCoches.Count > 0)
+            {
+                foreach (Site site in LstSitesCoches)
+                {
+                    switch (site.Nom)
+                    {
+                        case "Amazon":
+                            pFormSites.ChkAmazon.EstCoche = true;
+                            break;
+                        case "BestBuy":
+                            pFormSites.ChkBestBuy.EstCoche = true;
+                            break;
+                        case "Ebay":
+                            pFormSites.ChkEbay.EstCoche = true;
+                            break;
+                        case "MikeShop":
+                            pFormSites.ChkMikeShop.EstCoche = true;
+                            break;
+                        case "NewEgg":
+                            pFormSites.ChkNewEgg.EstCoche = true;
+                            break;
+                        case "Walmart":
+                            pFormSites.ChkWalmart.EstCoche = true;
+                            break;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
         #endregion
     }
 }

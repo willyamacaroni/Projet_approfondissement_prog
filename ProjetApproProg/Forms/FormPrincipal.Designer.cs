@@ -33,13 +33,13 @@
             this.pnlOptions = new System.Windows.Forms.Panel();
             this.lblOptions = new System.Windows.Forms.Label();
             this.lytBtn1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnImpListe = new System.Windows.Forms.Button();
+            this.btnSaveProd = new System.Windows.Forms.Button();
             this.lytBtn2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnImpParam = new System.Windows.Forms.Button();
+            this.btnImpProd = new System.Windows.Forms.Button();
             this.lytBtn3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSaveParam = new System.Windows.Forms.Button();
             this.lytBtn4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnFavoris = new System.Windows.Forms.Button();
+            this.btnImpParam = new System.Windows.Forms.Button();
             this.btnRecherche = new System.Windows.Forms.Button();
             this.txtRecherche = new System.Windows.Forms.TextBox();
             this.pnlTop = new System.Windows.Forms.Panel();
@@ -140,7 +140,7 @@
             this.lytBtn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.lytBtn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96F));
             this.lytBtn1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.lytBtn1.Controls.Add(this.btnImpListe, 1, 1);
+            this.lytBtn1.Controls.Add(this.btnSaveProd, 1, 1);
             this.lytBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytBtn1.Location = new System.Drawing.Point(3, 146);
             this.lytBtn1.Name = "lytBtn1";
@@ -151,20 +151,21 @@
             this.lytBtn1.Size = new System.Drawing.Size(269, 137);
             this.lytBtn1.TabIndex = 1;
             // 
-            // btnImpListe
+            // btnSaveProd
             // 
-            this.btnImpListe.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnImpListe.BackColor = System.Drawing.Color.Red;
-            this.btnImpListe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnImpListe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImpListe.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.btnImpListe.ForeColor = System.Drawing.Color.White;
-            this.btnImpListe.Location = new System.Drawing.Point(8, 5);
-            this.btnImpListe.Name = "btnImpListe";
-            this.btnImpListe.Size = new System.Drawing.Size(252, 125);
-            this.btnImpListe.TabIndex = 0;
-            this.btnImpListe.Text = "IMPORTER UNE LISTE";
-            this.btnImpListe.UseVisualStyleBackColor = false;
+            this.btnSaveProd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSaveProd.BackColor = System.Drawing.Color.Red;
+            this.btnSaveProd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveProd.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.btnSaveProd.ForeColor = System.Drawing.Color.White;
+            this.btnSaveProd.Location = new System.Drawing.Point(8, 5);
+            this.btnSaveProd.Name = "btnSaveProd";
+            this.btnSaveProd.Size = new System.Drawing.Size(252, 125);
+            this.btnSaveProd.TabIndex = 0;
+            this.btnSaveProd.Text = "ENREGISTRER LES PRODUITS";
+            this.btnSaveProd.UseVisualStyleBackColor = false;
+            this.btnSaveProd.Click += new System.EventHandler(this.btnSaveProd_Click);
             // 
             // lytBtn2
             // 
@@ -174,7 +175,7 @@
             this.lytBtn2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.lytBtn2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96F));
             this.lytBtn2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.lytBtn2.Controls.Add(this.btnImpParam, 1, 1);
+            this.lytBtn2.Controls.Add(this.btnImpProd, 1, 1);
             this.lytBtn2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytBtn2.Location = new System.Drawing.Point(3, 289);
             this.lytBtn2.Name = "lytBtn2";
@@ -185,21 +186,21 @@
             this.lytBtn2.Size = new System.Drawing.Size(269, 137);
             this.lytBtn2.TabIndex = 2;
             // 
-            // btnImpParam
+            // btnImpProd
             // 
-            this.btnImpParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnImpParam.BackColor = System.Drawing.Color.Red;
-            this.btnImpParam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnImpParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImpParam.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.btnImpParam.ForeColor = System.Drawing.Color.White;
-            this.btnImpParam.Location = new System.Drawing.Point(8, 5);
-            this.btnImpParam.Name = "btnImpParam";
-            this.btnImpParam.Size = new System.Drawing.Size(252, 125);
-            this.btnImpParam.TabIndex = 0;
-            this.btnImpParam.Text = "IMPORTER PARAMÈTRES";
-            this.btnImpParam.UseVisualStyleBackColor = false;
-            this.btnImpParam.Click += new System.EventHandler(this.btnImpParam_Click);
+            this.btnImpProd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImpProd.BackColor = System.Drawing.Color.Red;
+            this.btnImpProd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnImpProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpProd.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.btnImpProd.ForeColor = System.Drawing.Color.White;
+            this.btnImpProd.Location = new System.Drawing.Point(8, 5);
+            this.btnImpProd.Name = "btnImpProd";
+            this.btnImpProd.Size = new System.Drawing.Size(252, 125);
+            this.btnImpProd.TabIndex = 0;
+            this.btnImpProd.Text = "IMPORTER PRODUITS";
+            this.btnImpProd.UseVisualStyleBackColor = false;
+            this.btnImpProd.Click += new System.EventHandler(this.btnImpProd_Click);
             // 
             // lytBtn3
             // 
@@ -244,7 +245,7 @@
             this.lytBtn4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
             this.lytBtn4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96F));
             this.lytBtn4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.lytBtn4.Controls.Add(this.btnFavoris, 1, 1);
+            this.lytBtn4.Controls.Add(this.btnImpParam, 1, 1);
             this.lytBtn4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytBtn4.Location = new System.Drawing.Point(3, 575);
             this.lytBtn4.Name = "lytBtn4";
@@ -255,20 +256,21 @@
             this.lytBtn4.Size = new System.Drawing.Size(269, 137);
             this.lytBtn4.TabIndex = 4;
             // 
-            // btnFavoris
+            // btnImpParam
             // 
-            this.btnFavoris.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnFavoris.BackColor = System.Drawing.Color.Red;
-            this.btnFavoris.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFavoris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFavoris.Font = new System.Drawing.Font("Century Gothic", 18F);
-            this.btnFavoris.ForeColor = System.Drawing.Color.White;
-            this.btnFavoris.Location = new System.Drawing.Point(8, 5);
-            this.btnFavoris.Name = "btnFavoris";
-            this.btnFavoris.Size = new System.Drawing.Size(252, 125);
-            this.btnFavoris.TabIndex = 0;
-            this.btnFavoris.Text = "MES FAVORIS";
-            this.btnFavoris.UseVisualStyleBackColor = false;
+            this.btnImpParam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImpParam.BackColor = System.Drawing.Color.Red;
+            this.btnImpParam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnImpParam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImpParam.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.btnImpParam.ForeColor = System.Drawing.Color.White;
+            this.btnImpParam.Location = new System.Drawing.Point(8, 5);
+            this.btnImpParam.Name = "btnImpParam";
+            this.btnImpParam.Size = new System.Drawing.Size(252, 125);
+            this.btnImpParam.TabIndex = 0;
+            this.btnImpParam.Text = "IMPORTER PARAMÈTRES";
+            this.btnImpParam.UseVisualStyleBackColor = false;
+            this.btnImpParam.Click += new System.EventHandler(this.btnImpParam_Click);
             // 
             // btnRecherche
             // 
@@ -509,13 +511,13 @@
         private System.Windows.Forms.Panel pnlOptions;
         private System.Windows.Forms.Label lblOptions;
         private System.Windows.Forms.TableLayoutPanel lytBtn1;
-        private System.Windows.Forms.Button btnImpListe;
+        private System.Windows.Forms.Button btnSaveProd;
         private System.Windows.Forms.TableLayoutPanel lytBtn2;
-        private System.Windows.Forms.Button btnImpParam;
+        private System.Windows.Forms.Button btnImpProd;
         private System.Windows.Forms.TableLayoutPanel lytBtn3;
         private System.Windows.Forms.Button btnSaveParam;
         private System.Windows.Forms.TableLayoutPanel lytBtn4;
-        private System.Windows.Forms.Button btnFavoris;
+        private System.Windows.Forms.Button btnImpParam;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel lytBtnSites;
         private System.Windows.Forms.Button btnSites;
