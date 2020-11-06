@@ -15,10 +15,16 @@ namespace ProjetApproProg
     {
         private const string urlDeBase = "https://www.newegg.com/p/pl?d=";
 
-        #region Constructeur
+        #region Constructeurs
         public SiteNewEgg(bool pEstCoche) : base(pEstCoche)
         {
             Nom = "NewEgg";
+            ObjType = 4;
+        }
+
+        public SiteNewEgg()
+        {
+            ObjType = 4;
         }
 
         #endregion

@@ -117,7 +117,7 @@ namespace ProjetApproProg
 
         private void FormFiltres_Load(object sender, EventArgs e)
         {
-            Gestionnaire.CocherFiltres(this);
+            CocherFiltres();
             
             if (!this.txtPrixDe.Text.Equals("De:"))
             {
@@ -127,6 +127,39 @@ namespace ProjetApproProg
             if (!this.txtPrixA.Text.Equals("À:"))
             {
                 this.txtPrixA.ForeColor = Color.Black;
+            }
+        }
+
+        #endregion
+
+        #region Méthodes
+
+        private void CocherFiltres()
+        {
+            if (Gestionnaire.LstFiltresCoches.Count > 0)
+            {
+                foreach (Filtre filtre in Gestionnaire.LstFiltresCoches)
+                {
+                    switch (filtre.Nom)
+                    {
+                        case "Condition":
+                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
+                            this.ChkCondition.EstCoche = true;
+                            this.CmbCondition.SelectedIndex = (int)filtreCondition.Condition;
+                            break;
+                        case "Note":
+                            FiltreNote filtreNote = (FiltreNote)filtre;
+                            this.ChkNote.EstCoche = true;
+                            this.NoteEtoiles.EtoileCochee = filtreNote.Note;
+                            break;
+                        case "Prix":
+                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
+                            this.ChkPrix.EstCoche = true;
+                            this.TxtPrixDe.Text = filtrePrix.PrixDebut;
+                            this.TxtPrixA.Text = filtrePrix.PrixFin;
+                            break;
+                    }
+                }
             }
         }
 

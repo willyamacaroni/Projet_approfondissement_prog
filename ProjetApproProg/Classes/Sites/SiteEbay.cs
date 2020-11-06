@@ -15,10 +15,16 @@ namespace ProjetApproProg
     {
         private const string urlDeBase = "https://www.ebay.com/sch/i.html?_nkw=";
 
-        #region Constructeur
+        #region Constructeurs
         public SiteEbay(bool pEstCoche) : base(pEstCoche)
         {
             Nom = "Ebay";
+            ObjType = 2;
+        }
+
+        public SiteEbay()
+        {
+            ObjType = 2;
         }
 
         #endregion

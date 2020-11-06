@@ -15,10 +15,16 @@ namespace ProjetApproProg
     {
         private const string urlDeBase = "https://www.amazon.ca/s?k=";
 
-        #region Constructeur
+        #region Constructeurs
         public SiteAmazon(bool pEstCoche) : base(pEstCoche)
         {
             Nom = "Amazon";
+            ObjType = 0;
+        }
+
+        public SiteAmazon()
+        {
+            ObjType = 0;
         }
         #endregion
 
@@ -122,7 +128,7 @@ namespace ProjetApproProg
                     string prix = produit.QuerySelector("span[class*='a-offscreen']").InnerText.Trim();
                     lstProduits.Add(new Produit(urlImage, titre, prix));
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     continue;
                 }

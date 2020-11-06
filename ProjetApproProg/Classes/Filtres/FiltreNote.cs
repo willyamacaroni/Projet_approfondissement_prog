@@ -1,4 +1,4 @@
-﻿namespace ProjetApproProg.Classes
+﻿namespace ProjetApproProg
 {
     /// <summary>
     /// La classe FiltreNote à pour valeur une note.
@@ -21,10 +21,16 @@
 
         #endregion
 
-        #region Contructeur
+        #region Contructeurs
         public FiltreNote(bool pEstCoche, string pNom, int pNote) : base(pEstCoche, pNom)
         {
             Note = pNote;
+            ObjType = 1;
+        }
+
+        public FiltreNote()
+        {
+            ObjType = 1;
         }
 
         #endregion

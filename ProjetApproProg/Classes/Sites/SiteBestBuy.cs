@@ -12,10 +12,16 @@ namespace ProjetApproProg
     {
         private const string urlDeBase = "";
 
-        #region Constructeur
+        #region Constructeurs
         public SiteBestBuy(bool pEstCoche) : base(pEstCoche)
         {
             Nom = "BestBuy";
+            ObjType = 1;
+        }
+
+        public SiteBestBuy()
+        {
+            ObjType = 1;
         }
 
         #endregion

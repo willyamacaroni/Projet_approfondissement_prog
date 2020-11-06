@@ -15,11 +15,17 @@ namespace ProjetApproProg
     {
         private const string urlDeBase = "https://mikescomputershop.com/catalog/?q=";
 
-        #region Constructeur
+        #region Constructeurs
 
         public SiteMike(bool pEstCoche) : base(pEstCoche)
         {
             Nom = "MikeShop";
+            ObjType = 3;
+        }
+
+        public SiteMike()
+        {
+            ObjType = 3;
         }
 
         #endregion

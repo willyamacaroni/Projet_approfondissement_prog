@@ -49,6 +49,7 @@ namespace ProjetApproProg
             set
             {
                 _lstFiltres = value;
+                RecupererFiltresCoches();
             }
         }
 
@@ -58,7 +59,7 @@ namespace ProjetApproProg
             set
             {
                 _lstSites = value;
-
+                RecupererSitesCoches();
             }
         }
 
@@ -132,8 +133,6 @@ namespace ProjetApproProg
             RecupererSitesCoches();
         }
 
-
-
         /// <summary>
         /// La méthode RecupererFiltres permet de récupérer les données de chaque filtre.
         /// Elle est utile à la sauvegarde de données et à la gestion des filtres.
@@ -141,13 +140,16 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
         private static void RecupererFiltresCoches()
         {
-            LstFiltresCoches.Clear();
-
-            foreach (Filtre filtre in LstFiltres)
+            if (LstFiltresCoches != null)
             {
-                if (filtre.EstCoche)
+                LstFiltresCoches.Clear();
+
+                foreach (Filtre filtre in LstFiltres)
                 {
-                    LstFiltresCoches.Add(filtre);
+                    if (filtre.EstCoche)
+                    {
+                        LstFiltresCoches.Add(filtre);
+                    }
                 }
             }
         }
@@ -159,87 +161,15 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
         private static void RecupererSitesCoches()
         {
-            LstSitesCoches.Clear();
-
-            foreach (Site site in LstSites)
+            if (LstSitesCoches != null)
             {
-                if (site.EstCoche)
+                LstSitesCoches.Clear();
+
+                foreach (Site site in LstSites)
                 {
-                    LstSitesCoches.Add(site);
-                }
-            }
-        }
-
-        #endregion
-
-        #region Cocher
-
-        /// <summary>
-        /// La méthode CocherSites permet la persistence des données et la mise à jour de celles-ci.
-        /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
-        /// </summary>
-        /// <param name="pFormSites">Le formSites qui contient les sites à chocher.</param>
-        public static void CocherSites(FormSites pFormSites)
-        {
-            if (LstSitesCoches.Count > 0)
-            {
-                foreach (Site site in LstSitesCoches)
-                {
-                    switch (site.Nom)
+                    if (site.EstCoche)
                     {
-                        case "Amazon":
-                            pFormSites.ChkAmazon.EstCoche = true;
-                            break;
-                        case "BestBuy":
-                            pFormSites.ChkBestBuy.EstCoche = true;
-                            break;
-                        case "Ebay":
-                            pFormSites.ChkEbay.EstCoche = true;
-                            break;
-                        case "MikeShop":
-                            pFormSites.ChkMikeShop.EstCoche = true;
-                            break;
-                        case "NewEgg":
-                            pFormSites.ChkNewEgg.EstCoche = true;
-                            break;
-                        case "Walmart":
-                            pFormSites.ChkWalmart.EstCoche = true;
-                            break;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// La méthode CocherFiltres permet la persistence des données et la mise à jour de celles-ci.
-        /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
-        /// Elle permet aussi de remettre les valeurs précédemment entrées par l'utilisateur.
-        /// </summary>
-        /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à chocher et les champs à remplir.</param>
-        public static void CocherFiltres(FormFiltres pFormFiltres)
-        {
-            if (LstFiltresCoches.Count > 0)
-            {
-                foreach (Filtre filtre in LstFiltresCoches)
-                {
-                    switch (filtre.Nom)
-                    {
-                        case "Condition":
-                            FiltreCondition filtreCondition = (FiltreCondition)filtre;
-                            pFormFiltres.ChkCondition.EstCoche = true;
-                            pFormFiltres.CmbCondition.SelectedIndex = (int)filtreCondition.Condition;
-                            break;
-                        case "Note":
-                            FiltreNote filtreNote = (FiltreNote)filtre;
-                            pFormFiltres.ChkNote.EstCoche = true;
-                            pFormFiltres.NoteEtoiles.EtoileCochee = filtreNote.Note;
-                            break;
-                        case "Prix":
-                            FiltrePrix filtrePrix = (FiltrePrix)filtre;
-                            pFormFiltres.ChkPrix.EstCoche = true;
-                            pFormFiltres.TxtPrixDe.Text = filtrePrix.PrixDebut;
-                            pFormFiltres.TxtPrixA.Text = filtrePrix.PrixFin;
-                            break;
+                        LstSitesCoches.Add(site);
                     }
                 }
             }

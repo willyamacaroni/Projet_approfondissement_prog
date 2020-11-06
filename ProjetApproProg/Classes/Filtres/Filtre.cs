@@ -11,10 +11,17 @@
 
         private bool _estCoche;
         private string _nom;
+        private int _objType;
 
         #endregion
 
         #region GetSet
+
+        public int ObjType
+        {
+            get { return _objType; }
+            set { _objType = value; }
+        }
         public bool EstCoche
         {
             get { return _estCoche; }
@@ -29,11 +36,16 @@
 
         #endregion
 
-        #region Constructeur
+        #region Constructeurs
         protected Filtre(bool pEstCoche, string pNom)
         {
             EstCoche = pEstCoche;
             Nom = pNom;
+        }
+
+        public Filtre()
+        {
+            
         }
 
         #endregion

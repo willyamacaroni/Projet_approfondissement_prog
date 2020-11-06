@@ -68,9 +68,48 @@ namespace ProjetApproProg
 
         private void FormSites_Load(object sender, System.EventArgs e)
         {
-            Gestionnaire.CocherSites(this);
-            Gestionnaire.RecupererSites(this);
+            CocherSites();
         }
+        #endregion
+
+        #region Méthodes
+
+        /// <summary>
+        /// La méthode CocherSites permet la persistence des données et la mise à jour de celles-ci.
+        /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
+        /// </summary>
+        /// <param name="pFormSites">Le formSites qui contient les sites à chocher.</param>
+        private void CocherSites()
+        {
+            if (Gestionnaire.LstSitesCoches.Count > 0)
+            {
+                foreach (Site site in Gestionnaire.LstSitesCoches)
+                {
+                    switch (site.Nom)
+                    {
+                        case "Amazon":
+                            this.ChkAmazon.EstCoche = true;
+                            break;
+                        case "BestBuy":
+                            this.ChkBestBuy.EstCoche = true;
+                            break;
+                        case "Ebay":
+                            this.ChkEbay.EstCoche = true;
+                            break;
+                        case "MikeShop":
+                            this.ChkMikeShop.EstCoche = true;
+                            break;
+                        case "NewEgg":
+                            this.ChkNewEgg.EstCoche = true;
+                            break;
+                        case "Walmart":
+                            this.ChkWalmart.EstCoche = true;
+                            break;
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 }

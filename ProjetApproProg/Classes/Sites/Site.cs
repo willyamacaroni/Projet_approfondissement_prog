@@ -16,20 +16,19 @@ namespace ProjetApproProg
 
         private bool _estCoche;
         private string _urlRecherche;
-        public string _nom;
+        private string _nom;
+        private int _objType;
 
 
         #endregion
         
-        #region Constructeur
-        public Site(bool pEstCoche)
+        #region GetSet
+        public int ObjType
         {
-            EstCoche = pEstCoche;
+            get { return _objType; }
+            set { _objType = value; }
         }
 
-        #endregion
-
-        #region GetSet
         public string Nom
         {
             get { return _nom; }
@@ -46,6 +45,19 @@ namespace ProjetApproProg
         {
             get { return _urlRecherche; }
             set { _urlRecherche = value; }
+        }
+
+        #endregion
+        
+        #region Constructeurs
+        public Site(bool pEstCoche)
+        {
+            EstCoche = pEstCoche;
+        }
+
+        public Site()
+        {
+
         }
 
         #endregion

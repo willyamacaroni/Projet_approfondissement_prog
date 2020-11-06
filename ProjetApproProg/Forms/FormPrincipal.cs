@@ -89,7 +89,6 @@ namespace ProjetApproProg
             using (SaveFileDialog SFD = new SaveFileDialog())
             {
                 SFD.Title = "Enregistrer un fichier de paramètres";
-                // SFD.Filter = "Fichier JSON (*.JSON)|*.JSON| Fichier CSV (*.CSV)|*.CSV";
                 SFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
 
                 if (SFD.ShowDialog() == DialogResult.OK)
@@ -98,7 +97,6 @@ namespace ProjetApproProg
                     using (StreamWriter writer = new StreamWriter(File.Create(SFD.FileName)))
                     {
                         writer.WriteLine(JsonConvert.SerializeObject(Gestionnaire.LstFiltres));
-                        writer.WriteLine("@");
                         writer.WriteLine(JsonConvert.SerializeObject(Gestionnaire.LstSites));
                     }
 
@@ -115,7 +113,6 @@ namespace ProjetApproProg
             using (OpenFileDialog OFD = new OpenFileDialog())
             {
                 OFD.Title = "Ouvrir un fichier de paramètres";
-                // OFD.Filter = "Fichier JSON (*.JSON)|*.JSON| Fichier CSV (*.CSV)|*.CSV";
                 OFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
 
                 if (OFD.ShowDialog() == DialogResult.OK)
@@ -124,10 +121,13 @@ namespace ProjetApproProg
                     using (StreamReader lecteur = new StreamReader(File.OpenRead(OFD.FileName)))
                     {
                         string rawJson = lecteur.ReadToEnd();
-                        string[] filtresEtSites = rawJson.Split('@');
-                        
-                        Gestionnaire.LstFiltres = JsonConvert.DeserializeObject<List<Filtre>>(filtresEtSites[0].Trim());
-                        Gestionnaire.LstSites = JsonConvert.DeserializeObject<List<Site>>(filtresEtSites[1].Trim());
+                        string[] filtresEtSites = rawJson.Split('\n');
+
+                        JsonConverter[] filtreConverters = { new FiltreConverter() };
+                        JsonConverter[] siteConverters = { new SiteConverter() };
+
+                        Gestionnaire.LstFiltres = JsonConvert.DeserializeObject<List<Filtre>>(filtresEtSites[0].Trim(), new JsonSerializerSettings() { Converters = filtreConverters });
+                        Gestionnaire.LstSites = JsonConvert.DeserializeObject<List<Site>>(filtresEtSites[1].Trim(), new JsonSerializerSettings() { Converters = siteConverters });
                     }
                 }
             }

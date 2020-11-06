@@ -15,10 +15,16 @@ namespace ProjetApproProg
     {
         private const string urlDeBase = "https://www.walmart.com/search/?query=";
 
-        #region Constructeur
+        #region Constructeurs
         public SiteWalmart(bool pEstCoche) : base (pEstCoche)
         {
             Nom = "Walmart";
+            ObjType = 5;
+        }
+
+        public SiteWalmart()
+        {
+            ObjType = 5;
         }
 
         #endregion
