@@ -328,7 +328,7 @@ namespace ProjetApproProg
 
         public static void CocherFiltres(FormFiltres pFormFiltres)
         {
-            if (LstFiltresCoches != null)
+            if (LstFiltresCoches.Count > 0)
             {
                 foreach (Filtre filtre in LstFiltresCoches)
                 {
@@ -363,7 +363,7 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à chocher.</param>
         public static void CocherSites(FormSites pFormSites)
         {
-            if (LstSitesCoches != null)
+            if (LstSitesCoches.Count > 0)
             {
                 foreach (Site site in LstSitesCoches)
                 {
