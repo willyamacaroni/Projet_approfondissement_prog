@@ -80,7 +80,7 @@ namespace ProjetApproProg
                     string urlImage = produit.QuerySelector("img[class*='product-img']").GetAttributeValue("src", "").Trim();
                     string titre = produit.QuerySelector("span[itemprop*='name']").InnerText.Trim();
                     string prix = produit.QuerySelector("span[class*='product-price']").InnerText.Trim();
-                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                    lstProduits.Add(new Produit(urlImage, titre, prix, "Mike's computer shop"));
                 }
                 catch (Exception)
                 {

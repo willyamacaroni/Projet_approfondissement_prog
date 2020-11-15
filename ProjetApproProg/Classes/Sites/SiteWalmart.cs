@@ -114,7 +114,7 @@ namespace ProjetApproProg
                     string urlImage = produit.QuerySelector("img[data-automation]").GetAttributeValue("src", "").Trim();
                     string titre = produit.QuerySelector("p[data-automation*='name']").InnerText.Trim();
                     string prix = produit.QuerySelector("span[data-automation*='current-price']").InnerText.Trim();
-                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                    lstProduits.Add(new Produit(urlImage, titre, prix, "Walmart"));
                 }
                 catch (Exception)
                 {

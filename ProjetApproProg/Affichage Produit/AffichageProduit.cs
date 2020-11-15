@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using ProjetApproProg.Classes;
+using System.Net;
+using System.Drawing;
 
 namespace ProjetApproProg.Affichage_Produit
 {
@@ -44,7 +46,8 @@ namespace ProjetApproProg.Affichage_Produit
             Produit = pProduit;
             LblTitre.Text = Produit.Titre;
             LblPrix.Text = Produit.Prix;
-            PctImagePoduit.Load(Produit.UrlImage);
+            pctImagePoduit.ImageLocation = Produit.UrlImage;
+            //PctImagePoduit.Load(Produit.UrlImage);
         }
 
         private void btnSupprProduit_Click(object sender, EventArgs e)

@@ -199,6 +199,62 @@ namespace ProjetApproProg
         }
         #endregion
 
+        #region Ordonner
+
+        public static List<Produit> OrdonnerSelonPrixCroissant(List<Produit> pLstProduits)
+        {
+            List<Produit> lstOrdonner = new List<Produit>();
+            pLstProduits = pLstProduits.OrderBy(x => x.Prix).ToList();
+            lstOrdonner = pLstProduits;
+            return lstOrdonner;
+        }
+        public static List<Produit> OrdonnerSelonPrixDecroissant(List<Produit> pLstProduits)
+        {
+            List<Produit> lstOrdonner = new List<Produit>();
+            pLstProduits = pLstProduits.OrderBy(x => x.Prix).ToList();
+            for (int i = pLstProduits.Count - 1; i >= 0; i++)
+            {
+                lstOrdonner.Add(pLstProduits[i]);
+            }
+            return lstOrdonner;
+        }
+        public static List<Produit> OrdonnerSelonTitreCroissant(List<Produit> pLstProduits)
+        {
+            List<Produit> lstOrdonner = new List<Produit>();
+            pLstProduits = pLstProduits.OrderBy(x => x.Titre).ToList();
+            lstOrdonner = pLstProduits;
+            return lstOrdonner;
+        }
+        public static List<Produit> OrdonnerSelonTitreDecroissant(List<Produit> pLstProduits)
+        {
+            List<Produit> lstOrdonner = new List<Produit>();
+            pLstProduits = pLstProduits.OrderBy(x => x.Titre).ToList();
+            for (int i = pLstProduits.Count - 1; i >= 0; i++)
+            {
+                lstOrdonner.Add(pLstProduits[i]);
+            }
+            return lstOrdonner;
+        }
+        public static List<Produit> OrdonnerSelonSiteCroissant(List<Produit> pLstProduits)
+        {
+            List<Produit> lstOrdonner = new List<Produit>();
+            pLstProduits = pLstProduits.OrderBy(x => x.Site).ToList();
+            lstOrdonner = pLstProduits;
+            return lstOrdonner;
+        }
+        public static List<Produit> OrdonnerSelonSiteDecroissant(List<Produit> pLstProduits)
+        {
+            List<Produit> lstOrdonner = new List<Produit>();
+            pLstProduits = pLstProduits.OrderBy(x => x.Site).ToList();
+            for (int i = pLstProduits.Count - 1; i >= 0; i++)
+            {
+                lstOrdonner.Add(pLstProduits[i]);
+            }
+            return lstOrdonner;
+        }
+
+        #endregion
+
         #region Sauvegarde
 
         #region Paramètres

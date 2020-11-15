@@ -14,6 +14,7 @@ namespace ProjetApproProg.Forms
 {
     public partial class FormProduits : Form
     {
+        private bool estCollapsed = true;
         public FormProduits()
         {
             InitializeComponent();
@@ -26,6 +27,34 @@ namespace ProjetApproProg.Forms
             {
                 flwPrincipal.Controls.Add(new AffichageProduit(produit));
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (estCollapsed)
+            {
+                panelOrdonner.Height += 10;
+                if (panelOrdonner.Size == panelOrdonner.MaximumSize)
+                {
+                    timer1.Stop();
+                    estCollapsed = false;
+                }
+            }
+            else
+            {
+                panelOrdonner.Height -= 10;
+                if (panelOrdonner.Size == panelOrdonner.MinimumSize)
+                {
+                    timer1.Stop();
+                    estCollapsed = true;
+                }
+
+            }
+        }
+
+        private void btnOrdonner_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }

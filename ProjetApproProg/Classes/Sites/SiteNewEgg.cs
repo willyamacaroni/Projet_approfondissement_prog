@@ -117,7 +117,7 @@ namespace ProjetApproProg
                     string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
                     string titre = produit.QuerySelector("a[class*='item-title']").InnerText.Trim();
                     string prix = produit.QuerySelector("li[class*='price-current']").InnerText.Trim();
-                    lstProduits.Add(new Produit(urlImage, titre, prix));
+                    lstProduits.Add(new Produit(urlImage, titre, prix, "New egg"));
                 }
                 catch (Exception)
                 {

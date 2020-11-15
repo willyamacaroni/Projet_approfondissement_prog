@@ -12,6 +12,7 @@
         private string _urlImage;
         private string _titre;
         private string _prix;
+        private string _site;
         
 
         #endregion
@@ -34,15 +35,22 @@
             get { return _prix; }
             set { _prix = value; }
         }
+        public string Site
+        {
+            get { return _site; }
+            set { _site = value; }
+        }
+
         #endregion
 
         #region Constructeur
 
-        public Produit(string pUrlImage, string pTitre, string pPrix)
+        public Produit(string pUrlImage, string pTitre, string pPrix, string pSite)
         {
             UrlImage = pUrlImage;
             Titre = pTitre;
             Prix = pPrix;
+            Site = pSite;
         }
         
 
