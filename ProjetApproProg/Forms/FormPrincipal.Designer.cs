@@ -277,7 +277,7 @@
             this.btnRecherche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnRecherche.BackColor = System.Drawing.Color.White;
             this.btnRecherche.BackgroundImage = global::ProjetApproProg.Resources.iconLoupe;
-            this.btnRecherche.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRecherche.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRecherche.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecherche.ForeColor = System.Drawing.Color.Transparent;

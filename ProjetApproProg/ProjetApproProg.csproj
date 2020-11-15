@@ -156,9 +156,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\iconLoupe.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\iconEtoilePleine.png" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconFiltre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconLoupe.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconSupp.png" />
