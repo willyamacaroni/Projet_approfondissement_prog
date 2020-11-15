@@ -143,13 +143,16 @@ namespace ProjetApproProg
         /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à récupérer.</param>
         private static void RecupererFiltresCoches()
         {
-            LstFiltresCoches = new List<Filtre>();
-
-            foreach (Filtre filtre in LstFiltres)
+            if (LstFiltresCoches != null)
             {
-                if (filtre.EstCoche)
+                LstFiltresCoches = new List<Filtre>();
+
+                foreach (Filtre filtre in LstFiltres)
                 {
-                    LstFiltresCoches.Add(filtre);
+                    if (filtre.EstCoche)
+                    {
+                        LstFiltresCoches.Add(filtre);
+                    }
                 }
             }
         }
@@ -161,13 +164,16 @@ namespace ProjetApproProg
         /// <param name="pFormSites">Le formSites qui contient les sites à récupérer.</param>
         private static void RecupererSitesCoches()
         {
-            LstSitesCoches = new List<Site>();
-
-            foreach (Site site in LstSites)
+            if (LstFiltresCoches != null)
             {
-                if (site.EstCoche)
+                LstSitesCoches = new List<Site>();
+
+                foreach (Site site in LstSites)
                 {
-                    LstSitesCoches.Add(site);
+                    if (site.EstCoche)
+                    {
+                        LstSitesCoches.Add(site);
+                    }
                 }
             }
         }
