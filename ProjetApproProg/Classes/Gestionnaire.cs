@@ -350,6 +350,12 @@ namespace ProjetApproProg
                     }
                 }
             }
+
+            FormProduits frmProduits = new FormProduits();
+            if (frmProduits.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         public static void ExporterProduits()

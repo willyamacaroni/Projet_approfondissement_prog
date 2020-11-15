@@ -29,22 +29,29 @@ namespace ProjetApproProg.Forms
             }
         }
 
+        private void btnOrdonner_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (estCollapsed)
             {
-                panelOrdonner.Height += 10;
-                if (panelOrdonner.Size == panelOrdonner.MaximumSize)
+                pnlOrdonner.Height += 10;
+                if (pnlOrdonner.Height >= 400)
                 {
+                    pnlOrdonner.Height = 400;
                     timer1.Stop();
                     estCollapsed = false;
                 }
             }
             else
             {
-                panelOrdonner.Height -= 10;
-                if (panelOrdonner.Size == panelOrdonner.MinimumSize)
+                pnlOrdonner.Height -= 10;
+                if (pnlOrdonner.Height <= 65)
                 {
+                    pnlOrdonner.Height = 65;
                     timer1.Stop();
                     estCollapsed = true;
                 }
@@ -52,9 +59,9 @@ namespace ProjetApproProg.Forms
             }
         }
 
-        private void btnOrdonner_Click(object sender, EventArgs e)
+        private void btnExporterProduits_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            Gestionnaire.ExporterProduits();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace ProjetApproProg.Affichage_Produit
+﻿using System.Windows.Forms;
+
+namespace ProjetApproProg.Affichage_Produit
 {
     partial class AffichageProduit
     {
@@ -49,6 +51,7 @@
             this.pctImagePoduit.Size = new System.Drawing.Size(198, 196);
             this.pctImagePoduit.TabIndex = 0;
             this.pctImagePoduit.TabStop = false;
+            this.pctImagePoduit.SizeMode = PictureBoxSizeMode.StretchImage;
             // 
             // pnlPrincipal
             // 
@@ -137,7 +140,7 @@
             this.Controls.Add(this.pctImagePoduit);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F);
             this.Name = "AffichageProduit";
-            this.Size = new System.Drawing.Size(796, 202);
+            this.Size = new System.Drawing.Size(825, 202);
             ((System.ComponentModel.ISupportInitialize)(this.pctImagePoduit)).EndInit();
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();

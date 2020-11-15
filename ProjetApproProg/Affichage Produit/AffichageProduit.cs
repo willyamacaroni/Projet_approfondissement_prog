@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using ProjetApproProg.Classes;
-using System.Net;
-using System.Drawing;
 
 namespace ProjetApproProg.Affichage_Produit
 {
@@ -10,6 +9,14 @@ namespace ProjetApproProg.Affichage_Produit
     {
 
         private Produit _produit;
+
+        private List<Produit> _lstPorduits;
+
+        private List<Produit> LstProduit
+        {
+            get { return _lstPorduits; }
+            set { _lstPorduits = value; }
+        }
 
         private Produit Produit
         {
@@ -46,8 +53,7 @@ namespace ProjetApproProg.Affichage_Produit
             Produit = pProduit;
             LblTitre.Text = Produit.Titre;
             LblPrix.Text = Produit.Prix;
-            pctImagePoduit.ImageLocation = Produit.UrlImage;
-            //PctImagePoduit.Load(Produit.UrlImage);
+            PctImagePoduit.Load(Produit.UrlImage.Replace(".webp", ".jpg"));
         }
 
         private void btnSupprProduit_Click(object sender, EventArgs e)
