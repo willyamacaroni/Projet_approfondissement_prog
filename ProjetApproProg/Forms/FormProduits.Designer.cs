@@ -44,6 +44,7 @@
             // 
             // flwPrincipal
             // 
+            this.flwPrincipal.AutoScroll = true;
             this.flwPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flwPrincipal.Location = new System.Drawing.Point(0, 0);
             this.flwPrincipal.Name = "flwPrincipal";
@@ -62,9 +63,9 @@
             this.panelOrdonner.Controls.Add(this.btnOrdonner);
             this.panelOrdonner.Location = new System.Drawing.Point(900, 1);
             this.panelOrdonner.MaximumSize = new System.Drawing.Size(72, 205);
-            this.panelOrdonner.MinimumSize = new System.Drawing.Size(72, 43);
+            this.panelOrdonner.MinimumSize = new System.Drawing.Size(72, 38);
             this.panelOrdonner.Name = "panelOrdonner";
-            this.panelOrdonner.Size = new System.Drawing.Size(72, 43);
+            this.panelOrdonner.Size = new System.Drawing.Size(72, 38);
             this.panelOrdonner.TabIndex = 0;
             // 
             // btnSiteDecroissant
