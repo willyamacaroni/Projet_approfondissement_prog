@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Windows.Forms;
 using ProjetApproProg.Classes;
 using System.Collections.Generic;
+using ProjetApproProg.Forms;
 
 namespace ProjetApproProg
 {
@@ -40,7 +41,7 @@ namespace ProjetApproProg
             set { _lstSitesCoches = value; }
         }
 
-        private static List<Produit> LstProduits
+        public static List<Produit> LstProduits
         {
             get { return _lstProduits; }
             set { _lstProduits = value; }
@@ -187,6 +188,13 @@ namespace ProjetApproProg
             {
                 siteCoche.ConstruireURL(pRecherche);
                 LstProduits = LstProduits.Concat(siteCoche.Scrap()).ToList();
+            }
+
+            FormProduits frmProduits = new FormProduits();
+
+            if (frmProduits.ShowDialog() == DialogResult.OK)
+            {
+
             }
         }
         #endregion

@@ -33,10 +33,10 @@ namespace ProjetApproProg.Affichage_Produit
             set { lblTitre = value; }
         }
 
-        public AffichageProduit()
-        {
-            InitializeComponent();
-        }
+        //public AffichageProduit()
+        //{
+        //    InitializeComponent();
+        //}
 
         public AffichageProduit(Produit pProduit)
         {

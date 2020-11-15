@@ -93,6 +93,12 @@
     <Compile Include="Forms\FormFiltres.Designer.cs">
       <DependentUpon>FormFiltres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormProduits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormProduits.Designer.cs">
+      <DependentUpon>FormProduits.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSites.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormFiltres.resx">
       <DependentUpon>FormFiltres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProduits.resx">
+      <DependentUpon>FormProduits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSites.resx">
       <DependentUpon>FormSites.cs</DependentUpon>

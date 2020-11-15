@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -24,6 +25,8 @@ namespace ProjetApproProg
             this.btnSaveParam.BackColor = btnCote;
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
+            Gestionnaire.LstFiltres = new List<Filtre>();
+            Gestionnaire.LstSites = new List<Site>();
 
         }
         #endregion
