@@ -70,7 +70,9 @@
     <Compile Include="Affichage Produit\AffichageProduit.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Affichage Produit\AffichageProduit.Designer.cs" />
+    <Compile Include="Affichage Produit\AffichageProduit.Designer.cs">
+      <DependentUpon>AffichageProduit.cs</DependentUpon>
+    </Compile>
     <Compile Include="CheckBoxModifie.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -123,7 +125,9 @@
     <Compile Include="Classes\Sites\SiteWalmart.cs" />
     <Compile Include="Classes\Sites\SiteEbay.cs" />
     <Compile Include="Classes\Sites\Site.cs" />
-    <EmbeddedResource Include="Affichage Produit\AffichageProduit.resx" />
+    <EmbeddedResource Include="Affichage Produit\AffichageProduit.resx">
+      <DependentUpon>AffichageProduit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>

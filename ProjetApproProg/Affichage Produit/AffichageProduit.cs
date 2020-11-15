@@ -42,11 +42,6 @@ namespace ProjetApproProg.Affichage_Produit
             set { lblTitre = value; }
         }
 
-        //public AffichageProduit()
-        //{
-        //    InitializeComponent();
-        //}
-
         public AffichageProduit(Produit pProduit)
         {
             InitializeComponent();
@@ -63,7 +58,7 @@ namespace ProjetApproProg.Affichage_Produit
 
         private void btnOuvrirPage_Click(object sender, EventArgs e)
         {
-
+            // System.Diagnostics.Process.Start(Produit.Url);
         }
     }
 }
