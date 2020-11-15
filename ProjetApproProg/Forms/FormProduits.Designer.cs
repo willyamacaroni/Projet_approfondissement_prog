@@ -52,7 +52,7 @@
             // 
             // panelOrdonner
             // 
-            this.panelOrdonner.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panelOrdonner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelOrdonner.Controls.Add(this.btnSiteDecroissant);
             this.panelOrdonner.Controls.Add(this.btnSiteCroissant);
             this.panelOrdonner.Controls.Add(this.btnTitreDecroissant);
