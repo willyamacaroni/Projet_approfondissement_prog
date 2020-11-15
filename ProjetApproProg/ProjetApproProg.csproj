@@ -67,6 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Affichage Produit\AffichageProduit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Affichage Produit\AffichageProduit.Designer.cs" />
     <Compile Include="CheckBoxModifie.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -113,6 +117,7 @@
     <Compile Include="Classes\Sites\SiteWalmart.cs" />
     <Compile Include="Classes\Sites\SiteEbay.cs" />
     <Compile Include="Classes\Sites\Site.cs" />
+    <EmbeddedResource Include="Affichage Produit\AffichageProduit.resx" />
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,9 +156,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\iconLoupe.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\iconEtoilePleine.png" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconFiltre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconLoupe.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconSupp.png" />

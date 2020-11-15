@@ -83,16 +83,6 @@ namespace ProjetApproProg {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap iconFiltre {
-            get {
-                object obj = ResourceManager.GetObject("iconFiltre", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap iconLoupe {
             get {
                 object obj = ResourceManager.GetObject("iconLoupe", resourceCulture);
