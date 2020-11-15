@@ -1,4 +1,4 @@
-﻿namespace ProjetApproProg.Classes
+﻿namespace ProjetApproProg
 {
     #region Enum
 
@@ -36,10 +36,16 @@
 
         #endregion
 
-        #region Constructeur
+        #region Constructeurs
         public FiltreCondition(bool pEstCoche, string pNom, Condition pCondition) : base(pEstCoche, pNom)
         {
             Condition = pCondition;
+            ObjType = 0;
+        }
+
+        public FiltreCondition()
+        {
+            ObjType = 0;
         }
 
         #endregion

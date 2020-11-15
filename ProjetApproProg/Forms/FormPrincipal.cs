@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using ProjetApproProg.Classes;
 
 namespace ProjetApproProg
 {
@@ -22,23 +18,12 @@ namespace ProjetApproProg
             this.lytPanneauPrincipal.BackColor = backColor;
             this.pnlTop.BackColor = backColor;
             this.pnlOptions.BackColor = backColor;
-            this.btnImpListe.BackColor = btnCote;
+            this.btnSaveProd.BackColor = btnCote;
+            this.btnImpProd.BackColor = btnCote;
             this.btnImpParam.BackColor = btnCote;
-            this.btnFavoris.BackColor = btnCote;
             this.btnSaveParam.BackColor = btnCote;
             this.btnFiltres.BackColor = btnOptions;
             this.btnSites.BackColor = btnOptions;
-            Gestionnaire.LstSites = new List<Site>();
-            Gestionnaire.LstFiltres = new List<Filtre>();
-            Gestionnaire.LstFiltresCoches = new List<Filtre>();
-            Gestionnaire.LstSitesCoches = new List<Site>();
-            Gestionnaire.LstProduits = new List<Produit>();
-
-            Gestionnaire.LstSites = new List<Site>();
-            Gestionnaire.LstFiltres = new List<Filtre>();
-            Gestionnaire.LstSitesCoches = new List<Site>();
-            Gestionnaire.LstFiltresCoches = new List<Filtre>();
-            Gestionnaire.LstProduits = new List<Produit>();
 
         }
         #endregion
@@ -86,58 +71,28 @@ namespace ProjetApproProg
 
         private void btnSaveParam_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog SFD = new SaveFileDialog())
-            {
-                SFD.Title = "Enregistrer un fichier de paramètres";
-                // SFD.Filter = "Fichier JSON (*.JSON)|*.JSON| Fichier CSV (*.CSV)|*.CSV";
-                SFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
-
-                if (SFD.ShowDialog() == DialogResult.OK)
-                {
-
-                    using (StreamWriter writer = new StreamWriter(File.Create(SFD.FileName)))
-                    {
-                        writer.WriteLine(JsonConvert.SerializeObject(Gestionnaire.LstFiltres));
-                        writer.WriteLine("@");
-                        writer.WriteLine(JsonConvert.SerializeObject(Gestionnaire.LstSites));
-                    }
-
-                }
-            }
-
-            MessageBox.Show("Vos paramètres ont été enregistrés avec succès!",
-                "Succès!", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            Gestionnaire.ExporterParamteres();
         }
 
         private void btnImpParam_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog OFD = new OpenFileDialog())
-            {
-                OFD.Title = "Ouvrir un fichier de paramètres";
-                // OFD.Filter = "Fichier JSON (*.JSON)|*.JSON| Fichier CSV (*.CSV)|*.CSV";
-                OFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
+            Gestionnaire.ImporterParametres();
+        }
+        private void btnSaveProd_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.ExporterProduits();
+        }
 
-                if (OFD.ShowDialog() == DialogResult.OK)
-                {
-
-                    using (StreamReader lecteur = new StreamReader(File.OpenRead(OFD.FileName)))
-                    {
-                        string rawJson = lecteur.ReadToEnd();
-                        string[] filtresEtSites = rawJson.Split('@');
-                        
-                        Gestionnaire.LstFiltres = JsonConvert.DeserializeObject<List<Filtre>>(filtresEtSites[0].Trim());
-                        Gestionnaire.LstSites = JsonConvert.DeserializeObject<List<Site>>(filtresEtSites[1].Trim());
-                    }
-                }
-            }
+        private void btnImpProd_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.ImporterProduits();
         }
 
         private void btnRecherche_Click(object sender, EventArgs e)
         {
             Gestionnaire.Rechercher(this.txtRecherche.Text);
         }
+        
         #endregion
-
     }
 }

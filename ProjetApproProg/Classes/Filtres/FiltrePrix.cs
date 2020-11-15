@@ -1,4 +1,4 @@
-﻿namespace ProjetApproProg.Classes
+﻿namespace ProjetApproProg
 {
 
     /// <summary>
@@ -62,12 +62,18 @@
 
         #endregion
 
-        #region Constructeur
+        #region Constructeurs
         public FiltrePrix(bool pEstCoche, string pNom, string pPrixDebut, string pPrixFin) : base(pEstCoche, pNom)
         {
 
             PrixDebut = pPrixDebut;
             PrixFin = pPrixFin;
+            ObjType = 2;
+        }
+
+        public FiltrePrix()
+        {
+            ObjType = 2;
         }
 
         #endregion
