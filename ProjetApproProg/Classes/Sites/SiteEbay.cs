@@ -33,6 +33,7 @@ namespace ProjetApproProg
 
         public override void ConstruireURL(string pRecherche)
         {
+            bool erreurDeFiltres = false;
             List<Filtre> lstFiltres = Gestionnaire.LstFiltresCoches;
             string filtres = "";
             if (lstFiltres.Count != 0)
@@ -59,7 +60,7 @@ namespace ProjetApproProg
 
                             break;
                         case "Note":
-                            // Pas une option sur ebay... À faire plus tard
+                            erreurDeFiltres = true;
                             break;
                         case "Prix":
                             FiltrePrix filtrePrix = (FiltrePrix) filtre;
@@ -68,8 +69,16 @@ namespace ProjetApproProg
                     }
                 }
             }
-            string URL = urlDeBase + pRecherche + filtres;
-            UrlRecherche = URL;
+
+            if (!erreurDeFiltres)
+            {
+                string URL = urlDeBase + pRecherche + filtres;
+                UrlRecherche = URL;
+            }
+            else
+            {
+                UrlRecherche = "";
+            }
         }
 
         public override List<Produit> Scrap()

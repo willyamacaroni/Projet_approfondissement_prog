@@ -34,6 +34,7 @@ namespace ProjetApproProg
         {
             List<Filtre> lstFiltres = Gestionnaire.LstFiltres;
             string filtres = "";
+            bool erreurDeFiltres = false;
             bool peutAvoirFiltreNote = true;
             bool peutAvoirFiltrePrix = true;
             if (lstFiltres.Count != 0)
@@ -82,6 +83,10 @@ namespace ProjetApproProg
                                         break;
                                 }
                             }
+                            else
+                            {
+                                erreurDeFiltres = true;
+                            }
                             break;
                         case "Prix":
                             if (peutAvoirFiltrePrix)
@@ -93,14 +98,24 @@ namespace ProjetApproProg
                                 prixFin = Math.Round(prixFin);
                                 filtres += String.Format("&rh=p_36%3A{0}-{1}", prixDebut * 100, prixFin * 100);
                             }
+                            else
+                            {
+                                erreurDeFiltres = true;
+                            }
                             break;
 
                     }
                 }
             }
-
-            string URL = urlDeBase + pRecherche + filtres;
-            UrlRecherche = URL;
+            if (!erreurDeFiltres)
+            {
+                string URL = urlDeBase + pRecherche + filtres;
+                UrlRecherche = URL;
+            }
+            else
+            {
+                UrlRecherche = "";
+            }
         }
 
         public override List<Produit> Scrap()

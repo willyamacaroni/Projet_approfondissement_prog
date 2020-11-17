@@ -114,7 +114,7 @@ namespace ProjetApproProg
                     string url = "https://www.walmart.com" + produit.QuerySelector("a").GetAttributeValue("href", "").Trim();
                     string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
                     string titre = produit.QuerySelector("a[class*='product-title-link']").InnerText.Trim();
-                    string prix = produit.QuerySelector("span[class='price-characteristic']").InnerText.Trim() + "." + produit.QuerySelector("span[class='price-mantissa']").InnerText.Trim();
+                    string prix = '$'+ produit.QuerySelector("span[class='price-characteristic']").InnerText.Trim() + "." + produit.QuerySelector("span[class='price-mantissa']").InnerText.Trim();
                     lstProduits.Add(new Produit(url, urlImage, titre, prix, "Walmart"));
                 }
                 catch (Exception)

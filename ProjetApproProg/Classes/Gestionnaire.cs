@@ -181,15 +181,39 @@ namespace ProjetApproProg
             foreach (Site siteCoche in LstSitesCoches)
             {
                 siteCoche.ConstruireURL(pRecherche);
-                LstProduits = LstProduits.Concat(siteCoche.Scrap()).ToList();
+                if (!String.IsNullOrEmpty(siteCoche.UrlRecherche))
+                {
+                    LstProduits = LstProduits.Concat(siteCoche.Scrap()).ToList();
+                }
+                else
+                {
+                    string message;
+                    if (siteCoche.Nom == "Ebay")
+                    {
+                         message =
+                            "Une erreur s'est produite :\n\n Certains filtres ne sont pas compatible avec ebay.\n\n -Ebay n'a pas de système de filtrage par 'note'.";
+                    }
+                    else
+                    {
+                         message =
+                            "Une erreur s'est produite :\n\n Certains filtres ne sont pas compatible avec Amazon.\n\n Voici la liste :\n\n -Amazon ne peut pas avoir les filtres 'remis à neuf' et 'prix' en même temps.\n -Amazon ne peut pas avoir les filtres 'Usagé' et 'Note' en même temps. ";
+                    }
+                    string titre = string.Format("Une erreur s'est produite avec le site {0}", siteCoche.Nom);
+                    MessageBox.Show(message, titre, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
-            FormProduits frmProduits = new FormProduits();
-
-            if (frmProduits.ShowDialog() == DialogResult.OK)
+            if (LstProduits.Count > 0)
             {
+                FormProduits frmProduits = new FormProduits();
 
+                if (frmProduits.ShowDialog() == DialogResult.OK)
+                {
+
+                }
             }
+
+
         }
         #endregion
 
@@ -197,12 +221,12 @@ namespace ProjetApproProg
 
         public static void OrdonnerSelonPrixCroissant()
         {
-            LstProduits = LstProduits.OrderBy(x => x.Prix).ToList();
+            LstProduits = LstProduits.OrderBy(x => Convert.ToDouble((x.Prix.Substring(1,x.Prix.Length-1)))).ToList();
         }
         public static void OrdonnerSelonPrixDecroissant()
         {
             List<Produit> lstOrdonner = new List<Produit>();
-            LstProduits = LstProduits.OrderBy(x => x.Prix).ToList();
+            LstProduits = LstProduits.OrderBy(x => Convert.ToDouble((x.Prix.Substring(1, x.Prix.Length - 1)))).ToList();
             for (int i = LstProduits.Count - 1; i >= 0; i--)
             {
                 lstOrdonner.Add(LstProduits[i]);
