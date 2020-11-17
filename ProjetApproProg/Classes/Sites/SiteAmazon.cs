@@ -127,7 +127,7 @@ namespace ProjetApproProg
                     string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
                     string titre = produit.QuerySelector("h2 span").InnerText.Trim();
                     string prix = produit.QuerySelector("span[class='a-offscreen']").InnerText.Trim();
-                    lstProduits.Add(new Produit(url, urlImage, titre, prix, "Amazon"));
+                    lstProduits.Add(new Produit(url, urlImage, titre, prix, this.Nom));
                 }
                 catch (Exception)
                 {
