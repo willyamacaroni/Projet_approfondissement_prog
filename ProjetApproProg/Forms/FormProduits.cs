@@ -74,5 +74,41 @@ namespace ProjetApproProg.Forms
         {
             this.lblNbProduits.Text = "Produits: " + flwPrincipal.Controls.Count;
         }
+
+        private void btnPrixCroissant_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.OrdonnerSelonPrixCroissant();
+            AfficherProduits();
+        }
+
+        private void btnPrixDecroissant_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.OrdonnerSelonPrixDecroissant();
+            AfficherProduits();
+        }
+
+        private void btnTitreCroissant_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.OrdonnerSelonTitreCroissant();
+            AfficherProduits();
+        }
+
+        private void btnTitreDecroissant_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.OrdonnerSelonTitreDecroissant();
+            AfficherProduits();
+        }
+
+        private void btnSiteCroissant_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.OrdonnerSelonSiteCroissant();
+            AfficherProduits();
+        }
+
+        private void btnSiteDecroissant_Click(object sender, EventArgs e)
+        {
+            Gestionnaire.OrdonnerSelonSiteDecroissant();
+            AfficherProduits();
+        }
     }
 }

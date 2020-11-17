@@ -77,7 +77,7 @@
             this.lblNbProduits.AutoSize = true;
             this.lblNbProduits.Location = new System.Drawing.Point(3, 494);
             this.lblNbProduits.Name = "lblNbProduits";
-            this.lblNbProduits.Size = new System.Drawing.Size(70, 19);
+            this.lblNbProduits.Size = new System.Drawing.Size(56, 16);
             this.lblNbProduits.TabIndex = 2;
             this.lblNbProduits.Text = "Produits :";
             // 
@@ -107,7 +107,7 @@
             this.pnlOrdonner.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlOrdonner.Location = new System.Drawing.Point(0, 0);
             this.pnlOrdonner.Name = "pnlOrdonner";
-            this.pnlOrdonner.Size = new System.Drawing.Size(111, 65);
+            this.pnlOrdonner.Size = new System.Drawing.Size(111, 450);
             this.pnlOrdonner.TabIndex = 0;
             // 
             // btnSiteDecroissant
@@ -122,6 +122,7 @@
             this.btnSiteDecroissant.Text = "Site Decroissant";
             this.btnSiteDecroissant.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSiteDecroissant.UseVisualStyleBackColor = true;
+            this.btnSiteDecroissant.Click += new System.EventHandler(this.btnSiteDecroissant_Click);
             // 
             // btnSiteCroissant
             // 
@@ -135,6 +136,7 @@
             this.btnSiteCroissant.Text = "Site Croissant";
             this.btnSiteCroissant.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSiteCroissant.UseVisualStyleBackColor = true;
+            this.btnSiteCroissant.Click += new System.EventHandler(this.btnSiteCroissant_Click);
             // 
             // btnTitreDecroissant
             // 
@@ -148,6 +150,7 @@
             this.btnTitreDecroissant.Text = "Titre Decroissant";
             this.btnTitreDecroissant.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTitreDecroissant.UseVisualStyleBackColor = true;
+            this.btnTitreDecroissant.Click += new System.EventHandler(this.btnTitreDecroissant_Click);
             // 
             // btnTitreCroissant
             // 
@@ -161,6 +164,7 @@
             this.btnTitreCroissant.Text = "Titre Croissant";
             this.btnTitreCroissant.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnTitreCroissant.UseVisualStyleBackColor = true;
+            this.btnTitreCroissant.Click += new System.EventHandler(this.btnTitreCroissant_Click);
             // 
             // btnPrixDecroissant
             // 
@@ -174,6 +178,7 @@
             this.btnPrixDecroissant.Text = "Prix Decroissant";
             this.btnPrixDecroissant.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPrixDecroissant.UseVisualStyleBackColor = true;
+            this.btnPrixDecroissant.Click += new System.EventHandler(this.btnPrixDecroissant_Click);
             // 
             // btnPrixCroissant
             // 
@@ -187,6 +192,7 @@
             this.btnPrixCroissant.Text = "Prix Croissant";
             this.btnPrixCroissant.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPrixCroissant.UseVisualStyleBackColor = true;
+            this.btnPrixCroissant.Click += new System.EventHandler(this.btnPrixCroissant_Click);
             // 
             // btnTrier
             // 
@@ -196,7 +202,7 @@
             this.btnTrier.Image = global::ProjetApproProg.Resources.iconTrier;
             this.btnTrier.Location = new System.Drawing.Point(3, 12);
             this.btnTrier.Name = "btnTrier";
-            this.btnTrier.Size = new System.Drawing.Size(105, 49);
+            this.btnTrier.Size = new System.Drawing.Size(105, 36);
             this.btnTrier.TabIndex = 0;
             this.btnTrier.Text = "Trier";
             this.btnTrier.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -205,7 +211,7 @@
             // 
             // FormProduits
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 591);
             this.Controls.Add(this.flwPrincipal);
