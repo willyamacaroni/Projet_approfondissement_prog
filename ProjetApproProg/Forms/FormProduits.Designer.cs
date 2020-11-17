@@ -107,7 +107,7 @@
             this.pnlOrdonner.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlOrdonner.Location = new System.Drawing.Point(0, 0);
             this.pnlOrdonner.Name = "pnlOrdonner";
-            this.pnlOrdonner.Size = new System.Drawing.Size(111, 450);
+            this.pnlOrdonner.Size = new System.Drawing.Size(111, 65);
             this.pnlOrdonner.TabIndex = 0;
             // 
             // btnSiteDecroissant
@@ -202,7 +202,7 @@
             this.btnTrier.Image = global::ProjetApproProg.Resources.iconTrier;
             this.btnTrier.Location = new System.Drawing.Point(3, 12);
             this.btnTrier.Name = "btnTrier";
-            this.btnTrier.Size = new System.Drawing.Size(105, 36);
+            this.btnTrier.Size = new System.Drawing.Size(105, 49);
             this.btnTrier.TabIndex = 0;
             this.btnTrier.Text = "Trier";
             this.btnTrier.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
