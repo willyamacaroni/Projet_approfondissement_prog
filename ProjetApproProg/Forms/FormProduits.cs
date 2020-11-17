@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ProjetApproProg.Classes;
+using System.Collections.Generic;
 using ProjetApproProg.Affichage_Produit;
 
 namespace ProjetApproProg.Forms
@@ -12,17 +13,72 @@ namespace ProjetApproProg.Forms
         public FormProduits()
         {
             InitializeComponent();
+            Gestionnaire.OrdonnerSelonSiteCroissant();
             AfficherProduits();
         }
 
         private void AfficherProduits()
         {
             flwPrincipal.Controls.Clear();
-            foreach (Produit produit in Gestionnaire.LstProduits)
-            {
-                flwPrincipal.Controls.Add(new AffichageProduit(produit));
-            }
 
+            if (Gestionnaire.LstProduits.Count <= 100)
+            {
+                foreach (Produit produit in Gestionnaire.LstProduits)
+                {
+                    flwPrincipal.Controls.Add(new AffichageProduit(produit));
+                }
+            }
+            else
+            {
+                int nbProdParSite = (int) 100 / Gestionnaire.LstSitesCoches.Count;
+                int nbCombler = 0;
+                
+                foreach (Site site in Gestionnaire.LstSitesCoches)
+                {
+                    List<Produit> lstProd = Gestionnaire.LstProduits.FindAll(prod => prod.Site == site.Nom);
+
+                    if (lstProd.Count > nbProdParSite)
+                    {
+                        if (nbCombler > 0)
+                        {
+                            if (nbCombler + nbProdParSite >= lstProd.Count)
+                            {
+                                nbCombler -= lstProd.Count - nbProdParSite;
+                                foreach (Produit produit in lstProd)
+                                {
+                                    flwPrincipal.Controls.Add(new AffichageProduit(produit));
+                                }
+                            }
+                            else
+                            {
+                                lstProd.RemoveRange(nbProdParSite, lstProd.Count - nbProdParSite - nbCombler);
+                                nbCombler = 0;
+                                foreach (Produit produit in lstProd)
+                                {
+                                    flwPrincipal.Controls.Add(new AffichageProduit(produit));
+                                }
+                            }
+                        }
+                        else
+                        {
+                            lstProd.RemoveRange(nbProdParSite, lstProd.Count - nbProdParSite);
+                            foreach (Produit produit in lstProd)
+                            {
+                                flwPrincipal.Controls.Add(new AffichageProduit(produit));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        nbCombler += nbProdParSite - lstProd.Count;
+                        foreach (Produit produit in lstProd)
+                        {
+                            flwPrincipal.Controls.Add(new AffichageProduit(produit));
+                        }
+                    }
+                }
+
+            }
             this.lblNbProduits.Text = "Produits: " + flwPrincipal.Controls.Count;
         }
 

@@ -106,7 +106,7 @@ namespace ProjetApproProg
                     string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
                     string titre = produit.QuerySelector("h3").InnerText.Trim();
                     string prix = produit.QuerySelector("span[class='s-item__price']").InnerText.Trim();
-                    lstProduits.Add(new Produit(url, urlImage, titre, prix, "Ebay"));
+                    lstProduits.Add(new Produit(url, urlImage, titre, prix, this.Nom));
                 }
                 catch (Exception)
                 {
