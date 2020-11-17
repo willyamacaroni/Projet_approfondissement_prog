@@ -32,8 +32,6 @@
             this.lytBottomRight = new System.Windows.Forms.TableLayoutPanel();
             this.lytBtnOK = new System.Windows.Forms.TableLayoutPanel();
             this.btnOK = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.chkMikeShop = new ProjetApproProg.CheckBoxModifie();
             this.lytTop = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitre = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -41,22 +39,18 @@
             this.chkNewEgg = new ProjetApproProg.CheckBoxModifie();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.chkEbay = new ProjetApproProg.CheckBoxModifie();
-            this.chkBestBuy = new ProjetApproProg.CheckBoxModifie();
             this.lytBottomLeft = new System.Windows.Forms.TableLayoutPanel();
             this.lytBtnCancel = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.chkWalmart = new ProjetApproProg.CheckBoxModifie();
             this.lytPrincipale.SuspendLayout();
             this.lytBottomRight.SuspendLayout();
             this.lytBtnOK.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.lytTop.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.lytBottomLeft.SuspendLayout();
             this.lytBtnCancel.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lytPrincipale
@@ -83,7 +77,6 @@
             this.lytBottomRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.lytBottomRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.lytBottomRight.Controls.Add(this.lytBtnOK, 1, 1);
-            this.lytBottomRight.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.lytBottomRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytBottomRight.Location = new System.Drawing.Point(444, 264);
             this.lytBottomRight.Name = "lytBottomRight";
@@ -125,43 +118,6 @@
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.chkMikeShop, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(211, 122);
-            this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // chkMikeShop
-            // 
-            this.chkMikeShop.BackColor = System.Drawing.Color.Transparent;
-            this.chkMikeShop.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkMikeShop.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkMikeShop.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkMikeShop.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkMikeShop.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkMikeShop.CouleurRectFond = System.Drawing.Color.White;
-            this.chkMikeShop.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkMikeShop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkMikeShop.EstCoche = false;
-            this.chkMikeShop.Location = new System.Drawing.Point(3, 3);
-            this.chkMikeShop.Name = "chkMikeShop";
-            this.chkMikeShop.PoliceText = new System.Drawing.Font("Century Gothic", 16F);
-            this.chkMikeShop.Size = new System.Drawing.Size(205, 55);
-            this.chkMikeShop.TabIndex = 0;
-            this.chkMikeShop.TailleBordureRect = 1;
-            this.chkMikeShop.TailleRectangle = 15;
-            this.chkMikeShop.Text = "checkBoxModifie1";
-            this.chkMikeShop.TextLabel = "Mike\'s Shop";
             // 
             // lytTop
             // 
@@ -262,8 +218,8 @@
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.chkWalmart, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.chkEbay, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.chkBestBuy, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(441, 130);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -295,28 +251,6 @@
             this.chkEbay.Text = "checkBoxModifie1";
             this.chkEbay.TextLabel = "Ebay";
             // 
-            // chkBestBuy
-            // 
-            this.chkBestBuy.BackColor = System.Drawing.Color.Transparent;
-            this.chkBestBuy.CouleurCrochet = System.Drawing.Color.Black;
-            this.chkBestBuy.CouleurFondText = System.Drawing.Color.Transparent;
-            this.chkBestBuy.CouleurPoliceText = System.Drawing.Color.White;
-            this.chkBestBuy.CouleurRectBordure = System.Drawing.Color.Black;
-            this.chkBestBuy.CouleurRectBordureHighlight = System.Drawing.Color.White;
-            this.chkBestBuy.CouleurRectFond = System.Drawing.Color.White;
-            this.chkBestBuy.CouleurRectFondHighlight = System.Drawing.Color.White;
-            this.chkBestBuy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkBestBuy.EstCoche = false;
-            this.chkBestBuy.Location = new System.Drawing.Point(3, 64);
-            this.chkBestBuy.Name = "chkBestBuy";
-            this.chkBestBuy.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkBestBuy.Size = new System.Drawing.Size(210, 55);
-            this.chkBestBuy.TabIndex = 5;
-            this.chkBestBuy.TailleBordureRect = 1;
-            this.chkBestBuy.TailleRectangle = 15;
-            this.chkBestBuy.Text = "checkBoxModifie1";
-            this.chkBestBuy.TextLabel = "Best Buy";
-            // 
             // lytBottomLeft
             // 
             this.lytBottomLeft.BackColor = System.Drawing.Color.Transparent;
@@ -324,7 +258,6 @@
             this.lytBottomLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.lytBottomLeft.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.lytBottomLeft.Controls.Add(this.lytBtnCancel, 0, 1);
-            this.lytBottomLeft.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.lytBottomLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytBottomLeft.Location = new System.Drawing.Point(3, 264);
             this.lytBottomLeft.Name = "lytBottomLeft";
@@ -367,21 +300,6 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.chkWalmart, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(220, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(212, 122);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
             // chkWalmart
             // 
             this.chkWalmart.BackColor = System.Drawing.Color.Transparent;
@@ -394,11 +312,11 @@
             this.chkWalmart.CouleurRectFondHighlight = System.Drawing.Color.White;
             this.chkWalmart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkWalmart.EstCoche = false;
-            this.chkWalmart.Location = new System.Drawing.Point(3, 3);
+            this.chkWalmart.Location = new System.Drawing.Point(3, 64);
             this.chkWalmart.Name = "chkWalmart";
             this.chkWalmart.PoliceText = new System.Drawing.Font("Century Gothic", 18F);
-            this.chkWalmart.Size = new System.Drawing.Size(206, 55);
-            this.chkWalmart.TabIndex = 0;
+            this.chkWalmart.Size = new System.Drawing.Size(210, 55);
+            this.chkWalmart.TabIndex = 5;
             this.chkWalmart.TailleBordureRect = 1;
             this.chkWalmart.TailleRectangle = 15;
             this.chkWalmart.Text = "checkBoxModifie1";
@@ -420,14 +338,12 @@
             this.lytPrincipale.ResumeLayout(false);
             this.lytBottomRight.ResumeLayout(false);
             this.lytBtnOK.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.lytTop.ResumeLayout(false);
             this.lytTop.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.lytBottomLeft.ResumeLayout(false);
             this.lytBtnCancel.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -437,21 +353,17 @@
         private System.Windows.Forms.TableLayoutPanel lytPrincipale;
         private System.Windows.Forms.TableLayoutPanel lytBottomRight;
         private System.Windows.Forms.TableLayoutPanel lytBtnOK;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel lytTop;
         private System.Windows.Forms.Label lblTitre;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel lytBottomLeft;
         private System.Windows.Forms.TableLayoutPanel lytBtnCancel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private CheckBoxModifie chkMikeShop;
         private CheckBoxModifie chkAmazon;
         private CheckBoxModifie chkNewEgg;
         private CheckBoxModifie chkEbay;
-        private CheckBoxModifie chkBestBuy;
         private CheckBoxModifie chkWalmart;
     }
 }

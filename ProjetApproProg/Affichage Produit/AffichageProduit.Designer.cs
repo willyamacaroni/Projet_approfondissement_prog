@@ -37,6 +37,7 @@ namespace ProjetApproProg.Affichage_Produit
             this.lblTitre = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSupprProduit = new System.Windows.Forms.Button();
+            this.lblSite = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctImagePoduit)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -49,18 +50,19 @@ namespace ProjetApproProg.Affichage_Produit
             this.pctImagePoduit.Location = new System.Drawing.Point(3, 3);
             this.pctImagePoduit.Name = "pctImagePoduit";
             this.pctImagePoduit.Size = new System.Drawing.Size(198, 196);
+            this.pctImagePoduit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctImagePoduit.TabIndex = 0;
             this.pctImagePoduit.TabStop = false;
-            this.pctImagePoduit.SizeMode = PictureBoxSizeMode.StretchImage;
             // 
             // pnlPrincipal
             // 
+            this.pnlPrincipal.Controls.Add(this.lblSite);
             this.pnlPrincipal.Controls.Add(this.btnOuvrirPage);
             this.pnlPrincipal.Controls.Add(this.lblPrix);
             this.pnlPrincipal.Controls.Add(this.lblTitre);
             this.pnlPrincipal.Controls.Add(this.tableLayoutPanel1);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlPrincipal.Location = new System.Drawing.Point(205, 0);
+            this.pnlPrincipal.Location = new System.Drawing.Point(234, 0);
             this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(5);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(591, 202);
@@ -131,6 +133,18 @@ namespace ProjetApproProg.Affichage_Produit
             this.btnSupprProduit.UseVisualStyleBackColor = true;
             this.btnSupprProduit.Click += new System.EventHandler(this.btnSupprProduit_Click);
             // 
+            // lblSite
+            // 
+            this.lblSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSite.AutoSize = true;
+            this.lblSite.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblSite.Location = new System.Drawing.Point(5, 128);
+            this.lblSite.Name = "lblSite";
+            this.lblSite.Size = new System.Drawing.Size(113, 22);
+            this.lblSite.TabIndex = 4;
+            this.lblSite.Text = "Trouvé sur: ";
+            // 
             // AffichageProduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -158,5 +172,6 @@ namespace ProjetApproProg.Affichage_Produit
         private System.Windows.Forms.Label lblTitre;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnSupprProduit;
+        private Label lblSite;
     }
 }

@@ -3,9 +3,9 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using ProjetApproProg.Forms;
 using ProjetApproProg.Classes;
 using System.Collections.Generic;
-using ProjetApproProg.Forms;
 
 namespace ProjetApproProg
 {
@@ -116,21 +116,15 @@ namespace ProjetApproProg
 
             SiteAmazon amazon = new SiteAmazon(
                 pFormSites.ChkAmazon.EstCoche);
-            SiteBestBuy bestBuy = new SiteBestBuy(
-                pFormSites.ChkBestBuy.EstCoche);
             SiteEbay ebay = new SiteEbay(
                 pFormSites.ChkEbay.EstCoche);
-            SiteMike mikeComputerShop = new SiteMike(
-                pFormSites.ChkMikeShop.EstCoche);
             SiteNewEgg newEgg = new SiteNewEgg(
                 pFormSites.ChkNewEgg.EstCoche);
             SiteWalmart walmart = new SiteWalmart(
                 pFormSites.ChkWalmart.EstCoche);
 
             LstSites.Add(amazon);
-            LstSites.Add(bestBuy);
             LstSites.Add(ebay);
-            LstSites.Add(mikeComputerShop);
             LstSites.Add(newEgg);
             LstSites.Add(walmart);
 
@@ -275,12 +269,12 @@ namespace ProjetApproProg
                         writer.WriteLine(JsonConvert.SerializeObject(LstSites));
                     }
 
+                    MessageBox.Show("Vos paramètres ont été enregistrés avec succès!",
+                        "Succès!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                 }
             }
-
-            MessageBox.Show("Vos paramètres ont été enregistrés avec succès!",
-                "Succès!", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
         }
 
         public static void ImporterParametres()
@@ -315,6 +309,11 @@ namespace ProjetApproProg
                         
                     }
                 }
+                else
+                {
+                    LstFiltres = new List<Filtre>();
+                    LstSites = new List<Site>();
+                }
             }
         }
         
@@ -327,6 +326,7 @@ namespace ProjetApproProg
         {
             using (OpenFileDialog OFD = new OpenFileDialog())
             {
+
                 OFD.Title = "Ouvrir une liste de produits";
                 OFD.Filter = "Fichier JSON (*.JSON)|*.JSON";
 
@@ -348,13 +348,17 @@ namespace ProjetApproProg
                                 MessageBoxIcon.Error);
                         }
                     }
+
+                    FormProduits frmProduits = new FormProduits();
+                    if (frmProduits.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
                 }
-            }
-
-            FormProduits frmProduits = new FormProduits();
-            if (frmProduits.ShowDialog() == DialogResult.OK)
-            {
-
+                else
+                {
+                    LstProduits = new List<Produit>();
+                }
             }
         }
 
@@ -373,12 +377,12 @@ namespace ProjetApproProg
                         writer.WriteLine(JsonConvert.SerializeObject(LstProduits));
                     }
 
+                    MessageBox.Show("Vos produits ont été enregistrés avec succès!",
+                        "Succès!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
                 }
             }
-
-            MessageBox.Show("Vos produits ont été enregistrés avec succès!",
-                "Succès!", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
         }
 
 
@@ -434,14 +438,8 @@ namespace ProjetApproProg
                         case "Amazon":
                             pFormSites.ChkAmazon.EstCoche = true;
                             break;
-                        case "BestBuy":
-                            pFormSites.ChkBestBuy.EstCoche = true;
-                            break;
                         case "Ebay":
                             pFormSites.ChkEbay.EstCoche = true;
-                            break;
-                        case "MikeShop":
-                            pFormSites.ChkMikeShop.EstCoche = true;
                             break;
                         case "NewEgg":
                             pFormSites.ChkNewEgg.EstCoche = true;

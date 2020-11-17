@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
+using System.Collections.Generic;
+using Fizzler.Systems.HtmlAgilityPack;
 
 namespace ProjetApproProg
 {
@@ -19,12 +19,12 @@ namespace ProjetApproProg
         public SiteNewEgg(bool pEstCoche) : base(pEstCoche)
         {
             Nom = "NewEgg";
-            ObjType = 4;
+            ObjType = 2;
         }
 
         public SiteNewEgg()
         {
-            ObjType = 4;
+            ObjType = 2;
         }
 
         #endregion
@@ -106,7 +106,7 @@ namespace ProjetApproProg
                 return null;
             }
 
-            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[class='item-container']").ToList();
+            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[class='item-cell'] div[class='item-container']").ToList();
 
             List<Produit> lstProduits = new List<Produit>();
 
@@ -114,10 +114,11 @@ namespace ProjetApproProg
             {
                 try
                 {
+                    string url = produit.QuerySelector("a").GetAttributeValue("href", "").Trim();
                     string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
-                    string titre = produit.QuerySelector("a[class*='item-title']").InnerText.Trim();
-                    string prix = produit.QuerySelector("li[class*='price-current']").InnerText.Trim();
-                    lstProduits.Add(new Produit(urlImage, titre, prix, "New egg"));
+                    string titre = produit.QuerySelector("a[class='item-title']").InnerText.Trim();
+                    string prix = "$" + produit.QuerySelector("li[class*='price-current'] strong").InnerText.Trim() + produit.QuerySelector("li[class*='price-current'] sup").InnerText.Trim();
+                    lstProduits.Add(new Produit(url, urlImage, titre, prix, "NewEgg"));
                 }
                 catch (Exception)
                 {

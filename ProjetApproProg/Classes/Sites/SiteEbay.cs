@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
+using System.Collections.Generic;
+using Fizzler.Systems.HtmlAgilityPack;
 
 namespace ProjetApproProg
 {
@@ -19,12 +19,12 @@ namespace ProjetApproProg
         public SiteEbay(bool pEstCoche) : base(pEstCoche)
         {
             Nom = "Ebay";
-            ObjType = 2;
+            ObjType = 1;
         }
 
         public SiteEbay()
         {
-            ObjType = 2;
+            ObjType = 1;
         }
 
         #endregion
@@ -85,7 +85,7 @@ namespace ProjetApproProg
                 return null;
             }
 
-            List<HtmlNode> lstLiProduits = page.QuerySelector("ul[class='srp-results srp-list clearfix']").QuerySelectorAll("li[class*='s-item']").ToList();
+            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("li div[class*='s-item__wrapper']").ToList();
 
             List<Produit> lstProduits = new List<Produit>();
 
@@ -93,10 +93,11 @@ namespace ProjetApproProg
             {
                 try
                 {
-                    string urlImage = produit.QuerySelector("img[class*='s-item__image-img']").GetAttributeValue("src", "").Trim();
-                    string titre = produit.QuerySelector("h3[class*='s-item__title']").InnerText.Trim();
-                    string prix = produit.QuerySelector("div[class*='item__detail--primary']").QuerySelector("span").InnerText.Trim();
-                    lstProduits.Add(new Produit(urlImage, titre, prix, "Ebay"));
+                    string url = produit.QuerySelector("a").GetAttributeValue("href", "").Trim();
+                    string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("h3").InnerText.Trim();
+                    string prix = produit.QuerySelector("span[class='s-item__price']").InnerText.Trim();
+                    lstProduits.Add(new Produit(url, urlImage, titre, prix, "Ebay"));
                 }
                 catch (Exception)
                 {

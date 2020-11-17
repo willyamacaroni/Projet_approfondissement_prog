@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Converters;
 
 namespace ProjetApproProg
 {
@@ -31,14 +31,10 @@ namespace ProjetApproProg
                 case 0:
                     return new SiteAmazon();
                 case 1:
-                    return new SiteBestBuy();
-                case 2:
                     return new SiteEbay();
-                case 3:
-                    return new SiteMike();
-                case 4:
+                case 2:
                     return new SiteNewEgg();
-                case 5:
+                case 3:
                     return new SiteWalmart();
                 default:
                     throw new NotImplementedException();

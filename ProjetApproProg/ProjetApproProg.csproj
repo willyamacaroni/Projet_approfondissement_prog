@@ -118,9 +118,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Sites\SiteBestBuy.cs" />
     <Compile Include="Classes\Sites\SiteNewEgg.cs" />
-    <Compile Include="Classes\Sites\SiteMike.cs" />
     <Compile Include="Classes\Sites\SiteAmazon.cs" />
     <Compile Include="Classes\Sites\SiteWalmart.cs" />
     <Compile Include="Classes\Sites\SiteEbay.cs" />

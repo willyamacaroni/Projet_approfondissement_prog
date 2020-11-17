@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
+using System.Collections.Generic;
+using Fizzler.Systems.HtmlAgilityPack;
 
 namespace ProjetApproProg
 {
@@ -13,7 +13,7 @@ namespace ProjetApproProg
     /// </summary>
     public class SiteAmazon : Site
     {
-        private const string urlDeBase = "https://www.amazon.ca/s?k=";
+        private const string urlDeBase = "https://www.amazon.com/s?k=";
 
         #region Constructeurs
         public SiteAmazon(bool pEstCoche) : base(pEstCoche)
@@ -115,7 +115,7 @@ namespace ProjetApproProg
                 return null;
             }
 
-            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[class*='sg-col-4-of-24']").ToList();
+            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[class*='a-section a-spacing-medium']").ToList();
 
             List<Produit> lstProduits = new List<Produit>();
 
@@ -123,10 +123,11 @@ namespace ProjetApproProg
             {
                 try
                 {
-                    string urlImage = produit.QuerySelector("img[class='s-image']").GetAttributeValue("src", "").Trim();
-                    string titre = produit.QuerySelector("span[class*='a-']").InnerText.Trim();
-                    string prix = produit.QuerySelector("span[class*='a-offscreen']").InnerText.Trim();
-                    lstProduits.Add(new Produit(urlImage, titre, prix, "Amazon"));
+                    string url = "https://www.amazon.ca" + produit.QuerySelector("a").GetAttributeValue("href", "").Trim();
+                    string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("h2 span").InnerText.Trim();
+                    string prix = produit.QuerySelector("span[class='a-offscreen']").InnerText.Trim();
+                    lstProduits.Add(new Produit(url, urlImage, titre, prix, "Amazon"));
                 }
                 catch (Exception)
                 {

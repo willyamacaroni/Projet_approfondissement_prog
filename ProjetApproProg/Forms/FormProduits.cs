@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProjetApproProg.Affichage_Produit;
 using ProjetApproProg.Classes;
+using ProjetApproProg.Affichage_Produit;
 
 namespace ProjetApproProg.Forms
 {
     public partial class FormProduits : Form
     {
         private bool estCollapsed = true;
+        
         public FormProduits()
         {
             InitializeComponent();
@@ -23,10 +17,13 @@ namespace ProjetApproProg.Forms
 
         private void AfficherProduits()
         {
+            flwPrincipal.Controls.Clear();
             foreach (Produit produit in Gestionnaire.LstProduits)
             {
                 flwPrincipal.Controls.Add(new AffichageProduit(produit));
             }
+
+            this.lblNbProduits.Text = "Produits: " + flwPrincipal.Controls.Count;
         }
 
         private void btnOrdonner_Click(object sender, EventArgs e)
@@ -61,7 +58,21 @@ namespace ProjetApproProg.Forms
 
         private void btnExporterProduits_Click(object sender, EventArgs e)
         {
-            Gestionnaire.ExporterProduits();
+            if (Gestionnaire.LstProduits.Count != 0)
+            {
+                Gestionnaire.ExporterProduits();
+            }
+            else
+            {
+                MessageBox.Show("Aucun produit à enregistrer.",
+                    "Attention!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+        private void flwPrincipal_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            this.lblNbProduits.Text = "Produits: " + flwPrincipal.Controls.Count;
         }
     }
 }

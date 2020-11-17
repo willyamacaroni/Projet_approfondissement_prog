@@ -9,6 +9,7 @@
 
         #region Attributs
 
+        private string _url;
         private string _urlImage;
         private string _titre;
         private string _prix;
@@ -18,6 +19,13 @@
         #endregion
 
         #region Get/Sets
+
+        public string Url
+        {
+            get { return _url; }
+            set { _url = value; }
+        }
+
         public string UrlImage
         {
             get { return _urlImage; }
@@ -45,8 +53,9 @@
 
         #region Constructeur
 
-        public Produit(string pUrlImage, string pTitre, string pPrix, string pSite)
+        public Produit(string pUrl, string pUrlImage, string pTitre, string pPrix, string pSite)
         {
+            Url = pUrl;
             UrlImage = pUrlImage;
             Titre = pTitre;
             Prix = pPrix;

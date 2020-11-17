@@ -32,6 +32,8 @@
             this.flwPrincipal = new System.Windows.Forms.FlowLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlDroite = new System.Windows.Forms.Panel();
+            this.lblNbProduits = new System.Windows.Forms.Label();
+            this.btnExporterProduits = new System.Windows.Forms.Button();
             this.pnlOrdonner = new System.Windows.Forms.Panel();
             this.btnSiteDecroissant = new System.Windows.Forms.Button();
             this.btnSiteCroissant = new System.Windows.Forms.Button();
@@ -40,7 +42,6 @@
             this.btnPrixDecroissant = new System.Windows.Forms.Button();
             this.btnPrixCroissant = new System.Windows.Forms.Button();
             this.btnTrier = new System.Windows.Forms.Button();
-            this.btnExporterProduits = new System.Windows.Forms.Button();
             this.pnlDroite.SuspendLayout();
             this.pnlOrdonner.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.flwPrincipal.Name = "flwPrincipal";
             this.flwPrincipal.Size = new System.Drawing.Size(856, 591);
             this.flwPrincipal.TabIndex = 0;
+            this.flwPrincipal.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flwPrincipal_ControlRemoved);
             // 
             // timer1
             // 
@@ -61,6 +63,7 @@
             // 
             // pnlDroite
             // 
+            this.pnlDroite.Controls.Add(this.lblNbProduits);
             this.pnlDroite.Controls.Add(this.btnExporterProduits);
             this.pnlDroite.Controls.Add(this.pnlOrdonner);
             this.pnlDroite.Dock = System.Windows.Forms.DockStyle.Right;
@@ -68,6 +71,29 @@
             this.pnlDroite.Name = "pnlDroite";
             this.pnlDroite.Size = new System.Drawing.Size(111, 591);
             this.pnlDroite.TabIndex = 0;
+            // 
+            // lblNbProduits
+            // 
+            this.lblNbProduits.AutoSize = true;
+            this.lblNbProduits.Location = new System.Drawing.Point(3, 494);
+            this.lblNbProduits.Name = "lblNbProduits";
+            this.lblNbProduits.Size = new System.Drawing.Size(70, 19);
+            this.lblNbProduits.TabIndex = 2;
+            this.lblNbProduits.Text = "Produits :";
+            // 
+            // btnExporterProduits
+            // 
+            this.btnExporterProduits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExporterProduits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExporterProduits.Location = new System.Drawing.Point(3, 530);
+            this.btnExporterProduits.Name = "btnExporterProduits";
+            this.btnExporterProduits.Size = new System.Drawing.Size(105, 49);
+            this.btnExporterProduits.TabIndex = 1;
+            this.btnExporterProduits.Text = "Exporter produits";
+            this.btnExporterProduits.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnExporterProduits.UseVisualStyleBackColor = true;
+            this.btnExporterProduits.Click += new System.EventHandler(this.btnExporterProduits_Click);
             // 
             // pnlOrdonner
             // 
@@ -177,20 +203,6 @@
             this.btnTrier.UseVisualStyleBackColor = true;
             this.btnTrier.Click += new System.EventHandler(this.btnOrdonner_Click);
             // 
-            // btnExporterProduits
-            // 
-            this.btnExporterProduits.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExporterProduits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExporterProduits.Location = new System.Drawing.Point(3, 530);
-            this.btnExporterProduits.Name = "btnExporterProduits";
-            this.btnExporterProduits.Size = new System.Drawing.Size(105, 49);
-            this.btnExporterProduits.TabIndex = 1;
-            this.btnExporterProduits.Text = "Exporter produits";
-            this.btnExporterProduits.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnExporterProduits.UseVisualStyleBackColor = true;
-            this.btnExporterProduits.Click += new System.EventHandler(this.btnExporterProduits_Click);
-            // 
             // FormProduits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -204,6 +216,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produits";
             this.pnlDroite.ResumeLayout(false);
+            this.pnlDroite.PerformLayout();
             this.pnlOrdonner.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -223,5 +236,6 @@
         private System.Windows.Forms.Button btnPrixCroissant;
         private System.Windows.Forms.Button btnTrier;
         private System.Windows.Forms.Button btnExporterProduits;
+        private System.Windows.Forms.Label lblNbProduits;
     }
 }

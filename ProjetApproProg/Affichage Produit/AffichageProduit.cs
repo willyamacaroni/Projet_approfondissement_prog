@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using ProjetApproProg.Classes;
+using System.Collections.Generic;
 
 namespace ProjetApproProg.Affichage_Produit
 {
@@ -42,23 +42,32 @@ namespace ProjetApproProg.Affichage_Produit
             set { lblTitre = value; }
         }
 
+        private Label LblSite
+        {
+            get { return lblSite; }
+            set { lblSite = value; }
+        }
+
         public AffichageProduit(Produit pProduit)
         {
             InitializeComponent();
             Produit = pProduit;
             LblTitre.Text = Produit.Titre;
             LblPrix.Text = Produit.Prix;
+            lblSite.Text += Produit.Site;
             PctImagePoduit.Load(Produit.UrlImage.Replace(".webp", ".jpg"));
         }
 
         private void btnSupprProduit_Click(object sender, EventArgs e)
         {
-
+            Gestionnaire.LstProduits.Remove(Produit);
+            Parent.Controls.Remove(this);
+            Dispose();
         }
 
         private void btnOuvrirPage_Click(object sender, EventArgs e)
         {
-            // System.Diagnostics.Process.Start(Produit.Url);
+            System.Diagnostics.Process.Start(Produit.Url);
         }
     }
 }

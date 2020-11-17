@@ -7,11 +7,6 @@ namespace ProjetApproProg
     public partial class FormSites : Form
     {
         #region CheckBoxes
-        public CheckBoxModifie ChkMikeShop
-        {
-            get { return chkMikeShop; }
-            set { chkMikeShop = value; }
-        }
 
         public CheckBoxModifie ChkAmazon
         {
@@ -23,12 +18,6 @@ namespace ProjetApproProg
         {
             get { return chkNewEgg; }
             set { chkNewEgg = value; }
-        }
-
-        public CheckBoxModifie ChkBestBuy
-        {
-            get { return chkBestBuy; }
-            set { chkBestBuy = value; }
         }
 
         public CheckBoxModifie ChkEbay

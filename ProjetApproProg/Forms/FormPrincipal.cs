@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ProjetApproProg
 {
@@ -82,7 +82,16 @@ namespace ProjetApproProg
         }
         private void btnSaveProd_Click(object sender, EventArgs e)
         {
-            Gestionnaire.ExporterProduits();
+            if (Gestionnaire.LstProduits.Count != 0)
+            {
+                Gestionnaire.ExporterProduits();
+            }
+            else
+            {
+                MessageBox.Show("Aucun produit à enregistrer.",
+                    "Attention!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
 
         private void btnImpProd_Click(object sender, EventArgs e)

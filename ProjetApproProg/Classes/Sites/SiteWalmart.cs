@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using ProjetApproProg.Classes;
+using System.Collections.Generic;
+using Fizzler.Systems.HtmlAgilityPack;
 
 namespace ProjetApproProg
 {
@@ -19,12 +19,12 @@ namespace ProjetApproProg
         public SiteWalmart(bool pEstCoche) : base (pEstCoche)
         {
             Nom = "Walmart";
-            ObjType = 5;
+            ObjType = 3;
         }
 
         public SiteWalmart()
         {
-            ObjType = 5;
+            ObjType = 3;
         }
 
         #endregion
@@ -103,7 +103,7 @@ namespace ProjetApproProg
                 return null;
             }
 
-            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[data-product-id]").ToList();
+            List<HtmlNode> lstLiProduits = page.QuerySelectorAll("div[data-tl-id*='ProductTileListView']").ToList();
 
             List<Produit> lstProduits = new List<Produit>();
 
@@ -111,10 +111,11 @@ namespace ProjetApproProg
             {
                 try
                 {
-                    string urlImage = produit.QuerySelector("img[data-automation]").GetAttributeValue("src", "").Trim();
-                    string titre = produit.QuerySelector("p[data-automation*='name']").InnerText.Trim();
-                    string prix = produit.QuerySelector("span[data-automation*='current-price']").InnerText.Trim();
-                    lstProduits.Add(new Produit(urlImage, titre, prix, "Walmart"));
+                    string url = "https://www.walmart.com" + produit.QuerySelector("a").GetAttributeValue("href", "").Trim();
+                    string urlImage = produit.QuerySelector("img").GetAttributeValue("src", "").Trim();
+                    string titre = produit.QuerySelector("a[class*='product-title-link']").InnerText.Trim();
+                    string prix = produit.QuerySelector("span[class='price-characteristic']").InnerText.Trim() + "." + produit.QuerySelector("span[class='price-mantissa']").InnerText.Trim();
+                    lstProduits.Add(new Produit(url, urlImage, titre, prix, "Walmart"));
                 }
                 catch (Exception)
                 {
