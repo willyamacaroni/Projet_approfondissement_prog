@@ -1,8 +1,8 @@
 ﻿using HtmlAgilityPack;
-using ProjetApproProg.Classes;
-using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using ProjetApproProg.Classes;
+using System.Collections.Generic;
 
 namespace ProjetApproProg
 {

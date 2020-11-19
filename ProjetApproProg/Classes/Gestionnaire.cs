@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using System.Globalization;
 using ProjetApproProg.Forms;
 using ProjetApproProg.Classes;
 using System.Collections.Generic;
@@ -221,12 +222,12 @@ namespace ProjetApproProg
 
         public static void OrdonnerSelonPrixCroissant()
         {
-            LstProduits = LstProduits.OrderBy(x => Convert.ToDouble((x.Prix.Substring(1,x.Prix.Length-1)))).ToList();
+            LstProduits = LstProduits.OrderBy(x => float.Parse(x.Prix.Substring(1,x.Prix.Length - 1), CultureInfo.InvariantCulture.NumberFormat)).ToList();
         }
         public static void OrdonnerSelonPrixDecroissant()
         {
             List<Produit> lstOrdonner = new List<Produit>();
-            LstProduits = LstProduits.OrderBy(x => Convert.ToDouble((x.Prix.Substring(1, x.Prix.Length - 1)))).ToList();
+            LstProduits = LstProduits.OrderBy(x => float.Parse(x.Prix.Substring(1, x.Prix.Length - 1), CultureInfo.InvariantCulture.NumberFormat)).ToList();
             for (int i = LstProduits.Count - 1; i >= 0; i--)
             {
                 lstOrdonner.Add(LstProduits[i]);
