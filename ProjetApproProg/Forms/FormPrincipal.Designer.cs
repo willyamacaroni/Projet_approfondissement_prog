@@ -52,6 +52,8 @@
             this.btnFiltres = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTitre = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pbChargeRecherche = new System.Windows.Forms.ProgressBar();
             this.lytPanneauPrincipal.SuspendLayout();
             this.lytOptions.SuspendLayout();
             this.pnlOptions.SuspendLayout();
@@ -65,6 +67,7 @@
             this.lytBtnSites.SuspendLayout();
             this.lytBtnFiltres.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lytPanneauPrincipal
@@ -356,6 +359,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.lytBtnSites, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lytBtnFiltres, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 361);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -465,6 +469,34 @@
             this.lblTitre.Text = "BONG";
             this.lblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel3, 2);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.Controls.Add(this.pbChargeRecherche, 1, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(775, 140);
+            this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // pbChargeRecherche
+            // 
+            this.pbChargeRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbChargeRecherche.Location = new System.Drawing.Point(41, 49);
+            this.pbChargeRecherche.Name = "pbChargeRecherche";
+            this.pbChargeRecherche.Size = new System.Drawing.Size(691, 40);
+            this.pbChargeRecherche.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbChargeRecherche.TabIndex = 0;
+            this.pbChargeRecherche.Visible = false;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -495,6 +527,7 @@
             this.lytBtnFiltres.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -525,6 +558,8 @@
         private System.Windows.Forms.Button btnFiltres;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblTitre;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.ProgressBar pbChargeRecherche;
     }
 }
 

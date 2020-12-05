@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ProjetApproProg.Forms;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace ProjetApproProg
@@ -99,9 +101,27 @@ namespace ProjetApproProg
             Gestionnaire.ImporterProduits();
         }
 
-        private void btnRecherche_Click(object sender, EventArgs e)
+        private async void btnRecherche_Click(object sender, EventArgs e)
         {
-            Gestionnaire.Rechercher(this.txtRecherche.Text);
+            this.pbChargeRecherche.Visible = true;
+            this.btnRecherche.Enabled = false;
+            this.txtRecherche.Enabled = false;
+            
+            await Task.Run(() => Gestionnaire.Rechercher(this.txtRecherche.Text));
+
+            this.pbChargeRecherche.Visible = false;
+            this.btnRecherche.Enabled = true;
+            this.txtRecherche.Enabled = true;
+
+            if (Gestionnaire.LstProduits.Count > 0)
+            {
+                FormProduits frmProduits = new FormProduits();
+
+                if (frmProduits.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
         }
         
         #endregion

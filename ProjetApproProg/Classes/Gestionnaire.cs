@@ -204,16 +204,6 @@ namespace ProjetApproProg
                 }
             }
 
-            if (LstProduits.Count > 0)
-            {
-                FormProduits frmProduits = new FormProduits();
-
-                if (frmProduits.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-            }
-
 
         }
         #endregion
