@@ -84,9 +84,18 @@ namespace ProjetApproProg
         }
         private void btnSaveProd_Click(object sender, EventArgs e)
         {
-            if (Gestionnaire.LstProduits.Count != 0)
+            if (Gestionnaire.LstProduits != null)
             {
-                Gestionnaire.ExporterProduits();
+                if (Gestionnaire.LstProduits.Count != 0)
+                {
+                    Gestionnaire.ExporterProduits();
+                }
+                else
+                {
+                    MessageBox.Show("Aucun produit à enregistrer.",
+                        "Attention!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
             else
             {

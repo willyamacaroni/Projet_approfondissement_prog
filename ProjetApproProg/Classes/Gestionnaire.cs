@@ -26,7 +26,6 @@ namespace ProjetApproProg
         private static List<Site> _lstSitesCoches;
         private static List<Produit> _lstProduits;
 
-
         #endregion
 
         #region GetSet
