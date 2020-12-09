@@ -109,5 +109,15 @@ namespace ProjetApproProg {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap signe_de_question {
+            get {
+                object obj = ResourceManager.GetObject("signe_de_question", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

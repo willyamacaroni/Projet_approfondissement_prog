@@ -40,7 +40,6 @@
             this.btnSaveParam = new System.Windows.Forms.Button();
             this.lytBtn4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnImpParam = new System.Windows.Forms.Button();
-            this.btnRecherche = new System.Windows.Forms.Button();
             this.txtRecherche = new System.Windows.Forms.TextBox();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lytPrincipal = new System.Windows.Forms.TableLayoutPanel();
@@ -50,10 +49,13 @@
             this.btnSites = new System.Windows.Forms.Button();
             this.lytBtnFiltres = new System.Windows.Forms.TableLayoutPanel();
             this.btnFiltres = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTitre = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.pbChargeRecherche = new System.Windows.Forms.ProgressBar();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTitre = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnTuto = new System.Windows.Forms.Button();
+            this.btnRecherche = new System.Windows.Forms.Button();
             this.lytPanneauPrincipal.SuspendLayout();
             this.lytOptions.SuspendLayout();
             this.pnlOptions.SuspendLayout();
@@ -61,13 +63,15 @@
             this.lytBtn2.SuspendLayout();
             this.lytBtn3.SuspendLayout();
             this.lytBtn4.SuspendLayout();
+            this.pnlTop.SuspendLayout();
             this.lytPrincipal.SuspendLayout();
             this.pnlTextBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.lytBtnSites.SuspendLayout();
             this.lytBtnFiltres.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lytPanneauPrincipal
@@ -275,22 +279,6 @@
             this.btnImpParam.UseVisualStyleBackColor = false;
             this.btnImpParam.Click += new System.EventHandler(this.btnImpParam_Click);
             // 
-            // btnRecherche
-            // 
-            this.btnRecherche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRecherche.BackColor = System.Drawing.Color.White;
-            this.btnRecherche.BackgroundImage = global::ProjetApproProg.Resources.iconLoupe;
-            this.btnRecherche.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRecherche.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecherche.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRecherche.Location = new System.Drawing.Point(689, 301);
-            this.btnRecherche.Name = "btnRecherche";
-            this.btnRecherche.Size = new System.Drawing.Size(54, 54);
-            this.btnRecherche.TabIndex = 1;
-            this.btnRecherche.UseVisualStyleBackColor = false;
-            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
-            // 
             // txtRecherche
             // 
             this.txtRecherche.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -309,6 +297,7 @@
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.pnlTop.Controls.Add(this.tableLayoutPanel4);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(275, 0);
             this.pnlTop.Name = "pnlTop";
@@ -437,6 +426,34 @@
             this.btnFiltres.UseVisualStyleBackColor = false;
             this.btnFiltres.Click += new System.EventHandler(this.btnFiltres_Click);
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel3, 2);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel3.Controls.Add(this.pbChargeRecherche, 1, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(775, 140);
+            this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // pbChargeRecherche
+            // 
+            this.pbChargeRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbChargeRecherche.Location = new System.Drawing.Point(41, 49);
+            this.pbChargeRecherche.Name = "pbChargeRecherche";
+            this.pbChargeRecherche.Size = new System.Drawing.Size(691, 40);
+            this.pbChargeRecherche.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbChargeRecherche.TabIndex = 0;
+            this.pbChargeRecherche.Visible = false;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
@@ -469,33 +486,50 @@
             this.lblTitre.Text = "BONG";
             this.lblTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel3
+            // tableLayoutPanel4
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel3, 2);
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.Controls.Add(this.pbChargeRecherche, 1, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(775, 140);
-            this.tableLayoutPanel3.TabIndex = 3;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.65659F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.343402F));
+            this.tableLayoutPanel4.Controls.Add(this.btnTuto, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(787, 58);
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // pbChargeRecherche
+            // btnTuto
             // 
-            this.pbChargeRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbChargeRecherche.Location = new System.Drawing.Point(41, 49);
-            this.pbChargeRecherche.Name = "pbChargeRecherche";
-            this.pbChargeRecherche.Size = new System.Drawing.Size(691, 40);
-            this.pbChargeRecherche.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.pbChargeRecherche.TabIndex = 0;
-            this.pbChargeRecherche.Visible = false;
+            this.btnTuto.BackgroundImage = global::ProjetApproProg.Resources.signe_de_question;
+            this.btnTuto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnTuto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTuto.FlatAppearance.BorderSize = 0;
+            this.btnTuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTuto.ForeColor = System.Drawing.Color.Transparent;
+            this.btnTuto.Location = new System.Drawing.Point(716, 3);
+            this.btnTuto.Name = "btnTuto";
+            this.btnTuto.Size = new System.Drawing.Size(68, 52);
+            this.btnTuto.TabIndex = 0;
+            this.btnTuto.UseVisualStyleBackColor = true;
+            this.btnTuto.Click += new System.EventHandler(this.btnTuto_Click);
+            // 
+            // btnRecherche
+            // 
+            this.btnRecherche.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRecherche.BackColor = System.Drawing.Color.White;
+            this.btnRecherche.BackgroundImage = global::ProjetApproProg.Resources.iconLoupe;
+            this.btnRecherche.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnRecherche.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRecherche.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecherche.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRecherche.Location = new System.Drawing.Point(689, 301);
+            this.btnRecherche.Name = "btnRecherche";
+            this.btnRecherche.Size = new System.Drawing.Size(54, 54);
+            this.btnRecherche.TabIndex = 1;
+            this.btnRecherche.UseVisualStyleBackColor = false;
+            this.btnRecherche.Click += new System.EventHandler(this.btnRecherche_Click);
             // 
             // frmPrincipal
             // 
@@ -519,15 +553,17 @@
             this.lytBtn2.ResumeLayout(false);
             this.lytBtn3.ResumeLayout(false);
             this.lytBtn4.ResumeLayout(false);
+            this.pnlTop.ResumeLayout(false);
             this.lytPrincipal.ResumeLayout(false);
             this.pnlTextBox.ResumeLayout(false);
             this.pnlTextBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.lytBtnSites.ResumeLayout(false);
             this.lytBtnFiltres.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -560,6 +596,8 @@
         private System.Windows.Forms.Label lblTitre;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.ProgressBar pbChargeRecherche;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button btnTuto;
     }
 }
 

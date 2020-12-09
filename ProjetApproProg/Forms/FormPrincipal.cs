@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ProjetApproProg.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ProjetApproProg
 {
@@ -123,7 +124,12 @@ namespace ProjetApproProg
                 }
             }
         }
-        
+
         #endregion
+
+        private void btnTuto_Click(object sender, EventArgs e)
+        {
+            //Process.Start(Resources.video)
+        }
     }
 }
