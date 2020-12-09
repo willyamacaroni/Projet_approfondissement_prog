@@ -209,10 +209,17 @@ namespace ProjetApproProg
 
         #region Ordonner
 
+        /// <summary>
+        /// Ordonne les produits selon le prix croissant.
+        /// </summary>
         public static void OrdonnerSelonPrixCroissant()
         {
             LstProduits = LstProduits.OrderBy(x => float.Parse(x.Prix.Substring(1,x.Prix.Length - 1), CultureInfo.InvariantCulture.NumberFormat)).ToList();
         }
+
+        /// <summary>
+        /// Ordonne les produits selon le prix décroissant.
+        /// </summary>
         public static void OrdonnerSelonPrixDecroissant()
         {
             List<Produit> lstOrdonner = new List<Produit>();
@@ -223,10 +230,18 @@ namespace ProjetApproProg
             }
             LstProduits = lstOrdonner;
         }
+
+        /// <summary>
+        /// Permet d'ordonner les produits selon le titre en ordre alphabétique.
+        /// </summary>
         public static void OrdonnerSelonTitreCroissant()
         {
             LstProduits = LstProduits.OrderBy(x => x.Titre).ToList();
         }
+
+        /// <summary>
+        /// Permet d'ordonner les produits selon le titre en ordre inverse alphabétique.
+        /// </summary>
         public static void OrdonnerSelonTitreDecroissant()
         {
             List<Produit> lstOrdonner = new List<Produit>();
@@ -238,10 +253,18 @@ namespace ProjetApproProg
 
             LstProduits = lstOrdonner;
         }
+
+        /// <summary>
+        /// Permet d'ordonner les produits selon le nom des sites en ordre alphabétique.
+        /// </summary>
         public static void OrdonnerSelonSiteCroissant()
         {
             LstProduits = LstProduits.OrderBy(x => x.Site).ToList();
         }
+
+        /// <summary>
+        /// Permet d'ordonner les produits selon le nom des sites en ordre inverse alphabétique.
+        /// </summary>
         public static void OrdonnerSelonSiteDecroissant()
         {
             List<Produit> lstOrdonner = new List<Produit>();
@@ -259,6 +282,9 @@ namespace ProjetApproProg
 
         #region Paramètres
 
+        /// <summary>
+        /// Permet d'exporter les paramètres.
+        /// </summary>
         public static void ExporterParamteres()
         {
             using (SaveFileDialog SFD = new SaveFileDialog())
@@ -283,6 +309,9 @@ namespace ProjetApproProg
             }
         }
 
+        /// <summary>
+        /// Permet d'importer les paramètres.
+        /// </summary>
         public static void ImporterParametres()
         {
             using (OpenFileDialog OFD = new OpenFileDialog())
@@ -398,6 +427,11 @@ namespace ProjetApproProg
 
         #region Cocher
 
+        /// <summary>
+        /// La méthode CocherFiltres permet la persistence des données et la mise à jour de celles-ci.
+        /// Elle permet de cocher ce que l'utilisateur avait coché précédemment ou selon des paramètres importés.
+        /// </summary>
+        /// <param name="pFormFiltres">Le formFiltres qui contient les filtres à chocher.</param>
         public static void CocherFiltres(FormFiltres pFormFiltres)
         {
             if (LstFiltresCoches.Count > 0)
