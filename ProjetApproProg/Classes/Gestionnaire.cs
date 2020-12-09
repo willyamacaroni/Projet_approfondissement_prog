@@ -214,6 +214,13 @@ namespace ProjetApproProg
         /// </summary>
         public static void OrdonnerSelonPrixCroissant()
         {
+            for (int i = 0; i < LstProduits.Count; i++)
+            {
+                if (!(float.TryParse(LstProduits[i].Prix.Substring(1, LstProduits[i].Prix.Length - 1), out _)))
+                {
+                    LstProduits.Remove(LstProduits[i]);
+                }
+            }
             LstProduits = LstProduits.OrderBy(x => float.Parse(x.Prix.Substring(1,x.Prix.Length - 1), CultureInfo.InvariantCulture.NumberFormat)).ToList();
         }
 
@@ -222,6 +229,14 @@ namespace ProjetApproProg
         /// </summary>
         public static void OrdonnerSelonPrixDecroissant()
         {
+            for (int i = 0; i < LstProduits.Count; i++)
+            {
+                if (!(float.TryParse(LstProduits[i].Prix.Substring(1, LstProduits[i].Prix.Length - 1), out _)))
+                {
+                    LstProduits.Remove(LstProduits[i]);
+                }
+            }
+
             List<Produit> lstOrdonner = new List<Produit>();
             LstProduits = LstProduits.OrderBy(x => float.Parse(x.Prix.Substring(1, x.Prix.Length - 1), CultureInfo.InvariantCulture.NumberFormat)).ToList();
             for (int i = LstProduits.Count - 1; i >= 0; i--)

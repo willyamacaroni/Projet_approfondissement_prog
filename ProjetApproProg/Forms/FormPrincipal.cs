@@ -138,7 +138,11 @@ namespace ProjetApproProg
 
         private void btnTuto_Click(object sender, EventArgs e)
         {
-            //Process.Start(Resources.video)
+            FormVideo formVideo = new FormVideo();
+            if (formVideo.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
     }
 }

@@ -83,6 +83,12 @@
     <Compile Include="Classes\Filtres\FiltrePrix.cs" />
     <Compile Include="Classes\Produit.cs" />
     <Compile Include="Classes\Sites\SiteConverter.cs" />
+    <Compile Include="Forms\FormVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVideo.Designer.cs">
+      <DependentUpon>FormVideo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     <EmbeddedResource Include="Forms\FormSites.resx">
       <DependentUpon>FormSites.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVideo.resx">
+      <DependentUpon>FormVideo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -150,6 +159,7 @@
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="DiagrameDeClasses.cd" />
     <None Include="packages.config" />
@@ -186,6 +196,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\signe-de-question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\videoTuto.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.27.0\build\Selenium.Firefox.WebDriver.targets')" />

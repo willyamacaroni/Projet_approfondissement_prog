@@ -32,7 +32,7 @@ namespace ProjetApproProg
 
         public override void ConstruireURL(string pRecherche)
         {
-            List<Filtre> lstFiltres = Gestionnaire.LstFiltres;
+            List<Filtre> lstFiltres = Gestionnaire.LstFiltresCoches;
             string filtres = "";
             bool erreurDeFiltres = false;
             bool peutAvoirFiltreNote = true;
